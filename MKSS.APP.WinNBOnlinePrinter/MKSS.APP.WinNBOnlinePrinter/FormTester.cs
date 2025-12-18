@@ -21,7 +21,7 @@ namespace BarTender_Dev_Dome
             InitializeComponent();
         }
 
-        Engine btEngine = new Engine(true);
+        Engine btEngine;
         private void FormMain_Load(object sender, EventArgs e)
         {
 
@@ -40,8 +40,17 @@ namespace BarTender_Dev_Dome
 
             bool rep = false;
             RefreshData(null,ref rep);
-            btEngine = new Engine(true);
-            PrintBar(null, null, false);
+
+            if (TryStartBarTenderEngine())
+            {
+                PrintBar(null, null, false);
+            }
+            else
+            {
+                BtnPrint.Enabled = false;
+                checkBoxPrint.Checked = false;
+                checkBoxPrint.Enabled = false;
+            }
         }
 
 
@@ -135,7 +144,16 @@ namespace BarTender_Dev_Dome
 
         bool PrintBar(pd_device dev1, pd_device dev2, bool isPrint = false)
         {
-             
+
+            if (btEngine == null)
+            {
+                if (isPrint)
+                {
+                    MessageBox.Show("BarTender 打印组件未初始化，无法打印，请检查是否已安装并重新启动程序。", "操作提示");
+                }
+                return false;
+            }
+
             {
                 LabelFormatDocument labelFormat = btEngine.Documents.Open(System.IO.Directory.GetCurrentDirectory() + "\\NB带验证码标签.btw");
 
@@ -200,6 +218,21 @@ namespace BarTender_Dev_Dome
                 D1 = null;
                 D2 = null;
                 return true;
+            }
+        }
+
+        private bool TryStartBarTenderEngine()
+        {
+            try
+            {
+                btEngine = new Engine(true);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                btEngine = null;
+                MessageBox.Show("BarTender 打印组件启动失败，请确认已安装 BarTender 或相关运行组件。" + System.Environment.NewLine + ex.Message, "启动失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
