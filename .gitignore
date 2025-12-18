@@ -14,3 +14,11 @@ obj/
 *.zip
 *.7z
 
+
+# exclude large binaries
+*.db
+*.exe
+*.rar
+*.zip
+*.7z
+
