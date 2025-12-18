@@ -22,9 +22,19 @@ namespace BarTender_Dev_Dome
             InitializeComponent();
         }
 
-        Engine btEngine = new Engine(true);
+        Engine btEngine = null;
         private void PrintForm_Load(object sender, EventArgs e)
         {
+            try
+            {
+                btEngine = new Engine(true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"初始化打印引擎失败: {ex.Message}", "操作提示");
+                return;
+            }
+
             Printers printers = new Printers();
             foreach (Printer printer in printers)
             {
@@ -35,13 +45,13 @@ namespace BarTender_Dev_Dome
             {
                 // Automatically select the default printer.
                 printer_comboBox.SelectedItem = printers.Default.PrinterName;
+                _PrinterName = printers.Default.PrinterName;
             }
-            btEngine = new Engine(true);
         }
 
         private void PrintForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            btEngine.Dispose();
+            btEngine?.Dispose();
         }
 
         private void openFilebtn_Click(object sender, EventArgs e)
@@ -58,20 +68,19 @@ namespace BarTender_Dev_Dome
                 fileNametBox.Text = dialog.SafeFileName;
                 fileNametBox.BackColor = Color.LightGreen;
 
-                pictureBox.Image = null; 
+                pictureBox.Image = null;
+                using (LabelFormatDocument labelFormat = btEngine.Documents.Open(_btw_path))
                 {
-                    LabelFormatDocument labelFormat = btEngine.Documents.Open(_btw_path);
-
                     if (labelFormat != null)
                     {
                         Seagull.BarTender.Print.Messages m;
                         labelFormat.ExportPrintPreviewToFile(Application.StartupPath,  @"\exp.bmp", ImageType.JPEG, Seagull.BarTender.Print.ColorDepth.ColorDepth24bit, new Resolution(300,300), System.Drawing.Color.White, OverwriteOptions.Overwrite, true, true, out m);
                         labelFormat.ExportImageToFile(_bmp_path, ImageType.JPEG, Seagull.BarTender.Print.ColorDepth.ColorDepth24bit, new Resolution(300, 300), OverwriteOptions.Overwrite);
 
-                        Image image = Image.FromFile(_bmp_path);
-                        Bitmap NmpImage = new Bitmap(image);
-                        pictureBox.Image = NmpImage;
-                        image.Dispose();
+                        using (Image image = Image.FromFile(_bmp_path))
+                        {
+                            pictureBox.Image = new Bitmap(image);
+                        }
                     }
                     else
                     {
@@ -93,9 +102,9 @@ namespace BarTender_Dev_Dome
                 fileNametBox.BackColor = Color.Red;
                 return;
             }
-            {
-                LabelFormatDocument labelFormat = btEngine.Documents.Open(_btw_path);
 
+            using (LabelFormatDocument labelFormat = btEngine.Documents.Open(_btw_path))
+            {
                 try
                 {
                     labelFormat.SubStrings.SetSubString("name", name_textBox.Text);
@@ -112,13 +121,14 @@ namespace BarTender_Dev_Dome
                 if (labelFormat != null)
                 {
                     //Generate a thumbnail for it.
-                    labelFormat.ExportImageToFile(_bmp_path, ImageType.BMP, Seagull.BarTender.Print.ColorDepth.ColorDepth24bit, new Resolution(407, 407
+                    labelFormat.ExportImageToFile(_bmp_path, ImageType.BMP, Seagull.BarTender.Print.ColorDepth.ColorDepth24bit,
+                        new Resolution(407, 407
                         ), OverwriteOptions.Overwrite);
 
-                    System.Drawing.Image image = System.Drawing.Image.FromFile(_bmp_path);
-                    Bitmap NmpImage = new Bitmap(image);
-                    pictureBox.Image = NmpImage;
-                    image.Dispose();
+                    using (System.Drawing.Image image = System.Drawing.Image.FromFile(_bmp_path))
+                    {
+                        pictureBox.Image = new Bitmap(image);
+                    }
                 }
                 else
                 {
