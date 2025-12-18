@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="MKSS.APP.SemiTesterOld.UIZhuiSuC10Chart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:MKSS.APP.SemiTesterOld"
+             mc:Ignorable="d" Background="{DynamicResource MaterialDesignPaper}" Foreground="LightGray"
+             xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
+             d:DesignHeight="450" d:DesignWidth="1600">
+    <UserControl.Resources>
+        <local:VisibilityToCheckedConverter x:Key="VisibilityToCheckedConverter"/>
+        <ContextMenu x:Key="ContextMenuA">
+            <MenuItem Name="btnSelectAllA" Header="全　选" Click="btnSelectAll_Click"/>
+            <MenuItem Name="btnUnSelectAllA" Header="全不选" Click="btnUnSelectAll_Click"/>
+            <MenuItem Name="btnRevSelectAllA" Header="反　选" Click="btnRevSelectAll_Click"/>
+            <Separator></Separator>
+            <MenuItem Name="RefreshA" Header="刷新" Click="Refresh_Click"/>
+        </ContextMenu>
+        <ContextMenu x:Key="ContextMenuB">
+            <MenuItem Name="btnSelectAllB" Header="全　选" Click="btnSelectAll_Click"/>
+            <MenuItem Name="btnUnSelectAllB" Header="全不选" Click="btnUnSelectAll_Click"/>
+            <MenuItem Name="btnRevSelectAllB" Header="反　选" Click="btnRevSelectAll_Click"/>
+            <Separator></Separator>
+            <MenuItem Name="RefreshB" Header="刷新" Click="Refresh_Click"/>
+        </ContextMenu>
+    </UserControl.Resources>
+    <Grid  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <d3:Chart Grid.Column="0" Grid.Row="0"
+            Name="plotter1" Background="{DynamicResource MaterialDesignPaper}" Foreground="LightGray"
+                  IsXAxisReversed="False" PlotHeight="1050" PlotWidth="880" PlotOriginX="-10" PlotOriginY="-20"
+                  PreviewMouseWheel="plotter_MouseWheel" MouseLeftButtonDown="plotter_MouseLeftButtonDown" LegendVisibility="Hidden"
+                  IsHorizontalNavigationEnabled="True" IsVerticalNavigationEnabled="True" >
+            <d3:Chart.Title>
+                <TextBlock HorizontalAlignment="Center" FontSize="18" Margin="0,5,0,5"> </TextBlock>
+            </d3:Chart.Title>
+            <Grid Name="lines1"/>
+        </d3:Chart>
+        <ItemsControl  Grid.Column="0" Grid.Row="0" Width="160" Padding="0,50,0,1" HorizontalAlignment="Right" 
+              ToolTip="右键全选或反选" ContextMenu="{StaticResource ContextMenuA}"
+             x:Name="legengA" Background="Transparent">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="0,1,0,0">
+                        <StackPanel Width="70" Margin="0,0,0,0" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding Path=Checked, Mode=TwoWay}" Cursor="Hand" Tag="{Binding Path=Description}"  MouseLeave="TextPanel_MouseLeave"  MouseMove="TextPanel_MouseMove"/>
+                            <Line Width="15" Height="15" X1="0" Y1="0" X2="15" Y2="15" Stroke="{Binding Path=Stroke}" Cursor="Hand" StrokeThickness="2" Tag="{Binding Path=Description}"  MouseLeave="TextPanel_MouseLeave"  MouseMove="TextPanel_MouseMove"/>
+                            <TextBlock Margin="5,0,0,0" Foreground="LightGray" Text="{Binding Path=Description}"  Cursor="Hand" MouseEnter="TextPanel_MouseEnter" Tag="{Binding Path=Description}"  MouseLeave="TextPanel_MouseLeave"  MouseMove="TextPanel_MouseMove"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+         
+        <StackPanel  x:Name="PAnelControl" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal"  Margin="35 -10 0 0" Height="50"  HorizontalAlignment="Right" VerticalAlignment="Top" >
+            <CheckBox x:Name="LockX"  IsChecked="True" Visibility="Hidden" Margin="5 0 5 0"   Checked="LockX_Checked" Unchecked="LockX_Checked" Content="缩放电压" />
+            <CheckBox x:Name="LockY" IsChecked="True"  Visibility="Hidden" Margin="5 0 35 0" Checked="LockX_Checked" Unchecked="LockX_Checked" Content="缩放时间" /> 
+        </StackPanel>
+
+    </Grid>
+</UserControl>

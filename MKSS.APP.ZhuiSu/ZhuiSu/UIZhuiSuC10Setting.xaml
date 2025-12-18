@@ -1,0 +1,196 @@
+﻿<UserControl x:Class="MKSS.APP.ZhuiSu.UIZhuiSuC10Setting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:MKSS.APP.ZhuiSu"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="10,10,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="16*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/> 
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="当前批次" VerticalAlignment="Center" FontSize="15"  FontWeight="Bold"  Foreground="#FF000F59" />
+        <ComboBox Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="4"
+                    x:Name="TxtBatchList"  Margin="10,0,0,5" SelectionChanged="TxtBatchList_SelectionChanged" 
+                    Text="{Binding TxtBatchList, UpdateSourceTrigger=PropertyChanged}" 
+                    DisplayMemberPath="F_BatchName" SelectedValuePath="F_BatchId" 
+                    IsEnabled="{Binding Path=IsChecked }" >
+            <ComboBoxItem Content="COM1" />
+            <ComboBoxItem Content="Item 2" />
+            <ComboBoxItem Content="Item 3" />
+        </ComboBox>
+
+        <Button Grid.Row="0" Grid.Column="5"
+                    x:Name="BtnAddBatch" Click="BtnAddBatch_Click"  Background="Green"
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="新建" />
+        </Button>
+
+        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6"
+                    x:Name="TxtTestTimePoints"  Margin="0,0,5,0" 
+                    Text="4,30,50,70,80,150,180,250,280,300" IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    materialDesign:TextFieldAssist.PrefixText="" 
+                    materialDesign:TextFieldAssist.SuffixText="">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="时间点，最多10个" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6"
+                    x:Name="TxtGradingTimePoint"  Margin="0,0,0,0" 
+                    Text="32" Foreground="Red"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    materialDesign:TextFieldAssist.PrefixText="按照" 
+                    materialDesign:TextFieldAssist.SuffixText="秒测量值分级">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="品质分级" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="14*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="14*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/> 
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" x:Name="TxtGrading1Range" Text="3200~6400" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="一级" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <materialDesign:ColorPicker x:Name="ColorPicker1" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Height="35" Color="Green" />
+            <TextBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" x:Name="TxtGrading1HeGe"  Margin="0,0,5,0" Text="0.00" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.SuffixText="%" Cursor="IBeam"></TextBox>
+
+            <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" x:Name="TxtGrading2Range" Text="3200~6400" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="二级" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <materialDesign:ColorPicker x:Name="ColorPicker2" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="1" Height="35" Color="Beige" />
+            <TextBox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1" x:Name="TxtGrading2HeGe"  Text="0.00" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.SuffixText="%" Cursor="IBeam"></TextBox>
+
+
+            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" x:Name="TxtGrading3Range" Text="3200~6400" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="三级" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <materialDesign:ColorPicker x:Name="ColorPicker3" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Height="35" Color="Green" />
+            <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" x:Name="TxtGrading3HeGe"  Margin="0,0,5,0" Text="0.00" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.SuffixText="%" Cursor="IBeam"></TextBox>
+
+            <TextBox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1" x:Name="TxtGrading4Range" Text="3200~6400" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="四级" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <materialDesign:ColorPicker x:Name="ColorPicker4" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="1" Height="35" Color="Beige" />
+            <TextBox Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="1" x:Name="TxtGrading4HeGe" Text="0.00" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.SuffixText="%" Cursor="IBeam"></TextBox>
+
+            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" x:Name="TxtGrading5Range" Text="3200~6400" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="五级" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <materialDesign:ColorPicker x:Name="ColorPicker5" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1" Height="35" Color="Green" />
+            <TextBox Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1" x:Name="TxtGrading5HeGe"  Margin="0,0,5,0" Text="0.00" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.SuffixText="%" Cursor="IBeam"></TextBox>
+
+            <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="1" x:Name="TxtGrading6Range" Text="3200~6400" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="六级" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <materialDesign:ColorPicker x:Name="ColorPicker6" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="1" Height="35" Color="Beige" />
+            <TextBox Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="1" x:Name="TxtGrading6HeGe"  Text="0.00" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.SuffixText="%" Cursor="IBeam"></TextBox>
+
+        </Grid>
+
+        <ProgressBar Background="LightBlue"
+            Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" Value="25" Height="10" />
+
+
+        <Button Grid.Row="5" Grid.Column="2"
+                    x:Name="BtnRegisterSensors" Click="BtnRegisterSensors_Click" 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="扫码登记" />
+        </Button>
+
+        <Button Grid.Row="5" Grid.Column="3"
+                    x:Name="BtnExcelExport" Click="BtnExcelExport_Click" 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="导出结果" />
+        </Button>
+
+        <Button Grid.Row="5" Grid.Column="4"
+                    x:Name="BtnStartBoard" Click="BtnFinishBoard_Click" 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="开始" />
+        </Button>
+
+        <Button Grid.Row="5" Grid.Column="5"
+                    x:Name="BtnFinishBoard" Click="BtnFinishBoard_Click" 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="停止" />
+        </Button>
+
+    </Grid>
+</UserControl>

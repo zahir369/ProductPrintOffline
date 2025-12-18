@@ -1,0 +1,177 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
+    <AssemblyName>MKSS.APP.LaoHuaElectroChemical</AssemblyName>
+    <RootNamespace>MKSS.APP.LaoHuaElectroChemical</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="bak\**" />
+    <EmbeddedResource Remove="bak\**" />
+    <None Remove="bak\**" />
+    <Page Remove="bak\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="SemiTester\UIZhuiSuC10Setting.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+    <None Remove="MainWindow.xaml~RFc95dc.TMP" />
+    <None Remove="Resources\Images\biaoding.png" />
+    <None Remove="Resources\Images\huanjing.png" />
+    <None Remove="Resources\Images\logo.png" />
+    <None Remove="Resources\Images\logo2.png" />
+    <None Remove="Resources\Images\logo3.png" />
+    <None Remove="Resources\Images\logo5.png" />
+    <None Remove="Resources\Images\shebei.png" />
+    <None Remove="Resources\Images\shezhi.png" />
+    <None Remove="Resources\Images\tongji.png" />
+    <None Remove="SemiTester\UIZhuiSuC10Chart.bak.rar" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="SemiTester\UIZhuiSuC10Setting.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="5.5.5" />
+    <PackageReference Include="GodSharp.SerialPort" Version="1.2.0.6" />
+    <PackageReference Include="InteractiveDataDisplay.NetCore.WPF" Version="1.0.2" />
+    <PackageReference Include="MaterialDesignColors" Version="2.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.NewtonsoftJson" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+    <PackageReference Include="MQTTnet" Version="3.0.15" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.0.15" />
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.3.2" />
+    <PackageReference Include="SharpVectors" Version="1.7.1" />
+    <PackageReference Include="Stylet.Start" Version="1.3.5" />
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\BiaoDing\ViewModels\" />
+    <Folder Include="Areas\BiaoDing\Views\" />
+    <Folder Include="Areas\ZhuiSu\ViewModels\" />
+    <Folder Include="Areas\ZhuiSu\Views\" />
+    <Folder Include="Areas\ShengChan\" />
+    <Folder Include="Areas\ShengChan\Views\" />
+    <Folder Include="Areas\ShengChan\ViewModels\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MKSS.Common\MKSS.Common.csproj" />
+    <ProjectReference Include="..\MKSS.CustomControl\CircleProcessBar\CircleProcessBar.csproj" />
+    <ProjectReference Include="..\MKSS.CustomControl\TemperatureGuageControl\TemperatureGuageControl.csproj" />
+    <ProjectReference Include="..\MKSS.ICommon\MKSS.ICommon.csproj" />
+    <ProjectReference Include="..\MKSS.IRepository\MKSS.IRepository.csproj" />
+    <ProjectReference Include="..\MKSS.NModbus\MKSS.NModbus.csproj" />
+    <ProjectReference Include="..\MKSS.Repository\MKSS.Repository.csproj" />
+    <ProjectReference Include="..\MKSS.Service.LaoHuaElectroChemical\MKSS.Service.LaoHuaElectroChemical.csproj" />
+    <ProjectReference Include="..\MKSS.Util\MKSS.Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SqlSugar">
+      <HintPath>C:\Users\Administrator\.nuget\packages\sqlsugarcore\5.0.2.6\lib\netstandard2.0\SqlSugar.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\biaoding.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\huanjing.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logo2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logo3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logo5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\shebei.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\shezhi.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\tongji.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="SemiTester\UIZhuiSuC10Legend - 复制.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>UIZhuiSuC10Legend.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\WaitWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MKSS.APP.LaoHuaElectroChemical.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="SemiTester\UIChartWindows.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SemiTester\UIZhuiSuC10Legend - 复制.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\WaitWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

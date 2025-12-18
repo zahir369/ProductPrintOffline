@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="MKSS.APP.UIBiaodingJiuJing.UIConnection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MKSS.APP.NBTester.UIBiaodingJiuJing"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Foreground="White" FontSize="12" Background="{DynamicResource PrimaryHueLightBrush }" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:s="https://github.com/canton7/Stylet" 
+             d:DesignHeight="120" d:DesignWidth="360">
+
+    <Border  x:Name="BottomRightGrid" Grid.Column="1" Grid.Row="2" BorderThickness="2,2,2,2" BorderBrush="red">
+        <Grid  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+            <Label Name="COM" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Gray" Content="---"/>
+            <Label Name="IMEI" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Foreground="Gray" Content="_________________"/>
+            <Label Name="IMSI" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="4" Foreground="Gray" Content="__________________________________"/>
+            <materialDesign:PackIcon x:Name="IC1" Kind="PowerPlug" Height="32" Width="32" ToolTip="上电" Grid.Row="1" Grid.Column="0" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC2" Kind="AppleFinder" Height="32" Width="32" ToolTip="初始化" Grid.Row="1" Grid.Column="1" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC3" Kind="Sleep" Height="32" Width="32"  ToolTip="禁用睡眠模式" Grid.Row="1" Grid.Column="2" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC4" Kind="SignalCellularOutline" Height="32" Width="32"  ToolTip="查询附着网络" Grid.Row="1" Grid.Column="3" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC5" Kind="Noodles" Height="32" Width="32"  ToolTip="将模块设置成吞吐模块" Grid.Row="1" Grid.Column="4" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC6" Kind="StateMachine" Height="32" Width="32"  ToolTip="查询模块是否成功注网" Grid.Row="1" Grid.Column="5" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC7" Kind="StateMachine" Height="32" Width="32"  ToolTip="设置端口和IP指令" Grid.Row="1" Grid.Column="6" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC8" Kind="StateMachine" Height="32" Width="32"  ToolTip="网络状态" Grid.Row="1" Grid.Column="7" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC9" Kind="StateMachine" Height="32" Width="32"  ToolTip="读取设备IMEI" Grid.Row="1" Grid.Column="8" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC10" Kind="StateMachine" Height="32" Width="32"  ToolTip="读取IMSI卡号" Grid.Row="1" Grid.Column="9" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC11" Kind="StateMachine" Height="32" Width="32"  ToolTip="信号状态" Grid.Row="1" Grid.Column="10" Foreground="Gray" />
+            <materialDesign:PackIcon x:Name="IC12" Kind="StateMachine" Height="32" Width="32"  ToolTip="信号状态" Grid.Row="1" Grid.Column="11" Foreground="Gray" />
+            <TextBox x:Name="TextLogger" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap"  Grid.ColumnSpan="12" Height="100" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden" MouseDoubleClick="TextLogger_MouseDoubleClick"></TextBox>
+        </Grid>
+    </Border>
+</UserControl>

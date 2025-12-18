@@ -1,0 +1,68 @@
+﻿<UserControl
+    x:Class="MKSS.APP.O2Tester.UserControls.UserButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MKSS.APP.O2Tester.UserCommon"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:MKSS.APP.O2Tester.UserControls"
+    x:Name="myUserButton"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Button
+        Width="64"
+        Height="64"
+        Margin="0"
+        Padding="0"
+        Background="Black"
+        Command="{Binding OpenMenuCommand, ElementName=myUserButton}"
+        CommandParameter="{Binding CommandParameter}"
+        Cursor="Hand">
+        <Button.Template>
+            <ControlTemplate TargetType="{x:Type Button}">
+                <Border
+                    BorderBrush="{TemplateBinding Control.BorderBrush}"
+                    BorderThickness="0"
+                    CornerRadius="0,0,0,0">
+                    <!--<Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0.0" Color="White" />
+                            <GradientStop Offset="0.5" Color="Silver" />
+                            <GradientStop Offset="0.0" Color="White" />
+                        </LinearGradientBrush>
+                    </Border.Background>-->
+                    <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding ContentControl.Content}" />
+                </Border>
+            </ControlTemplate>
+        </Button.Template>
+
+
+        <DockPanel
+            Width="64"
+            Height="64"
+            Background="Transparent">
+            <Image
+                x:Name="imgButtonImagePath"
+                Width="32"
+                Height="32"
+                Margin="0"
+                DockPanel.Dock="Top"
+                Source="{Binding Path=ButtonImagePath, RelativeSource={RelativeSource AncestorType={x:Type uc:UserButton}}}"
+                Stretch="Fill" />
+
+            <TextBlock
+                x:Name="txtButtonName"
+                Margin="0,6,0,0"
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Bottom"
+                Text="{Binding ButtonText}"
+                TextTrimming="CharacterEllipsis" />
+        </DockPanel>
+
+
+    </Button>
+</UserControl>

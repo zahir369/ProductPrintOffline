@@ -1,0 +1,13 @@
+﻿<Window x:Class="MKSS.APP.ECTester.Print.PrintPreviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="打印预览窗口" Height="250" Width="800" Loaded="Window_Loaded"
+        TextOptions.TextFormattingMode="Display">
+    <Grid>
+        <DocumentViewer Name="docViewer" >
+            <DocumentViewer.LayoutTransform>
+                <RotateTransform Angle="0"></RotateTransform>
+            </DocumentViewer.LayoutTransform>
+        </DocumentViewer>
+    </Grid>
+</Window>

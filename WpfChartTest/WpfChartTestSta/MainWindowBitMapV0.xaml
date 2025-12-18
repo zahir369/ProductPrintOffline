@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfChartTest.MainWindowBitMapV0"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfChartTest"
+        xmlns:dc="clr-namespace:WpfChartTest.ChartV0"
+        mc:Ignorable="d" 
+        Title="MainWindow" Height="600" Width="1500" d:DesignHeight="500" d:DesignWidth="1000">
+
+    <Grid x:Name="grid1" >
+        <Image x:Name="img" Stretch="UniformToFill" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <dc:Zooming x:Name="zooming" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <StackPanel  x:Name="PAnelControl" Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="35 10 23 23" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+            <Button x:Name="btnCahrt" Content="折线图" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="19" Click="btnCahrt_Click"/>
+            <Button x:Name="btnBengin" Content="演示" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="19" Click="BtnBengin_Click"/>
+            <Button Content="停止" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

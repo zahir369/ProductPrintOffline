@@ -1,0 +1,41 @@
+﻿
+using DeviceDataMonitorWPF.UIControls;
+using DeviceDataMonitorWPF.UserCommon;
+using DeviceDataMonitorWPF.UserControls;
+using MaterialDesignThemes.Wpf;
+using Microsoft.Extensions.DependencyInjection;
+using MKSS.IServices;
+using MKSS.Model.ViewModel;
+using MKSS.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Linq;
+
+namespace DeviceDataMonitorWPF
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+
+        public MainWindow()
+        {
+            MKSS.APP.UserControls.WaitWindow.ShowWindow("正在刷新", "正在读取老化任务......", this);
+            InitializeComponent();
+        }
+
+    }
+}

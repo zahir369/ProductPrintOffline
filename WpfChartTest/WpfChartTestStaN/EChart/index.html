@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<!-- saved from url=(0013)about:internet -->
+<head>
+
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=11, chrome=1" />
+
+    <script src="echarts.common.js"></script>
+    <script src="echarts.esm.js"></script>
+    <script src="echarts.js"></script>
+    <script src="jquery/jquery-1.11.3.min.js"></script>
+    <script src="jquery/idangerous.swiper2.7.6.min.js"></script>
+
+    <title>环境数据</title>
+
+</head>
+
+<body style="margin: 0; padding: 0; height: 100%; background-color: pink; ">
+    <div id="box" style="background-color:green;width:100%;height:100%">
+         
+    </div> 
+    <script type="text/javascript">
+        
+        //初始化ehcharts实例
+        // 获取放echarts的dom
+        var mySize = document.getElementById('box')
+        // 给宽度 -270 是取合适自己盒子的值
+        mySize.style.width = window.innerWidth + 'px'
+        // 给高度 -650 是取合适自己盒子的值
+        mySize.style.height = window.innerHeight + 'px'
+        var myChart = echarts.init(mySize);
+
+        //根据需求进行相应的设置
+        var option = {
+
+            title: { //图表标题，可以通过show:true/false控制显示与否，subtext:'二级标题',
+                text: ''
+            },
+            backgroundColor: '#FFFFFF',
+            tooltip: {//鼠标浮动时的工具条，显示鼠标所在区域的数据，trigger这个地方每种图有不同的设置
+                trigger: 'axis'
+            },
+            legend: {// 图例，每条折线或者项对应的示例
+                data: []
+            },
+            calculable: true,
+            xAxis: [
+                {
+                    axisLabel: {
+                        rotate: 30,
+                        interval: 0
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#CCCCCC'
+                        }
+                    },
+                    type: 'category',
+                    boundaryGap: false,//从0刻度开始
+                    // data:[]  X轴的定义
+                    data: []
+                }
+            ], 
+            yAxis: [
+                {
+
+                    type: 'value',
+                    axisLine: {
+                        lineStyle: {
+                            color: '#CCCCCC'
+                        }
+                    }
+                }
+            ], 
+            series: []
+        };
+
+
+        function DemoData() {
+
+            var len = 120;
+            var jsons = { data: [], xcontent:[]};
+            for (var a = 1; a <= 64; a++) {
+
+                var data = [];
+                for (var i = 0; i < len; i++) {
+                    now = now + 0.5;
+                    var value = Math.random() * 1000;
+                    data.push(value);
+                }
+                 
+                jsons.data.push({
+                    name: 'A' + a,
+                    data: data
+                });
+
+            }
+            var now = 0;
+            for (var i = 0; i < len; i++) {
+                now = now + 0.5; 
+                jsons.xcontent.push(now);
+            }
+
+            return jsons;
+
+        }
+
+        function RefreshData(jsons) {
+            var Item = function () {
+                return {
+                    name: '',
+                    type: 'line',
+                    // 设置折线弧度，取值：0-1之间
+                    smooth: 0.5,
+                    // itemStyle: {normal: {areaStyle: {type: 'default'}}},这为线条设置
+                    label: { normal: { position: 'top' } },
+                    markLine: { data: [{ type: 'average', name: '平均值' }] },
+                    data: []
+                }
+            };// series中的每一项为一个item,所有的属性均可以在此处定义
+            var legends = [];// 准备存放图例数据
+            var Series = []; // 准备存放图表数据
+            var json = jsons.data;// 后台返回的json
+            for (var i = 0; i < json.length; i++) {
+                var it = new Item();
+                it.name = json[i].name;// 先将每一项填充数据
+                legends.push(json[i].name);// 将每一项的图例名称也放到图例的数组中
+                it.data = json[i].data;
+                Series.push(it);// 将item放在series中
+            }
+
+            // option.series.data=jsons.
+            option.xAxis[0].data = jsons.xcontent;// 设置X轴数据了
+            // 折线图可设置上下两个X轴，必须是option.xAxis[0].data = json.xcontent
+            option.legend.data = legends;// 设置图例
+            option.series = Series; // 设置图表
+            myChart.setOption(option);// 重新加载图表
+        }
+
+        // 初次加载图表
+        var jsons = DemoData();
+        RefreshData(jsons);
+         
+        // 跟着缩放
+        window.addEventListener('resize', function () {
+            // 让我们的图表调用 resize这个方法
+            myChart.resize();
+        });
+
+    </script>
+     
+</body>
+</html>

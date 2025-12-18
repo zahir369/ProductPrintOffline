@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SqlSugarCore" Version="5.0.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MKSS.Common\MKSS.Common.csproj" />
+    <ProjectReference Include="..\MKSS.ICommon\MKSS.ICommon.csproj" />
+    <ProjectReference Include="..\MKSS.IRepository\MKSS.IRepository.csproj" />
+    <ProjectReference Include="..\MKSS.Util\MKSS.Util.csproj" />
+  </ItemGroup>
+
+</Project>

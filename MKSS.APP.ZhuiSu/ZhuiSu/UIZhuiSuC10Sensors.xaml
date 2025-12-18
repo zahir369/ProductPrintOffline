@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="MKSS.APP.ZhuiSu.UIZhuiSuC10Sensors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:MKSS.APP.ZhuiSu"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="AllText">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Content="1X1" x:Name="Cell1X1" Margin="10,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="1X2" x:Name="Cell1X2" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="0" Grid.Column="2" Content="1X3" x:Name="Cell1X3" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="0" Grid.Column="3" Content="1X4" x:Name="Cell1X4" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="0" Grid.Column="4" Content="1X5" x:Name="Cell1X5" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="0" Grid.Column="5" Content="1X6" x:Name="Cell1X6" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="0" Grid.Column="6" Content="1X7" x:Name="Cell1X7" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="0" Grid.Column="7" Content="1X8" x:Name="Cell1X8" Margin="5,5,10,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="1" Grid.Column="0" Content="2X1" x:Name="Cell2X1" Margin="10,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="2X2" x:Name="Cell2X2" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="1" Grid.Column="2" Content="2X3" x:Name="Cell2X3" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="1" Grid.Column="3" Content="2X4" x:Name="Cell2X4" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="1" Grid.Column="4" Content="2X5" x:Name="Cell2X5" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="1" Grid.Column="5" Content="2X6" x:Name="Cell2X6" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="1" Grid.Column="6" Content="2X7" x:Name="Cell2X7" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="1" Grid.Column="7" Content="2X8" x:Name="Cell2X8" Margin="5,5,10,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="3X1" x:Name="Cell3X1" Margin="10,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="3X2" x:Name="Cell3X2" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="3X3" x:Name="Cell3X3" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="2" Grid.Column="3" Content="3X4" x:Name="Cell3X4" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="2" Grid.Column="4" Content="3X5" x:Name="Cell3X5" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="2" Grid.Column="5" Content="3X6" x:Name="Cell3X6" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="2" Grid.Column="6" Content="3X7" x:Name="Cell3X7" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="2" Grid.Column="7" Content="3X8" x:Name="Cell3X8" Margin="5,5,10,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="3" Grid.Column="0" Content="4X1" x:Name="Cell4X1" Margin="10,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="4X2" x:Name="Cell4X2" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="4X3" x:Name="Cell4X3" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="3" Grid.Column="3" Content="4X4" x:Name="Cell4X4" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="3" Grid.Column="4" Content="4X5" x:Name="Cell4X5" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="3" Grid.Column="5" Content="4X6" x:Name="Cell4X6" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="3" Grid.Column="6" Content="4X7" x:Name="Cell4X7" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="3" Grid.Column="7" Content="4X8" x:Name="Cell4X8" Margin="5,5,10,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="4" Grid.Column="0" Content="5X1" x:Name="Cell5X1" Margin="10,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="5X2" x:Name="Cell5X2" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="4" Grid.Column="2" Content="5X3" x:Name="Cell5X3" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="4" Grid.Column="3" Content="5X4" x:Name="Cell5X4" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="4" Grid.Column="4" Content="5X5" x:Name="Cell5X5" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="4" Grid.Column="5" Content="5X6" x:Name="Cell5X6" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="4" Grid.Column="6" Content="5X7" x:Name="Cell5X7" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="4" Grid.Column="7" Content="5X8" x:Name="Cell5X8" Margin="5,5,10,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="5" Grid.Column="0" Content="6X1" x:Name="Cell6X1" Margin="10,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="6X2" x:Name="Cell6X2" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="5" Grid.Column="2" Content="6X3" x:Name="Cell6X3" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="5" Grid.Column="3" Content="6X4" x:Name="Cell6X4" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="5" Grid.Column="4" Content="6X5" x:Name="Cell6X5" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="5" Grid.Column="5" Content="6X6" x:Name="Cell6X6" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="5" Grid.Column="6" Content="6X7" x:Name="Cell6X7" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="5" Grid.Column="7" Content="6X8" x:Name="Cell6X8" Margin="5,5,10,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="6" Grid.Column="0" Content="7X1" x:Name="Cell7X1" Margin="10,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="6" Grid.Column="1" Content="7X2" x:Name="Cell7X2" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="6" Grid.Column="2" Content="7X3" x:Name="Cell7X3" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="6" Grid.Column="3" Content="7X4" x:Name="Cell7X4" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="6" Grid.Column="4" Content="7X5" x:Name="Cell7X5" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="6" Grid.Column="5" Content="7X6" x:Name="Cell7X6" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="6" Grid.Column="6" Content="7X7" x:Name="Cell7X7" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="6" Grid.Column="7" Content="7X8" x:Name="Cell7X8" Margin="5,5,10,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="7" Grid.Column="0" Content="8X1" x:Name="Cell8X1" Margin="10,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="7" Grid.Column="1" Content="8X2" x:Name="Cell8X2" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="7" Grid.Column="2" Content="8X3" x:Name="Cell8X3" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="7" Grid.Column="3" Content="8X4" x:Name="Cell8X4" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="7" Grid.Column="4" Content="8X5" x:Name="Cell8X5" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="7" Grid.Column="5" Content="8X6" x:Name="Cell8X6" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="7" Grid.Column="6" Content="8X7" x:Name="Cell8X7" Margin="5,5,5,5" Background="#FF179698" Cursor="Hand"/>
+        <Button Grid.Row="7" Grid.Column="7" Content="8X8" x:Name="Cell8X8" Margin="5,5,10,5" Background="#FF179698" Cursor="Hand"/>
+
+
+    </Grid>
+</UserControl>

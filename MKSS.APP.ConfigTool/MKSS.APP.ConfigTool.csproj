@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F289D78F-8E23-4944-9F48-01E38E2463A1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MKSS.APP.ConfigTool</RootNamespace>
+    <AssemblyName>ConfigTool</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unme.Common, Version=1.1.0.0, Culture=neutral, PublicKeyToken=da57c01ae4598fdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\NModbus.1.11.0.0\lib\Unme.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\AddrConfigExtend.cs" />
+    <Compile Include="Config\AddrConfigItem.cs" />
+    <Compile Include="Config\FumulaExpression.cs" />
+    <Compile Include="Config\MainConfig.cs" />
+    <Compile Include="Config\ModBusBoardLogger.cs" />
+    <Compile Include="Config\RowMergeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\IniStruct.cs" />
+    <Compile Include="Config\IniUtil.cs" />
+    <Compile Include="Config\AddrConfig.cs" />
+    <Compile Include="Config\AddrValue.cs" />
+    <Compile Include="FormModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModify.Designer.cs">
+      <DependentUpon>FormModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NModbus\NModbus.Serial\ModbusFactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus.Serial\SerialPortAdapter.cs" />
+    <Compile Include="NModbus\NModbus\Data\DefaultPointSource.cs" />
+    <Compile Include="NModbus\NModbus\Data\DefaultSlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Data\DiscreteCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\FileRecordCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\IModbusMessageDataCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\PointSource.cs" />
+    <Compile Include="NModbus\NModbus\Data\RegisterCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\SlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Device\ConcurrentModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\GenericPointEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\DiagnosticsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadCoilsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadHoldingRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadInputRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadInputsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadWriteMultipleRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteFileRecordService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteMultipleCoilsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteMultipleRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteSingleCoilService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteSingleRegisterService.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusDevice.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusFunctionServiceBase.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusIpMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusMasterTcpConnection.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSerialMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSerialSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSlave.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusTcpSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusUdpSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\PointEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Device\TcpConnectionEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\CrcExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\DictionaryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Enron\EnronModbus.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Functions\Endian.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Functions\RegisterFunctions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\ModbusFactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\ModbusMasterEnhanced.cs" />
+    <Compile Include="NModbus\NModbus\FactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\GlobalSuppressions.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IConcurrentModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusAsciiTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusFactory.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusFunctionService.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusMessage.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusRtuTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSerialMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSerialTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSlave.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IPointSource.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\ISlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\ISlaveHandlerContext.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\LoggingLevel.cs" />
+    <Compile Include="NModbus\NModbus\InvalidModbusRequestException.cs" />
+    <Compile Include="NModbus\NModbus\IO\EmptyTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\IStreamResource.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusAsciiTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusIpTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusRtuTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusSerialTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\StreamResourceUtility.cs" />
+    <Compile Include="NModbus\NModbus\IO\TcpClientAdapter.cs" />
+    <Compile Include="NModbus\NModbus\IO\UdpClientAdapter.cs" />
+    <Compile Include="NModbus\NModbus\Logging\ConsoleModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\DebugModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\LoggingExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Logging\ModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\NullModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\TraceModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Message\AbstractModbusMessage.cs" />
+    <Compile Include="NModbus\NModbus\Message\AbstractModbusMessageWithData.cs" />
+    <Compile Include="NModbus\NModbus\Message\DiagnosticsRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\IModbusRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ModbusMessageFactory.cs" />
+    <Compile Include="NModbus\NModbus\Message\ModbusMessageImpl.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadCoilsInputsRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadCoilsInputsResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadHoldingInputRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadHoldingInputRegistersResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadWriteMultipleRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\SlaveExceptionResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteFileRecordRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteFileRecordResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleCoilsRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleCoilsResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleRegistersResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteSingleCoilRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteSingleRegisterRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Modbus.cs" />
+    <Compile Include="NModbus\NModbus\ModbusFactory.cs" />
+    <Compile Include="NModbus\NModbus\ModbusFunctionCodes.cs" />
+    <Compile Include="NModbus\NModbus\Resources.cs" />
+    <Compile Include="NModbus\NModbus\SlaveException.cs" />
+    <Compile Include="NModbus\NModbus\SlaveExceptionCodes.cs" />
+    <Compile Include="NModbus\NModbus\Unme.Common\DisposableUtility.cs" />
+    <Compile Include="NModbus\NModbus\Unme.Common\SequenceUtility.cs" />
+    <Compile Include="NModbus\NModbus\Utility\DiscriminatedUnion.cs" />
+    <Compile Include="NModbus\NModbus\Utility\ModbusUtility.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Config\RowMergeView.resx">
+      <DependentUpon>RowMergeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModify.resx">
+      <DependentUpon>FormModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\AddrValue.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bitbug_favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NModbus\NModbus.SerialPortStream\" />
+    <Folder Include="NModbus\NModbus\Data\Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

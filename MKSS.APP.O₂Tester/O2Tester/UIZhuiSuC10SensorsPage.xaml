@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="MKSS.APP.O2Tester.UIZhuiSuC10SensorsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MKSS.APP.O2Tester"
+             mc:Ignorable="d"  
+             d:DesignHeight="450" d:DesignWidth="1800">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/> 
+        </Grid.RowDefinitions>
+
+        <local:UIZhuiSuC10Sensors Grid.Row="0" Grid.Column="0" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsNongDu" />
+        <local:UIZhuiSuC10Sensors Grid.Row="0" Grid.Column="1" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsT90" />
+        <local:UIZhuiSuC10Sensors Grid.Row="0" Grid.Column="2" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsT10" />
+        <local:UIZhuiSuC10Sensors Grid.Row="0" Grid.Column="3" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsMulti" />
+        
+    </Grid>
+</UserControl>

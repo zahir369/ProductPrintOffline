@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB47AD22-4872-4A8C-875B-89A18A79C54D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MKSS.APP.WinSemiTester</RootNamespace>
+    <AssemblyName>MKSS.APP.WinSemiTester</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GodSharp.SerialPort, Version=1.2.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GodSharp.SerialPort.1.2.0.6\lib\net46\GodSharp.SerialPort.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.5.0.0\lib\net461\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.5.0.0\lib\net461\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.5.0.0\lib\net461\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.5.0.0\lib\net461\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.5.0.0\lib\net461\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.5.0.0\lib\net461\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlSugar, Version=5.0.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.0.3.3\lib\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.5.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\UnitOfWork.cs" />
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ICommon\IUnitOfWork.cs" />
+    <Compile Include="IRepository\Base\IBaseRepository.cs" />
+    <Compile Include="IRepository\Base\PageModel.cs" />
+    <Compile Include="NModbus\NModbus.Serial\ModbusFactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus.Serial\SerialPortAdapter.cs" />
+    <Compile Include="NModbus\NModbus\Data\DefaultPointSource.cs" />
+    <Compile Include="NModbus\NModbus\Data\DefaultSlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Data\DiscreteCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\FileRecordCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\IModbusMessageDataCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\PointSource.cs" />
+    <Compile Include="NModbus\NModbus\Data\RegisterCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\SlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Device\ConcurrentModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\GenericPointEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\DiagnosticsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadCoilsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadHoldingRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadInputRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadInputsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadWriteMultipleRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteFileRecordService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteMultipleCoilsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteMultipleRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteSingleCoilService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteSingleRegisterService.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusDevice.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusFunctionServiceBase.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusIpMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusMasterTcpConnection.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSerialMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSerialSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSlave.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusTcpSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusUdpSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\PointEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Device\TcpConnectionEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\CrcExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\DictionaryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Enron\EnronModbus.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Functions\Endian.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Functions\RegisterFunctions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\ModbusFactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\ModbusMasterEnhanced.cs" />
+    <Compile Include="NModbus\NModbus\FactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\GlobalSuppressions.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IConcurrentModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusAsciiTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusFactory.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusFunctionService.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusMessage.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusRtuTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSerialMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSerialTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSlave.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IPointSource.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\ISlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\ISlaveHandlerContext.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\LoggingLevel.cs" />
+    <Compile Include="NModbus\NModbus\InvalidModbusRequestException.cs" />
+    <Compile Include="NModbus\NModbus\IO\EmptyTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\IStreamResource.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusAsciiTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusIpTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusRtuTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusSerialTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\StreamResourceUtility.cs" />
+    <Compile Include="NModbus\NModbus\IO\TcpClientAdapter.cs" />
+    <Compile Include="NModbus\NModbus\IO\UdpClientAdapter.cs" />
+    <Compile Include="NModbus\NModbus\Logging\ConsoleModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\DebugModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\LoggingExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Logging\ModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\NullModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\TraceModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Message\AbstractModbusMessage.cs" />
+    <Compile Include="NModbus\NModbus\Message\AbstractModbusMessageWithData.cs" />
+    <Compile Include="NModbus\NModbus\Message\DiagnosticsRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\IModbusRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ModbusMessageFactory.cs" />
+    <Compile Include="NModbus\NModbus\Message\ModbusMessageImpl.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadCoilsInputsRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadCoilsInputsResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadHoldingInputRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadHoldingInputRegistersResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadWriteMultipleRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\SlaveExceptionResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteFileRecordRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteFileRecordResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleCoilsRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleCoilsResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleRegistersResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteSingleCoilRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteSingleRegisterRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Modbus.cs" />
+    <Compile Include="NModbus\NModbus\ModbusFactory.cs" />
+    <Compile Include="NModbus\NModbus\ModbusFunctionCodes.cs" />
+    <Compile Include="NModbus\NModbus\Resources.cs" />
+    <Compile Include="NModbus\NModbus\SlaveException.cs" />
+    <Compile Include="NModbus\NModbus\SlaveExceptionCodes.cs" />
+    <Compile Include="NModbus\NModbus\Unme.Common\DisposableUtility.cs" />
+    <Compile Include="NModbus\NModbus\Unme.Common\SequenceUtility.cs" />
+    <Compile Include="NModbus\NModbus\Utility\DiscriminatedUnion.cs" />
+    <Compile Include="NModbus\NModbus\Utility\ModbusUtility.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Base\BaseRepository.cs" />
+    <Compile Include="Service\Config\ProductConfig.cs" />
+    <Compile Include="Service\Config\SemiTesterConfgig.cs" />
+    <Compile Include="Service\ModBusBoardLogger.cs" />
+    <Compile Include="Service\Model\Batch.cs" />
+    <Compile Include="Service\Model\BusModel\SerialPortModel.cs" />
+    <Compile Include="Service\Model\Sensor.cs" />
+    <Compile Include="Service\Model\SensorGroupData.cs" />
+    <Compile Include="Service\Model\ViewModel\MeunData.cs" />
+    <Compile Include="Service\SemiTesterSaver.cs" />
+    <Compile Include="Service\SemiTesterService.cs" />
+    <Compile Include="Service\Service\Base\BaseServices.cs" />
+    <Compile Include="Service\Service\Base\IBaseServices.cs" />
+    <Compile Include="Service\Service\BatchServices.cs" />
+    <Compile Include="Service\Service\IBatchServices.cs" />
+    <Compile Include="Service\Service\ISensorGroupDataServices.cs" />
+    <Compile Include="Service\Service\ISensorServices.cs" />
+    <Compile Include="Service\Service\MenuService.cs" />
+    <Compile Include="Service\Service\SensorGroupDataServices.cs" />
+    <Compile Include="Service\Service\SensorServices.cs" />
+    <Compile Include="Util\Appsettings.cs" />
+    <Compile Include="Util\BaseDBConfig.cs" />
+    <Compile Include="Util\MainDb.cs" />
+    <Compile Include="Util\SqlsugarSetup.cs" />
+    <Compile Include="Util\ULogger\AssemblyTag.cs" />
+    <Compile Include="Util\ULogger\ILog.cs" />
+    <Compile Include="Util\ULogger\License\ComputerEncryptInfo.cs" />
+    <Compile Include="Util\ULogger\License\ComputerInfo.cs" />
+    <Compile Include="Util\ULogger\License\ProductIDS.cs" />
+    <Compile Include="Util\ULogger\License\ProductIDSAttribute.cs" />
+    <Compile Include="Util\ULogger\Log.cs" />
+    <Compile Include="Util\ULogger\LogFactory.cs" />
+    <Compile Include="Util\ULogger\LogFormat.cs" />
+    <Compile Include="Util\ULogger\LogLevel.cs" />
+    <Compile Include="Util\ULogger\LogMessage.cs" />
+    <Compile Include="Util\ULogger\Log\LogTagClass.cs" />
+    <Compile Include="Util\ULogger\Log\LogTagConfig.cs" />
+    <Compile Include="Util\ULogger\Log\ULogDataFilter.cs" />
+    <Compile Include="Util\ULogger\Log\ULogger.cs" />
+    <Compile Include="Util\UtilConvert.cs" />
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NModbus\NModbus.SerialPortStream\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tongji.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\biaoding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\huanjing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shebei.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shezhi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mixsen_favicon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

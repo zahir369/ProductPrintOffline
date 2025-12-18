@@ -1,0 +1,86 @@
+﻿<UserControl
+    x:Class="DeviceDataMonitorWPF.UIZhanHui.UCGuoKong"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CircleProcessBar="clr-namespace:CircleProcessBar;assembly=CircleProcessBar"
+    xmlns:TemperatureGuageControl="clr-namespace:TemperatureGuageControl;assembly=TemperatureGuageControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="#333399">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="280" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock FontSize="22" Text="  监测设备:" />
+            <TextBlock FontSize="22" Text="  数据来自国控数据" />
+            <TextBlock FontSize="22" Text="      地点:" />
+            <TextBlock FontSize="22" Text="  中国 上海" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--<DockPanel Grid.Row="0" Grid.Column="0">
+                <TemperatureGuageControl:TemperatureGuageControl
+                    Width="19"
+                    CurrentValue="100"
+                    MainScaleColor="Black"
+                    MainScaleCount="6"
+                    MainScaleHeight="1"
+                    MaxValue="200"
+                    MeterHeight="100"
+                    MeterMargin="0,-25,0,0"
+                    MinValue="20"
+                    Msg="温度计2"
+                    MsgLabelFontSize="15"
+                    MsgLabelMargion="-10,100,0,0"
+                    MsgLableForeground="#FF3128EE"
+                    ScaleLabelForgound="{DynamicResource {x:Static SystemColors.ActiveCaptionTextColorKey}}">
+                    <TemperatureGuageControl:TemperatureGuageControl.Color>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HotTrackColorKey}}" />
+                    </TemperatureGuageControl:TemperatureGuageControl.Color>
+                </TemperatureGuageControl:TemperatureGuageControl>
+            </DockPanel>-->
+
+
+            <!--<DockPanel Grid.Row="0" Grid.Column="1">
+                <CircleProcessBar:CircularProcessBarControl
+                    Width="140"
+                    Height="140"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    SuccessRate="50" />
+            </DockPanel>-->
+            <!-- <DockPanel Grid.Column="2">
+            <lvc:CartesianChart Padding="5" Series="{Binding SeriesCollection}" />
+        </DockPanel>-->
+            <!--<DockPanel Grid.Column="3">
+            <lvc:CartesianChart Padding="5" Series="{Binding SeriesCollection}" />
+        </DockPanel>-->
+
+        </Grid>
+
+
+
+        <DockPanel Grid.Row="2">
+            <lvc:CartesianChart Padding="5" Series="{Binding SeriesCollection}" />
+        </DockPanel>
+
+    </Grid>
+</UserControl>

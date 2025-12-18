@@ -1,0 +1,454 @@
+﻿using MathNet.Numerics;
+using MathNet.Numerics.LinearRegression;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+
+namespace MKSS.Model
+{
+    /// <summary>
+    ///  存放 T90 等信息
+    /// </summary>
+    public class SensorStaData {
+
+        /// <summary>
+        ///  AD信号波动容差
+        /// </summary>
+        public static double ADTolerance = 3;
+        static Dictionary<PosEnum, SensorStaData> Cache = new Dictionary<PosEnum, SensorStaData>();
+
+        public SensorStaData(PosEnum p) { PosEnum = p; }
+        public PosEnum PosEnum { get; set; }
+        public SensorDataItem VStart { get; set; }
+        public SensorDataItem VEnd { get; set; }
+        public SensorDataItem VMax { get; set; }
+        public SensorDataItem VMaxStart { get; set; }
+        public SensorDataItem V90 { get; set; }
+        public SensorDataItem V10 { get; set; }
+        public double T90 { get { return V90 == null || VStart == null ? 0 : V90.F_AddTime - VStart.F_AddTime; } }
+        public double T10 { get { return V10 == null || VMaxStart == null ? 0 : V10.F_AddTime - VMaxStart.F_AddTime; } }
+
+        public string ToDebugString()
+        {
+            return string.Format("Start:{0};VMax:{1};VMaxStart:{2};VEnd:{3};V90:{4};V10:{5};"
+                , VStart == null ? "N,N" : VStart.ToStringTD()
+                , VMax == null ? "N,N" : VMax.ToStringTD()
+                , VMaxStart == null ? "N,N" : VMaxStart.ToStringTD()
+                , VEnd == null ? "N,N" : VEnd.ToStringTD()
+                , V90 == null ? "N,N" : V90.ToStringTD()
+                , V10 == null ? "N,N" : V10.ToStringTD());
+        }
+
+        public List<SensorDataItem> HistoryDatas { get; set; }
+        public double? AD90 { get { if (VStart == null || VMax == null) return null; return VStart.F_DataValue + (VMax.F_DataValue - VStart.F_DataValue) * 0.9; } }
+        public double? AD10 { get { if (VStart == null || VMax == null) return null; return VStart.F_DataValue + (VMax.F_DataValue - VStart.F_DataValue) * 0.1; } }
+
+        public void CalculateStart()
+        {
+            VStart = null;
+            VEnd = null;
+            VMax = null;
+            VMaxStart = null;
+            V90 = null;
+            V10 = null;
+            HistoryDatas = new List<SensorDataItem>();
+        }
+
+        /// <summary>
+        ///  自动计算 T90 T10 
+        ///  插盘.....信号稳定....注气（10%）浓度（检测到AD增强信号，检测到AD最小值）......信号稳定...........散气（检测到AD减弱信号，检测到AD最大值）......信号稳定（检测到AD最小值）........
+        ///  第一阶段：暂停键，计算 T90
+        ///  第二阶段：找到 T10 位置
+        /// </summary>
+        /// <param name="list"></param>
+        public void CalculateAuto(SensorGroupData data)
+        {
+            try
+            {
+                var itemx = data.F_DataValue(PosEnum);
+                HistoryDatas.Add(itemx);
+
+                int hdcs = HistoryDatas.Count;
+                if (hdcs < 3) return;
+                //拟合数据
+                double[] x = new[] { HistoryDatas[hdcs - 3].F_AddTime, HistoryDatas[hdcs - 2].F_AddTime, HistoryDatas[hdcs - 1].F_AddTime };
+                double[] y = new[] { HistoryDatas[hdcs - 3].F_DataValue, HistoryDatas[hdcs - 2].F_DataValue, HistoryDatas[hdcs - 1].F_DataValue };
+                double[] p = Exponential(x, y); // a=1.017, r=0.687
+                double[] yh = Generate.Map(x, k => p[0] * Math.Exp(p[1] * k)); // 2.02, 4.02, 7.98
+                HistoryDatas[hdcs - 3].F_DataValueExponential = yh[0];
+                HistoryDatas[hdcs - 2].F_DataValueExponential = yh[1];
+                HistoryDatas[hdcs - 1].F_DataValueExponential = yh[2];
+
+                if (HistoryDatas.Count < 10) return;
+
+                if (VStart == null)
+                {
+                    //求 开始值
+                    IEnumerable<SensorDataItem> item7 = HistoryDatas.TakeLast(9);
+                    IEnumerable<SensorDataItem> itema = item7.Take(4);
+                    IEnumerable<SensorDataItem> itemb = item7.TakeLast(4);
+                    //数据点每个比后三个数据都小，并且后三个依次变大
+                    if (LargerThan(itemb, itema) && IncreaseOrDecrease(itemb,true))
+                    {
+                        VStart = item7.TakeLast(5).Take(1).First();
+                        return;
+                    }
+                    return;//前置数据没准备好，没必要执行下面计算
+                }
+
+
+                if (VMax == null)
+                {
+                   
+                    //求 峰值第一拐点
+                    List<SensorDataItem> item7 = HistoryDatas.TakeLast(9).ToList();
+                    if (data.F_AddTime > 11.1)
+                    {
+                        string ss = "";
+                    }
+                    IEnumerable<SensorDataItem> itema = item7.Take(4);
+                    SensorDataItem b0 = item7[4];
+                    SensorDataItem b1 = item7[5];
+                    SensorDataItem b2 = item7[6];
+                    SensorDataItem b3 = item7[7];
+                    SensorDataItem b4 = item7[8];
+                    //数据点比前三个数据都大，比后三个也大， 并且前三个依次变大
+                    if (LargerThan(b0, itema)
+                         && IncreaseOrDecrease(itema, true)
+                         &&
+                            (LargerEqualThan(b0, b1) && LargerEqualThan(b0, b2) && LargerEqualThan(b0, b3) && LargerEqualThan(b0, b4))
+                         )
+                    {
+                        VMax = b0;
+                    }
+                    //有可能峰值 第一拐点和峰值 第二拐点重合
+                }
+
+
+                double? ad90 = AD90;
+                if (V90 == null)
+                {
+                    //求 T90
+                    if (ad90 != null)
+                    {
+                        for (int i = 0; i < HistoryDatas.Count; i++)
+                        {
+                            SensorDataItem item0 = HistoryDatas[i];
+                            if (item0.F_DataValue >= ad90.Value)
+                            {
+                                V90 = item0;
+                                if (V90.F_AddTime <= VStart.F_AddTime)
+                                {
+                                    V90 = null;
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    return;//前置数据没准备好，没必要执行下面计算
+                }
+
+
+                if (VMaxStart == null)
+                {
+                    //求 峰值第二拐点，第二拐点取最后拐点 
+                    List<SensorDataItem> item7 = HistoryDatas.TakeLast(9).ToList();
+                    IEnumerable<SensorDataItem> itema = item7.TakeLast(4);
+                    SensorDataItem b0 = item7[4];
+                    SensorDataItem b1 = item7[0];
+                    SensorDataItem b2 = item7[1];
+                    SensorDataItem b3 = item7[2];
+                    SensorDataItem b4 = item7[3];
+                    //数据点比后三个数据都大， 比前三个也大， 并且后三个依次变小
+                    if (LargerThan(b0, itema)
+                        && IncreaseOrDecrease(itema, false)
+                        &&
+                            (LargerEqualThan(b0, b1) && LargerEqualThan(b0, b2) && LargerEqualThan(b0, b3) && LargerEqualThan(b0, b4))
+                        )
+                    {
+                        VMaxStart = b0;
+                        return;
+                    }
+                    return;//前置数据没准备好，没必要执行下面计算
+                }
+
+
+
+                double? ad10 = AD10;
+                if (V10 == null)
+                {
+                    //求 T10
+                    if (ad10 != null && VMaxStart!=null)
+                    {
+                        int ii = HistoryDatas.IndexOf(VMaxStart);
+                        if (ii >= 0) {
+                            for (int i = ii; i < HistoryDatas.Count; i++)
+                            {
+                                SensorDataItem item0 = HistoryDatas[i];
+                                if (item0.F_DataValue <= ad10.Value)
+                                {
+                                    V10 = item0;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                    }
+                    return;//前置数据没准备好，没必要执行下面计算
+                }
+
+
+                //已经设置过 T10
+                if (V10 != null
+                    && data.F_AddTime > V10.F_AddTime)
+                {
+
+                    //没设置过 TEnd
+                    if (VEnd == null)
+                    {
+                        //尝试设置 TEnd
+                        if (HistoryDatas.Count > 10)
+                        {
+                            IEnumerable<SensorDataItem> item7 = HistoryDatas.TakeLast(9);
+                            IEnumerable<SensorDataItem> itema = item7.Take(4);
+                            IEnumerable<SensorDataItem> itemb = item7.TakeLast(4);
+                            //数据点每个比后三个数据都大，并且数据点依次减小
+                            if (LargerThan(itema, itemb) && IncreaseOrDecrease(itema, false))
+                            {
+                                VEnd = item7.TakeLast(5).Take(1).First();
+                            }
+                        }
+                    }
+                    //后面不再处理
+                    return;
+                }
+            }
+            catch (System.Exception w)
+            {
+
+                throw;
+            }
+            
+
+
+        }
+
+
+        /// <summary>
+        ///  计算 T90 T10 
+        ///  插盘.....信号稳定....注气（10%）浓度......信号稳定.......暂停键......散气+继续键........
+        ///  第一阶段：暂停键，计算 T90
+        ///  第二阶段：找到 T10 位置
+        ///  注气过程中 AD 值会出现波峰
+        /// </summary>
+        /// <param name="list"></param>
+        public void CalculateStep1(List<SensorGroupData> list) {
+
+            VStart = null;
+            VEnd = null;
+            VMax = null;
+            V90 = null;
+            V10 = null;
+            HistoryDatas = new List<SensorDataItem>();
+            if (list == null || list.Count < 10) return;
+            HistoryDatas = list.Select(w => w.F_DataValue(PosEnum)).ToList();
+            VMax = HistoryDatas[HistoryDatas.Count - 1];
+            VMaxStart = HistoryDatas[HistoryDatas.Count - 1];
+            for (int i = 0; i < HistoryDatas.Count-7; i++)
+            {
+                IEnumerable<SensorDataItem> item7 = HistoryDatas.Take(i + 7);
+                IEnumerable<SensorDataItem> itema = item7.TakeLast(7).Take(3);
+                IEnumerable<SensorDataItem> itemb = item7.TakeLast(3);
+                //数据点每个比后三个数据都小
+                if (LargerThan(itemb, itema)) {
+                    VStart = item7.TakeLast(4).Take(1).First();
+                    break;
+                } 
+            }
+
+            double? v90 = AD90;
+            if (v90 == null) return;
+            for (int i = 0; i < HistoryDatas.Count; i++)
+            {
+                SensorDataItem item0 = HistoryDatas[i]; 
+                if (item0.F_DataValue >= v90.Value)
+                {
+                    V90 = item0;
+                    break;
+                }
+            }
+
+        }
+
+        /// <summary>
+        ///  计算 T90 T10 
+        ///  插盘.....信号稳定....注气（10%）浓度......信号稳定.......暂停键......散气+继续键........
+        ///  第一阶段：暂停键，计算 T90
+        ///  第二阶段：找到 T10 位置
+        /// </summary>
+        /// <param name="w"></param>
+        public void CalculateStep2(SensorGroupData w)
+        {
+
+            double? v90 = AD90;
+            if (v90 == null) return;
+            if (w == null) return;
+
+            if (VEnd != null) {
+                return;//检测已经结束 ，后面不再处理
+            }
+
+            SensorDataItem itemx = w.F_DataValue(PosEnum);
+            HistoryDatas.Add(itemx);
+
+            if (itemx.F_DataValue <= v90.Value)
+            {
+                V10 = itemx;
+            }
+
+            //已经设置过 T10
+            if (V10 != null
+                && w.F_AddTime > V10.F_AddTime
+                && V10.SensorGroupData.F_BatchId == w.F_BatchId) {
+                
+                //没设置过 TEnd
+                if (VEnd == null)
+                {
+                    //尝试设置 TEnd
+                    if (HistoryDatas.Count > 10)
+                    {
+                        IEnumerable<SensorDataItem> item7 = HistoryDatas.TakeLast(7);
+                        IEnumerable<SensorDataItem> itema = item7.TakeLast(7).Take(3);
+                        IEnumerable<SensorDataItem> itemb = item7.TakeLast(3);
+                        //数据点每个比后三个数据都大
+                        if (LargerThan(itema, itemb))
+                        {
+                            VEnd = item7.TakeLast(4).Take(1).First();
+                        }
+                    }
+                }
+                //后面不再处理
+                return;
+            }
+
+
+        }
+
+        /// <summary>
+        ///  A 中每一个都比 B 中的大
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        bool LargerThan(IEnumerable<SensorDataItem> A, IEnumerable<SensorDataItem> B) {
+
+            foreach (var a in A)
+            {
+                foreach (var b in B)
+                {
+                    if (a.F_DataValue <= b.F_DataValue) return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        ///  A 中数据依次变大
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        bool IncreaseOrDecrease(IEnumerable<SensorDataItem> A,bool increase)
+        {
+            List<SensorDataItem> list = A.ToList();
+            if (increase)
+            {
+                for (int i = 1; i < list.Count; i++)
+                {
+                    if (list[i].F_DataValue + ADTolerance < list[i - 1].F_DataValue) return false;// 
+                }
+            }
+            else {
+                for (int i = 1; i < list.Count; i++)
+                {
+                    if (list[i].F_DataValue - ADTolerance > list[i - 1].F_DataValue) return false;//
+                }
+            } 
+            return true;
+        }
+
+
+        /// <summary>
+        ///  a 比 B中每一个的大
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
+        bool LargerThan(SensorDataItem a, IEnumerable<SensorDataItem> B)
+        {
+            foreach (var b in B)
+            {
+                if (a.F_DataValue + ADTolerance <= b.F_DataValue) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        ///  a 大于等于 b ，b加上容差
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        bool LargerEqualThan(SensorDataItem a, SensorDataItem b)
+        {
+            if (a.F_DataValue+ ADTolerance >= b.F_DataValue) return true;
+            return false;
+        }
+
+        /// <summary>
+        ///  使用方法，数据拟合
+        /// double[] x = new[] { 1.0, 2.0, 3.0 };
+        /// double[] y = new[] { 2.0, 4.1, 7.9 };
+        /// double[] p = Exponential(x, y); // a=1.017, r=0.687
+        /// double[] yh = Generate.Map(x, k => p[0] * Math.Exp(p[1] * k)) // 2.02, 4.02, 7.98
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        double[] Exponential(double[] x, double[] y, DirectRegressionMethod method = DirectRegressionMethod.QR)
+        {
+            double[] y_hat = Generate.Map(y, Math.Log);
+            double[] p_hat = Fit.LinearCombination(x, y_hat, method, t => 1.0, t => t);
+            return new[] { Math.Exp(p_hat[0]), p_hat[1] };
+        }
+
+        private static PointF bezier_interpolation_func(float t, PointF[] points, int count)
+        { 
+            // 一个点都没有
+            if (points.Length < 1)  throw new  Exception("一个点都没有");
+            PointF[] tmp_points = new PointF[count];
+            for (int i = 1; i < count; ++i)
+            {
+                for (int j = 0; j < count - i; ++j)
+                {
+                    if (i == 1)
+                    {
+                        float x1 = (float)(points[j].X * (1 - t) + points[j + 1].X * t);
+                        float y1 = (float)(points[j].Y * (1 - t) + points[j + 1].Y * t);
+                        tmp_points[j] = new PointF { X = x1, Y = y1 };
+                        continue;
+                    }
+                    float x = (float)(tmp_points[j].X * (1 - t) + tmp_points[j + 1].X * t);
+                    float y = (float)(tmp_points[j].Y * (1 - t) + tmp_points[j + 1].Y * t);
+                    tmp_points[j] = new PointF { X = x, Y = y };
+                }
+            }
+            return tmp_points[0];
+
+        }
+
+    }
+}

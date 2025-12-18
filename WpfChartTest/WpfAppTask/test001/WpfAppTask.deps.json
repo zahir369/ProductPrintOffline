@@ -1,0 +1,60 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "WpfAppTask/1.0.0": {
+        "dependencies": {
+          "InteractiveDataDisplay.NetCore.WPF": "1.0.2",
+          "System.Reactive": "5.0.0"
+        },
+        "runtime": {
+          "WpfAppTask.dll": {}
+        }
+      },
+      "InteractiveDataDisplay.NetCore.WPF/1.0.2": {
+        "dependencies": {
+          "System.Reactive": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/InteractiveDataDisplay.WPF.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "System.Reactive/5.0.0": {
+        "runtime": {
+          "lib/net5.0/System.Reactive.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.1"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WpfAppTask/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "InteractiveDataDisplay.NetCore.WPF/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZCQoILToWzbLXytjeEGrPS17law2Qy9Ql7X7ifH4BDUMWx8OO1gY2tvH3PHjIOA6XC43Md5dSq60iKA+l8eQuQ==",
+      "path": "interactivedatadisplay.netcore.wpf/1.0.2",
+      "hashPath": "interactivedatadisplay.netcore.wpf.1.0.2.nupkg.sha512"
+    },
+    "System.Reactive/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+      "path": "system.reactive/5.0.0",
+      "hashPath": "system.reactive.5.0.0.nupkg.sha512"
+    }
+  }
+}

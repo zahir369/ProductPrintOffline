@@ -1,0 +1,394 @@
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Data;
+//using System.Linq;
+//using System.Runtime.InteropServices;
+//using System.Text;
+//using System.Threading.Tasks;
+//using System.Windows;
+//using System.Windows.Controls;
+//using System.Windows.Data;
+//using System.Windows.Documents;
+//using System.Windows.Input;
+//using System.Windows.Media;
+//using System.Windows.Media.Imaging;
+//using System.Windows.Navigation;
+//using System.Windows.Shapes;
+//using MKSS.Model;
+//using MKSS.Service.SemiCatalysis;
+//using MKSS.Util.Log;
+//using ScottPlot;
+//using ScottPlot.Plottable;
+
+//namespace MKSS.APP.SemiCatalysis
+//{
+//    /// <summary>
+//    /// UIZhuiSuC10ChartOld.xaml 的交互逻辑
+//    /// </summary>
+//    public partial class UIZhuiSuC10ChartOld : UserControl
+//    {
+//        VLine vLine;
+//        //HLine hLine;
+//        //ScatterPlot Arrow = null;
+//        public UIZhuiSuC10ChartOld()
+//        {
+//            InitializeComponent();
+
+//            //wpfPlot1.Plot.AddSignal(ScottPlot.DataGen.RandomWalk(null, 100));
+
+//            vLine = wpfPlot1.Plot.AddVerticalLine(0, color: System.Drawing.Color.OrangeRed, style: LineStyle.Dash);
+//            //hLine = wpfPlot1.Plot.AddHorizontalLine(0, color: System.Drawing.Color.Red, style: LineStyle.Dash);
+//            //Arrow = wpfPlot1.Plot.AddArrow(0, -.25, 0, 0, lineWidth: 10);
+//            wpfPlot1.Render();
+
+//            if (Batch != null)
+//            {
+//                wpfPlot1.Plot.SetAxisLimits(new ScottPlot.AxisLimits(0, Batch.F_AgingEndTime, 0, 1000));
+//            }
+//            else {
+//                wpfPlot1.Plot.SetAxisLimits(new ScottPlot.AxisLimits(0, 1000, 0, 1000));
+//            }
+//            LockX_Checked(null,null);
+//        }
+
+//        Batch Batch { get; set; }
+//        List<Sensor> tabs = null;
+//        Dictionary <string, ScatterPlot> ScatterPlotDic { get; set; }
+//        ChartDataCache dic_data = new ChartDataCache();
+//        public void SetBatch(Batch _batch)
+//        {
+
+//            if (_batch == null) return;
+//            if (_batch == Batch) return;//批次未变化
+//            Batch = _batch;
+
+//            if (Batch != null)
+//            {
+//                //wpfPlot1.Plot.SetAxisLimitsX(0, Batch.F_AgingEndTime);
+//            }
+//            else
+//            {
+//                wpfPlot1.Plot.SetAxisLimits(new ScottPlot.AxisLimits(0, 300, 0, 1000));
+//            }
+
+//            //历史批次直接读数据库
+//            dic_data.Clear();
+
+//            if (ScatterPlotDic != null) {
+//                if (ScatterPlotDic.Count > 0)
+//                {
+//                    foreach (var item in ScatterPlotDic.Values)
+//                    {
+//                        wpfPlot1.Plot.Remove(item);
+//                    }
+//                }
+//                ScatterPlotDic.Clear();
+//            }
+            
+
+//            tabs = new List<Sensor>();
+//            ScatterPlotDic = new Dictionary<string, ScatterPlot>();
+//            foreach (Sensor s in UIZhuiSuC10Model.Instance.ECService.BatchSensorDictionary.Values)
+//            {
+//                if (!dic_data.ContainsKey(s.F_SensorId))
+//                {
+//                    dic_data.Add(s.F_SensorId, new  ChartDataCacheItemx());
+//                    tabs.Add(s);
+//                }
+//            }
+
+//            foreach (TimeSpan ts in UIZhuiSuC10Model.Instance.ECService.BatchSensorDataDictionary.Keys)
+//            {
+//                foreach (var F_SensorId in UIZhuiSuC10Model.Instance.ECService.BatchSensorDataDictionary[ts].Keys)
+//                {
+//                    double F_AddTime = ts.TotalSeconds;
+//                    double F_DataValue = UIZhuiSuC10Model.Instance.ECService.BatchSensorDataDictionary[ts][F_SensorId].F_DataValue;
+//                    if(!dic_data[F_SensorId].ContainsKey(F_AddTime)) dic_data[F_SensorId].Add(F_AddTime, F_DataValue);
+//                }
+//            }
+//            wpfPlot1.Render();
+
+//        }
+//        public void IniTask(Model.Batch _Batch, List<Sensor> datas)
+//        {
+//            Batch = _Batch;
+
+//        }
+//        public void ShowSensors(List<string> sendor_ids) {
+//            if (ScatterPlotDic == null) return;
+//            if (ScatterPlotDic.Count > 0) {
+//                foreach (var item in ScatterPlotDic.Values)
+//                {
+//                     wpfPlot1.Plot.Remove(item);
+//                }
+//            }
+//            ScatterPlotDic.Clear();
+//            foreach (string sid in sendor_ids)
+//            {
+//                if (!dic_data.ContainsKey(sid)) continue;
+//                var s = tabs.FirstOrDefault(w => w.F_SensorId == sid);
+//                if (s != null) {
+//                    if (!ScatterPlotDic.ContainsKey(sid)) ScatterPlotDic.Add(sid, null);
+//                    if (dic_data[sid].Count == 0) continue;
+//                    var res = AddScatterPlot(sid);//  wpfPlot1.Plot.AddScatter(dic_x[sid].ToArray(), dic_y[sid].ToArray());
+//                    if(res==null) continue;
+//                    ScatterPlotDic[sid] = res;
+//                    ScatterPlotDic[sid].MarkerShape = MarkerShape.none;
+//                }
+
+//            }
+//            wpfPlot1.Render();
+//        }
+
+
+//        public void ShowSensorsOf(string sid, bool check)
+//        {
+//            if (ScatterPlotDic == null) return;
+//            if (check)
+//            {
+//                var s = tabs.FirstOrDefault(w => w.F_SensorId == sid);
+//                if (s != null)
+//                {
+//                    if (!ScatterPlotDic.ContainsKey(sid))
+//                    {
+//                        if (!ScatterPlotDic.ContainsKey(sid)) ScatterPlotDic.Add(sid, null);
+//                        var res = AddScatterPlot(sid); 
+//                        if (res == null) return;
+//                        ScatterPlotDic[sid] = res;// wpfPlot1.Plot.AddScatter(dic_x[sid].ToArray(), dic_y[sid].ToArray());
+//                        ScatterPlotDic[sid].MarkerShape = MarkerShape.none;
+//                    }
+//                }
+//                wpfPlot1.Render();
+
+//            }
+//            else {
+//                var s = tabs.FirstOrDefault(w => w.F_SensorId == sid);
+//                if (s != null)
+//                {
+//                    if (ScatterPlotDic.ContainsKey(sid))
+//                    {
+//                        wpfPlot1.Plot.Remove(ScatterPlotDic[sid]);
+//                    }
+//                }
+//                wpfPlot1.Render();
+//            }
+            
+//        }
+
+//        public void SetPageBoardItem(Model.Batch _batch, Dictionary<string, MKSS.Model.SensorData> data) {
+
+//        }
+
+//        /// <summary>
+//        ///  只展示选中的 最近 5 分钟的数据
+//        /// </summary>
+//        /// <param name="_batch"></param>
+//        /// <param name="datas"></param>
+//        /// <param name="F_AddTime"></param>
+//        public void SetDataRealTime(Model.Batch _batch, Dictionary<string, MKSS.Model.SensorData> datas, TimeSpan F_AddTime)
+//        {
+//            if (Batch == null) return;
+
+//            bool emp = true;
+//            Batch _Batch = Batch;
+//            if (_Batch.F_AgingStartTime != DateTime.MinValue  && ScatterPlotDic != null)
+//            {
+//                TimeSpan total = TimeSpan.FromSeconds(_Batch.F_AgingEndTime);
+//                TimeSpan els = DateTime.Now - _Batch.F_AgingStartTime;
+//                foreach (MKSS.Model.SensorData data in datas.Values)
+//                {
+//                    UIZhuiSuC10Model.Instance.SettingModel.TxtCurrentSpan = (int)data.F_AddTime;//默认按照最新时间分级 
+//                    UIZhuiSuC10Model.Instance.SettingModel.TxtCurrentSpanLatest = (int)data.F_AddTime;//默认按照最新时间分级 
+//                    //检测中批次历史数据加上实时数据
+//                    if (!data.F_DataValueEmp && dic_data.ContainsKey(data.F_SensorId))
+//                    {
+//                        if (!dic_data.ContainsKey(data.F_SensorId)) dic_data[data.F_SensorId].Add(data.F_AddTime, data.F_DataValue);
+//                        else dic_data[data.F_SensorId][data.F_AddTime] = data.F_DataValue;
+//                    }
+//                }
+
+//                if (DateTime.Now - SetDataRealTimeLastRender < new TimeSpan(0, 0, 2)) return;
+//                SetDataRealTimeLastRender = DateTime.Now;
+
+//                foreach (MKSS.Model.SensorData data in datas.Values)
+//                {
+
+//                    //检测中批次历史数据加上实时数据
+//                    if (!data.F_DataValueEmp && dic_data.ContainsKey(data.F_SensorId))
+//                    {
+
+                        
+
+//                        var s = ScatterPlotDic.FirstOrDefault(w => w.Key == data.F_SensorId);
+//                        if (s.Key != null)
+//                        {
+
+//                            ScatterPlot _ScatterPlot = s.Value;
+//                            if (_ScatterPlot == null)
+//                            {
+//                                ScatterPlotDic[data.F_SensorId] = AddScatterPlot(data.F_SensorId);// wpfPlot1.Plot.AddScatter(dic_data[data.F_SensorId].Keys.ToArray(), dic_data[data.F_SensorId].Values.ToArray());
+//                                if (ScatterPlotDic[data.F_SensorId] != null)
+//                                {
+
+//                                }
+//                            }
+//                            else
+//                            {
+//                                //更新之前，先截取短数据
+//                                //_ScatterPlot.Update(dic_x[data.F_SensorId].ToArray(), dic_y[data.F_SensorId].ToArray());
+//                                UpdateScatterPlot(_ScatterPlot, data.F_SensorId);
+//                            }
+
+//                            emp = false;
+
+//                            vLine.X = data.F_AddTime;
+//                            //hLine.Y = data.F_DataValue;
+
+
+
+//                        }
+//                    }
+//                }
+
+//                if (!emp)
+//                {
+//                    if (DateTime.Now - SetDataRealTimeLastRender > new TimeSpan(0, 0, 2))
+//                    {
+//                        SetDataRealTimeLastRender = DateTime.Now;
+//                        wpfPlot1.Render();
+//                    }
+//                }
+
+//            }
+
+
+//        }
+//        DateTime SetDataRealTimeLastRender = DateTime.MinValue;//避免刷新太快了，卡界面
+
+//        void UpdateScatterPlot(ScatterPlot _ScatterPlot,string F_SensorId) {
+//            //更新之前，先截取短数据
+//            var sel = dic_data[F_SensorId];
+//            _ScatterPlot.Update(sel.Keys.ToArray(), sel.Values.ToArray());
+//        }
+//        ScatterPlot AddScatterPlot( string F_SensorId)
+//        {
+//            //更新之前，先截取短数据
+//            var sel = dic_data[F_SensorId];
+//            if (sel.Count == 0) return null;
+//            ScatterPlot ret = wpfPlot1.Plot.AddScatter(sel.Keys.ToArray(), sel.Values.ToArray());
+//            ret.MarkerShape = MarkerShape.none;
+//            return ret;
+//        }
+
+//        private void OnMouseMove(object sender, MouseEventArgs e)
+//        {
+//            //int pixelX = (int)e.MouseDevice.GetPosition(wpfPlot1).X;
+//            //int pixelY = (int)e.MouseDevice.GetPosition(wpfPlot1).Y;
+
+//            //(double coordinateX, double coordinateY) = wpfPlot1.GetMouseCoordinates();
+
+//            //vLine.X = coordinateX;
+//            //hLine.Y = coordinateY;
+
+//            //wpfPlot1.Render();
+//        }
+
+//        int xmin_sec = 0;
+//        int xmax_sec = 10 * 60;
+//        public static int XMinValue { get; set; } = -1;
+//        public static int XMaxValue { get; set; } = -1;
+//        public void SetSpan(int value,int min,int max)
+//        {
+//            if (XMinValue < 0) {
+//                XMinValue = min;
+//            }
+//            if (XMaxValue < 0)
+//            {
+//                XMaxValue = max> xmax_sec? xmax_sec: max;
+//            }
+//            vLine.X = value;
+//            if (value + (int)(xmax_sec * 0.3) > XMaxValue) {
+//                XMaxValue = value + (int)(xmax_sec * 0.3);
+//                XMinValue = value + (int)(xmax_sec * 0.3) - xmax_sec;
+//            }
+//            if (value < XMinValue)
+//            {
+//                XMinValue = value;
+//                XMaxValue = (value + xmax_sec)> max? max: (value + xmax_sec);
+//            }
+//            wpfPlot1.Plot.SetAxisLimitsX(XMinValue, XMaxValue);
+//            wpfPlot1.Render();
+
+//        }
+
+//        private void LockX_Checked(object sender, RoutedEventArgs e)
+//        {
+//            if (this.LockX != null) wpfPlot1.Configuration.LockVerticalAxis = (this.LockX.IsChecked == null || !this.LockX.IsChecked.Value);
+//            if(this.LockY!=null) wpfPlot1.Configuration.LockHorizontalAxis = (this.LockY.IsChecked == null || !this.LockY.IsChecked.Value);
+//        }
+
+//    }
+
+
+//    public class ChartDataCacheItemx
+//    {
+//        SortedDictionary<double, double> cache = new SortedDictionary<double, double>();
+//        public static int XMinValue { get { return UIZhuiSuC10ChartOld.XMinValue; } }
+//        public static int XMaxValue { get { return UIZhuiSuC10ChartOld.XMaxValue; } }
+//        public int Count { get { return cache.Count; } }
+
+//        public SortedDictionary<double, double>.KeyCollection Keys { get { return cache.Keys; } }
+//        public SortedDictionary<double, double>.ValueCollection Values { get { return cache.Values; } }
+
+//        public double this[double dt]
+//        {
+//            get
+//            {
+//                return cache[dt];
+//            }
+//            set
+//            {
+//                cache[dt] = value;
+//            }
+//        }
+
+//        internal void Add(double f_AddTime, double f_DataValue)
+//        {
+//            int size = cache.Count;//动态长度
+//            for (int i = 0; i < cache.Count; i++)//删除界限外数据
+//            {
+//                double k = cache.ElementAt(0).Key;
+//                if (k < XMinValue)
+//                {
+//                    cache.Remove(k);
+//                    size = cache.Count;
+//                    i--;
+//                }
+//                else
+//                {
+//                    break;
+//                }
+//            }
+//            for (int i = cache.Count - 1; i >= 0; i--)//删除界限外数据
+//            {
+//                double k = cache.ElementAt(cache.Count - 1).Key;
+//                if (k > XMaxValue)
+//                {
+//                    cache.Remove(k);
+//                    size = cache.Count;
+//                    i++;
+//                }
+//                else
+//                {
+//                    break;
+//                }
+//            }
+//        }
+
+//        internal bool ContainsKey(double f_AddTime)
+//        {
+//            return cache.ContainsKey(f_AddTime);
+//        }
+
+//    }
+//}

@@ -1,0 +1,68 @@
+﻿<Window x:Class="MKSS.APP.UIBiaoDing.UISerialNoDefine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MKSS.APP.UIBiaoDing"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Loaded="Window_Loaded"
+        Title="设备串号编号规则" Height="230" Width="390">
+    <TabControl TabStripPlacement="TOp" >
+        <TabItem Header="编号规则" Name="TabItemSingle">
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32*" />
+                    <ColumnDefinition Width="32*" />
+                    <ColumnDefinition Width="32*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                </Grid.RowDefinitions>
+                 
+                <ComboBox  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                    x:Name="TxtProductList"  Margin="10,0,10,0"   
+                    DisplayMemberPath="Name"
+                    Style="{StaticResource MaterialDesignFilledComboBox}"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledComboBoxEnabledComboBox}" >
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <materialDesign:PackIcon Kind="FormatListBulletedType" />
+                            <TextBlock Text="产品型号" FontSize="14" FontWeight="Bold" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                    <ComboBoxItem Content="COM1" />
+                    <ComboBoxItem Content="Item 2" />
+                    <ComboBoxItem Content="Item 3" />
+                </ComboBox>
+
+                <TextBox  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                        x:Name="OrderNumber"  Margin="10,0,10,0" 
+                        Text=""         
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        materialDesign:TextFieldAssist.PrefixText=""  ToolTip="举例：串号，210036900166，2100369 是编号前缀，00166表示5位单内流水号"
+                        materialDesign:TextFieldAssist.SuffixText="+ *****（五位流水号）" Cursor="IBeam">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <TextBlock x:Name="OrderNumberDesc" Text="编号前缀，7位数字" ToolTip="举例：串号，210036900166，2100369 是编号前缀，00166表示5位单内流水号" FontSize="10" FontWeight="Bold" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>  
+
+                
+                <Button Grid.Column="2" Grid.Row="2" 
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Margin="0,3,10,0" Click="BtnScrwd_Click"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnScrwd" Content="确定" Background="#FF0B9F57" />
+                
+            </Grid>
+            
+        </TabItem>
+        
+
+    </TabControl>
+   
+</Window>

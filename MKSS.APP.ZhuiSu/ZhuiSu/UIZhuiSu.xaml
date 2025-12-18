@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="MKSS.APP.ZhuiSu.UIZhuiSu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MKSS.APP.ZhuiSu"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             mc:Ignorable="d" Foreground="Black"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:s="https://github.com/canton7/Stylet" 
+             d:DesignHeight="1000" d:DesignWidth="1800">
+    <UserControl.DataContext>
+        <local:UIZhuiSuModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="MTextcolorBrush" Color="#FF233177" />
+        <Style x:Key="MaterialDesignFloatingHintTextBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+            <Setter Property="Foreground" Value="#FF233177"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="0" Grid.RowSpan="3" SelectionChanged="TabControl_SelectionChanged"
+          Style="{StaticResource MaterialDesignNavigatilRailTabControl}" materialDesign:ColorZoneAssist.Mode="Light">
+
+            <TabItem  ToolTip="当前检测任务" x:Name="TabItemCurrent"  
+                Header="{materialDesign:PackIcon Kind=PlayNetworkOutline, Size=39}"
+                Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="100*"/>
+                        <RowDefinition Height="0"/>
+                    </Grid.RowDefinitions>
+                    <local:UIZhuiSuC64 x:Name="UIZhuiSuC64" Grid.Row="1" Margin="0,0,0,0"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem ToolTip="所有检测任务" x:Name="TabItemAll"  
+                Header="{materialDesign:PackIcon Kind=ClipboardListOutline, Size=39}"
+                Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="100*"/>
+                        <RowDefinition Height="0"/>
+                    </Grid.RowDefinitions>
+                    <local:UIZhuiSuTaskList x:Name="UIZhuiSuCGK" Grid.Row="1" Margin="0,0,0,0"/>
+
+                </Grid>
+            </TabItem>
+ 
+            
+        </TabControl>
+  
+
+    </Grid>
+</UserControl>

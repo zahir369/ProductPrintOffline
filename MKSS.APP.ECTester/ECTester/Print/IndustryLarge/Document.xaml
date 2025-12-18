@@ -1,0 +1,42 @@
+﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              PageWidth="6.00CM" PageHeight="1.37CM" PagePadding="0 0 0 0" 
+              FontSize="9" FontFamily="等线" FontWeight="Bold"  
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+              TextOptions.TextFormattingMode="Display">
+    <FlowDocument.Resources>
+        <Style TargetType="Table" x:Key="TableStyle">
+            <Setter Property="CellSpacing" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="0CM 0CM 0CM 0CM"></Setter>
+            <Setter Property="Margin" Value="0.05CM 0CM 0CM 0CM"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+        </Style>
+        <Style TargetType="TableCell" x:Key="CellStyle">
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+            <Setter Property="Padding" Value="0 0CM 0 0"></Setter>
+        </Style>
+        <Style TargetType="BlockUIContainer" x:Key="BlockUIContainerStyle">
+            <Setter Property="Padding" Value="0CM 0CM 0CM 0CM"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+            <Setter Property="Margin" Value="2.05CM 0.2CM 0CM 0CM"></Setter>
+        </Style>
+
+    </FlowDocument.Resources>
+
+    <Table Style="{StaticResource TableStyle}">
+        <Table.Columns>
+            <TableColumn ></TableColumn>
+        </Table.Columns>
+        <TableRowGroup Name="rowsDetails">
+            <TableRow >
+                <TableCell Style="{StaticResource CellStyle}" >
+                    <BlockUIContainer Style="{StaticResource BlockUIContainerStyle}">
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="1.01nA/ppm" ></TextBlock>
+                    </BlockUIContainer>
+                </TableCell> 
+            </TableRow>
+        </TableRowGroup>
+    </Table>
+      
+</FlowDocument>

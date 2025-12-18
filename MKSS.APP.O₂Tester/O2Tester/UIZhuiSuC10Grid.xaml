@@ -1,0 +1,251 @@
+﻿<UserControl x:Class="MKSS.APP.O2Tester.UIZhuiSuC10Grid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MKSS.APP.O2Tester"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:s="https://github.com/canton7/Stylet" 
+             mc:Ignorable="d" BorderThickness="0" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <local:DataColorConverter x:Key="DataColorConverterStyle"/>
+            <Style TargetType="DataGrid" >
+                <Setter Property="BorderBrush" Value="{DynamicResource UIZhuiSuBrush}" />
+                <Setter Property="HorizontalGridLinesBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#060B26"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalGridLinesBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#060B26"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="DataGridColumnHeader" >
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"/>
+                <Setter Property="Foreground" Value="LightGray"/>
+                <Setter Property="Height" Value="28"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <TextBlock  x:Name="textBlock"
+             Text="{Binding Path=AddressString,Mode=TwoWay}" 
+             FontSize="160" Foreground="LightGray" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,0,0"  />
+
+        <Border BorderBrush="{DynamicResource UIZhuiSuBrush}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="0">
+            <DataGrid x:Name="dataGrid" Margin="0,0,0,0"  Background="{DynamicResource MaterialDesignPaper}" Foreground="LightGray"
+                      ItemsSource="{Binding}" IsReadOnly="True" AutoGenerateColumns="False"  BorderThickness="0" SelectionMode="Extended"  SelectionUnit="Cell" 
+                      VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" >
+                <DataGrid.ContextMenu>
+                    <ContextMenu ContextMenuService.IsEnabled="{Binding IsContextMenuVisible}">
+                        <MenuItem Header="复制(Ctrl+C)" Click="MenuItem_Click"/>
+                        <MenuItem Header="导出EXCEL(ALT+E)" Click="MenuItem_Click_1"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.RowStyle>
+                    <Style TargetType = "{x:Type DataGridRow}" >
+                        <Setter Property="Foreground" Value="LightGray"/>
+                        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/> 
+                        <Setter Property="MinHeight" Value="21"/>
+                        <Setter Property="MaxHeight" Value="21"/>
+                        <Setter Property="FontSize" Value="12"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.CellStyle>
+                    <Style TargetType = "{x:Type DataGridCell}" >
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </DataGrid.CellStyle>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn  Header="位置"  Width="60*" ClipboardContentBinding="{Binding WEIZHI}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding WEIZHI}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn  Header="最新"  Width="100*" ClipboardContentBinding="{Binding XINHAO_AD}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding XINHAO_AD}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="100*" ClipboardContentBinding="{Binding BD_1}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_1}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="100*" ClipboardContentBinding="{Binding BD_2}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_2}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="100*" ClipboardContentBinding="{Binding BD_3}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_3}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn   Width="100*" ClipboardContentBinding="{Binding BD_4}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_4}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn  Width="100*" ClipboardContentBinding="{Binding BD_5}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_5}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="100*" ClipboardContentBinding="{Binding BD_6}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_6}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn   Width="100*" ClipboardContentBinding="{Binding BD_7}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_7}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn   Width="100*" ClipboardContentBinding="{Binding BD_8}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_8}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn   Width="100*" ClipboardContentBinding="{Binding BD_9}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_9}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn   Width="100*" ClipboardContentBinding="{Binding BD_10}">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIZhuiSuBrush}"></Setter>
+                                <Setter Property="Foreground" Value="LightGray"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding BD_10}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border> 
+        
+
+    </Grid>
+</UserControl>

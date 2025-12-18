@@ -1,0 +1,12 @@
+C:\Users\Administrator>D:\智慧工厂生产数字化管理系统-老化观察服务\MKSS.APP.LaoHuaService.exe
+Unhandled exception. System.TypeInitializationException: The type initializer for '<>c' threw an exception.
+ ---> System.Exception: This assembly is protected by an unregistered version of Eziriz's ".NET Reactor"! This assembly won't further work.
+   at a1pA5pEejeUQ0f6sb2.bHSLSdrgm2bkrjdUo2.lmnEWin3uc2AP()
+   at MKSS.WindwsService.DeviceMonitor.Program.<>c..cctor()
+   --- End of inner exception stack trace ---
+   at MKSS.WindwsService.DeviceMonitor.Program.CreateHostBuilder(String[] args) in D:\WORK\Factory\MKSS.APP.LaoHuaService\Program.cs:line 84
+   at MKSS.WindwsService.DeviceMonitor.Program.Main(String[] args) in D:\WORK\Factory\MKSS.APP.LaoHuaService\Program.cs:line 79
+
+C:\Users\Administrator>
+
+

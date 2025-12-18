@@ -1,0 +1,61 @@
+﻿<Window x:Class="MKSS.APP.BiaodingAlcohol.UIBiaoDing.UISheBeiBiaoChartWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MKSS.APP.BiaodingAlcohol.UIBiaoDing"
+        xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
+        mc:Ignorable="d" ShowInTaskbar="False"  
+        Title="历史曲线" Height="430" Width="1400">
+    <Window.Resources>
+        <local:VisibilityToCheckedConverter x:Key="VisibilityToCheckedConverter"/>
+        <ContextMenu x:Key="ContextMenu">
+            <MenuItem Name="btnSelectAll" Header="全　选" Click="btnSelectAll_Click"/>
+            <MenuItem Name="btnUnSelectAll" Header="全不选" Click="btnUnSelectAll_Click"/>
+            <MenuItem Name="btnRevSelectAll" Header="反　选" Click="btnRevSelectAll_Click"/>
+            <Separator></Separator>
+            <MenuItem Name="Refresh" Header="刷新" Click="Refresh_Click"/>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid Margin="0 0 20 0" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="69*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <d3:Chart Name="plotter"  PlotHeight="1050" PlotWidth="880" PlotOriginX="-10" PlotOriginY="-20"  ToolTip="右键全选或反选" ContextMenu="{StaticResource ContextMenu}"
+                  PreviewMouseWheel="plotter_MouseWheel" MouseLeftButtonDown="plotter_MouseLeftButtonDown"
+                  IsHorizontalNavigationEnabled="True" IsVerticalNavigationEnabled="True" Grid.ColumnSpan="2" >
+            <d3:Chart.Title>
+                <TextBlock x:Name="ChartTitle" FontWeight="Bold" HorizontalAlignment="Center" FontSize="21" Margin="0,5,0,5"></TextBlock>
+            </d3:Chart.Title>
+            <d3:Chart.LegendContent>
+                <d3:LegendItemsPanel>
+                    <d3:LegendItemsPanel.Resources>
+                        <DataTemplate x:Key="InteractiveDataDisplay.WPF.LineGraph">
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=Visibility, Converter={StaticResource VisibilityToCheckedConverter}, Mode=TwoWay}"  />
+                                <Line Width="15" Height="15" X1="0" Y1="0" X2="15" Y2="15" Stroke="{Binding Path=Stroke}" StrokeThickness="6"/>
+                                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Description}" />
+                                <Button x:Name="BtnSetQualified" Tag="{Binding Path=Tag}" Click="BtnSetQualified_Click"
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"  
+                                    Background="{Binding Path=DataContext}" Width="16" Height="16" BorderBrush="Transparent" ></Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </d3:LegendItemsPanel.Resources>
+                </d3:LegendItemsPanel>
+            </d3:Chart.LegendContent>
+            <Grid Name="lines" />
+        </d3:Chart>
+        <!--<CheckBox x:Name="SelectX" IsChecked="False" Margin="0 10 310 0" HorizontalAlignment="Right" VerticalAlignment="Top" Checked="SelectX_Checked" Unchecked="SelectX_Checked" Content="选" Grid.Column="1" />
+        <CheckBox x:Name="SelectXRev" IsChecked="False" Margin="0 10 270 0" HorizontalAlignment="Right" VerticalAlignment="Top" Checked="SelectXRev_Checked" Unchecked="SelectXRev_Checked" Content="不" Grid.Column="1" />-->
+        <CheckBox x:Name="LockX" IsChecked="True" Margin="0 10 110 0" HorizontalAlignment="Right" VerticalAlignment="Top" Checked="LockX_Checked" Unchecked="LockX_Checked" Content="缩放数值" Grid.Column="1" />
+        <CheckBox x:Name="LockY" IsChecked="False" Margin="0 10 190 0" HorizontalAlignment="Right" VerticalAlignment="Top" Checked="LockX_Checked" Unchecked="LockX_Checked" Content="缩放时间" Grid.Column="1" />
+        <Button  Style="{StaticResource MaterialDesignRaisedButton}"  HorizontalAlignment="Right" VerticalAlignment="Top"  Grid.Column="1" Height="26"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0"  materialDesign:ShadowAssist.ShadowDepth="Depth1" Click="BtnExport_Click"
+                     x:Name="BtnExport" Content="导出结果" Background="#FF0029FF"  Margin="0 5 6 0"/>
+    </Grid>
+</Window>

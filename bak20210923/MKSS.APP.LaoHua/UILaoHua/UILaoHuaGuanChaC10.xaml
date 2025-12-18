@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="MKSS.APP.LaoHua.UILaoHuaGuanChaC10"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MKSS.APP.LaoHua"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="800" d:DesignWidth="1800">
+
+    <UserControl.DataContext>
+        <local:UILaoHuaGuanChaC10Model/>
+    </UserControl.DataContext>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="43"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="12*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="TimeNow" Grid.Row="0" Grid.Column="1" Content="2021-02-02 12:00:00" VerticalAlignment="Center" FontSize="15"  FontWeight="Bold"  Foreground="#FF000F59" />
+            <Border   BorderThickness="0" BorderBrush="LightGray" Margin="10,10,10,10" >
+                <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Left" FlowDirection="LeftToRight" Width="1235" >
+                    <Label Content="  当前批次  " VerticalAlignment="Center" FontSize="15"  FontWeight="Bold"  Foreground="#FF000F59" />
+                    <ComboBox Width="390"
+                    x:Name="TxtBatchList"  Margin="10,0,10,5" SelectionChanged="TxtBatchList_SelectionChanged" 
+                    Text="{Binding TxtBatchList, UpdateSourceTrigger=PropertyChanged}" 
+                    DisplayMemberPath="F_BatchName" SelectedValuePath="F_BatchId" 
+                    IsEnabled="{Binding Path=IsChecked }" >
+                        <ComboBoxItem Content="COM1" />
+                        <ComboBoxItem Content="Item 2" />
+                        <ComboBoxItem Content="Item 3" />
+                    </ComboBox>
+                    <TextBlock Text="  " FontWeight="Bold" VerticalAlignment="Center" Width="10" Foreground="#FF000F59"  />
+
+                    <Button
+                    x:Name="BtnAddBatch" Click="BtnAddBatch_Click" 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="120"   
+                    ToolTip="" Cursor="Hand">
+                        <TextBlock Text="新建" />
+                    </Button>
+   
+                    
+                    <Button
+                    x:Name="BtnFinishBoard" Click="BtnFinishBoard_Click" 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="120"   
+                    ToolTip="" Cursor="Hand">
+                        <TextBlock Text="老化结束" />
+                    </Button>
+
+                    <materialDesign:PopupBox  Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right"
+                        StaysOpen="True" x:Name="BtnFinishBoardExt"  Foreground="Red" 
+                        IsEnabled="{Binding IsChecked, ElementName=PopupEnabled}">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                            <Button x:Name="BtnReadSerialNo"  Content="读取序列号" Foreground="DarkBlue" Click="BtnReadSerial_Click" ToolTip="读取序列号" />
+                            <Button x:Name="BtnReadTime" Content="读取设备时间" Foreground="DarkBlue" Click="BtnReadTime_Click" ToolTip="读取传感器时间、传感器出厂日期" />
+                            <Button x:Name="BtnSetSerialNo"  Content="生成序列号" Foreground="Red" Click="BtnSetSerialNo_Click" ToolTip="写入序列号" />
+                            <Button x:Name="BtnSetTime"  Content="生成设备时间" Foreground="Red" Click="BtnSetTime_Click" ToolTip="写入传感器时间、传感器出厂日期" />
+                            <Button x:Name="BtnSetSerialNoPart"  Content="生成序列号（只处理有问题的）" Foreground="Red" Click="BtnSetSerialNoPart_Click" ToolTip="写入序列号，只处理序列号有问题的传感器" />
+                            <Button x:Name="BtnSetTimePart"  Content="生成设备时间（只处理有问题的）" Foreground="Red" Click="BtnSetTimePart_Click" ToolTip="写入传感器时间、传感器出厂日期，只处理设备时间有问题的传感器" />
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+
+                    <Button
+                        x:Name="BtnExcelExport" Click="BtnExcelExport_Click" 
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                        materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                        Height="36" Width="120"   
+                        ToolTip="" Cursor="Hand">
+                        <TextBlock Text="导出结果" />
+                    </Button>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+            
+        <Grid x:Name="grid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <local:UILaoHuaGuanChaC10Grid Grid.Column="1" Grid.Row="0" Margin="0,0,0,0" BorderThickness="9,9,1,1" BorderBrush="{DynamicResource UILaoHuaBrush}"/>
+            <local:UILaoHuaGuanChaC10Grid Grid.Column="0" Grid.Row="0" Margin="0,0,3,0" BorderThickness="1,9,9,1" BorderBrush="{DynamicResource UILaoHuaBrush}" />
+            <local:UILaoHuaGuanChaC10Grid Grid.Column="1" Grid.Row="1" Margin="0,0,0,0" BorderThickness="9,1,1,9" BorderBrush="{DynamicResource UILaoHuaBrush}"/>
+            <local:UILaoHuaGuanChaC10Grid Grid.Column="0" Grid.Row="1" Margin="0,0,3,0" BorderThickness="1,1,9,9" BorderBrush="{DynamicResource UILaoHuaBrush}"/>
+        </Grid>
+        <ListBox Grid.Row="2"
+              Style="{StaticResource MaterialDesignChoiceChipListBox}"
+              x:Name="gridPager" SelectionChanged="gridPager_SelectionChanged">
+            <ListBoxItem Content="1-2" IsSelected="True"/>
+            <ListBoxItem Content="3-4" />
+            <ListBoxItem Content="5-6" />
+        </ListBox>
+
+
+        <ProgressBar Grid.Column="0" Grid.Row="1" Width="50" Height="50" Visibility="Hidden" x:Name="ProgressNow"
+                Style="{StaticResource MaterialDesignCircularProgressBar}"
+                Value="90" IsIndeterminate="True" />
+    </Grid>
+</UserControl>

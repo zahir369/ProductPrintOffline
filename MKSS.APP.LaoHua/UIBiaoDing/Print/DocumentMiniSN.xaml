@@ -1,0 +1,53 @@
+﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              PageWidth="3.75CM" PageHeight="1.78CM" PagePadding="0 0 0 0" 
+              FontSize="10" FontFamily="宋体"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+              TextOptions.TextFormattingMode="Display">
+    <FlowDocument.Resources>
+        <Style TargetType="Table" x:Key="BorderedTable">
+            <Setter Property="CellSpacing" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="0.00CM"></Setter>
+            <Setter Property="Margin" Value="0.5CM 0CM 0.5CM 0"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+        </Style>
+        <Style TargetType="TableCell" x:Key="BorderedCell">
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+            <Setter Property="Padding" Value="0 0.13CM 0 0"></Setter>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="ParagraphCellImage">
+            <Setter Property="Margin" Value="0.2CM 0.28CM 0 0"></Setter>
+        </Style>
+        <Style TargetType="Image" x:Key="ParagraphImage">
+            <Setter Property="Width" Value="1.2CM"></Setter>
+            <Setter Property="Height" Value="1.2CM"></Setter>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="ParagraphCellTextL1">
+            <Setter Property="Margin" Value="0CM 0CM 1CM 0"></Setter>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="ParagraphCellTextL2">
+            <Setter Property="Margin" Value="0CM 0CM 1CM 0"></Setter>
+        </Style>
+    </FlowDocument.Resources>
+
+    <Table Style="{StaticResource BorderedTable}">
+        <Table.Columns>
+            <TableColumn Width="150"></TableColumn> 
+        </Table.Columns>
+        <TableRowGroup Name="rowsDetails">
+            <TableRow >
+                <TableCell Style="{StaticResource BorderedCell}" >
+                    <Paragraph Style="{StaticResource ParagraphCellImage}">
+                        <Image  />
+                        <Floater HorizontalAlignment="Right" >
+                            <Paragraph Style="{StaticResource ParagraphCellTextL1}">SN：1111111111111111</Paragraph>
+                            <Paragraph Style="{StaticResource ParagraphCellTextL2}">SN：1111111111111111</Paragraph>
+                        </Floater>
+                    </Paragraph>
+                </TableCell>
+            </TableRow> 
+        </TableRowGroup>
+    </Table>
+    
+      
+</FlowDocument>

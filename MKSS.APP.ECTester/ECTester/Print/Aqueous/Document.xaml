@@ -1,0 +1,116 @@
+﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              PageWidth="4.00CM" PageHeight="1.50CM" PagePadding="0 0 0 0" 
+              FontSize="9" FontFamily="等线" FontWeight="Bold"  
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+              TextOptions.TextFormattingMode="Display">
+    <FlowDocument.Resources>
+        <Style TargetType="Table" x:Key="TableStyle">
+            <Setter Property="CellSpacing" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="0CM 0CM 0CM 0CM"></Setter>
+            <Setter Property="Margin" Value="0.05CM 0CM 0CM 0CM"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+        </Style>
+        <Style TargetType="TableCell" x:Key="CellStyle">
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+            <Setter Property="Padding" Value="0 0CM 0 0"></Setter>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="ParagraphStyle">
+            <Setter Property="Padding" Value="0CM 0CM 0CM 0CM"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+            <Setter Property="Margin" Value="0CM 0.05CM 0CM 0CM"></Setter>
+        </Style>
+        
+    </FlowDocument.Resources>
+
+    <Table Style="{StaticResource TableStyle}">
+        <Table.Columns>
+            <TableColumn Width="0.5CM"></TableColumn> 
+        </Table.Columns>
+        <TableRowGroup Name="rowsDetails">
+            <TableRow >
+                <TableCell Style="{StaticResource CellStyle}" > 
+                    <Paragraph Style="{StaticResource ParagraphStyle}" >
+                        <TextBlock Text="1.01nA/ppm" >
+                            <TextBlock.LayoutTransform> 
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource CellStyle}" >
+                    <Paragraph Style="{StaticResource ParagraphStyle}"  >
+                        <TextBlock Text="2.00nA/ppm">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+
+                <TableCell Style="{StaticResource CellStyle}" >
+                    <Paragraph Style="{StaticResource ParagraphStyle}"  >
+                        <TextBlock Text="3.00nA/ppm">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+
+                <TableCell Style="{StaticResource CellStyle}" >
+                    <Paragraph Style="{StaticResource ParagraphStyle}"  >
+                        <TextBlock Text="4.00nA/ppm">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+
+                <TableCell Style="{StaticResource CellStyle}" >
+                    <Paragraph Style="{StaticResource ParagraphStyle}"  >
+                        <TextBlock Text="5.00nA/ppm">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+
+                <TableCell Style="{StaticResource CellStyle}" >
+                    <Paragraph Style="{StaticResource ParagraphStyle}"  >
+                        <TextBlock Text="6.00nA/ppm">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+
+                <TableCell Style="{StaticResource CellStyle}" >
+                    <Paragraph Style="{StaticResource ParagraphStyle}"  >
+                        <TextBlock Text="7.00nA/ppm">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+
+                <TableCell Style="{StaticResource CellStyle}" >
+                    <Paragraph Style="{StaticResource ParagraphStyle}"  >
+                        <TextBlock Text="8.00nA/ppm" Margin="0 -0.3CM 0 0 ">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="-90"></RotateTransform>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+            </TableRow> 
+        </TableRowGroup>
+    </Table>
+    
+      
+</FlowDocument>

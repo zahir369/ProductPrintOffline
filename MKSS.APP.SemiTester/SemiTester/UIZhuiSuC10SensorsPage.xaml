@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="MKSS.APP.SemiTester.UIZhuiSuC10SensorsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MKSS.APP.SemiTester"
+             mc:Ignorable="d"  
+             d:DesignHeight="600" d:DesignWidth="1800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="70*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <local:UIZhuiSuC10Sensors Grid.Row="0" Grid.Column="0" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsLB" />
+        <local:UIZhuiSuC10Sensors Grid.Row="1" Grid.Column="0" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsLT" />
+        <local:UIZhuiSuC10Sensors Grid.Row="2" Grid.Column="0" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsLM" />
+
+
+        <local:UIZhuiSuC10Sensors Grid.Row="0" Grid.Column="1" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsMT" />
+        <local:UIZhuiSuC10Sensors Grid.Row="2" Grid.Column="1" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsMB" />
+
+        <Border Grid.Column="1" Grid.Row="1"  Margin="3,3,3,6" BorderThickness="2,2,2,2" BorderBrush="{DynamicResource BgColorBBoard}">
+            <Border  Margin="10,0,0,0" Width="110" HorizontalAlignment="Center" BorderThickness="2,0,2,0" BorderBrush="{DynamicResource BgColorBBoard}">
+                
+            </Border>
+        </Border>
+        
+        <ItemsControl  Grid.Column="1" Grid.Row="1"  Margin="9,3,9,6"  HorizontalAlignment="Center" 
+             x:Name="UIZhuiSuC10MM" Background="Transparent">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" ItemHeight="27"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="0,0,0,0">
+                        <StackPanel Width="100" Margin="5,0,5,0" Orientation="Horizontal">
+                            <Label Content="{Binding GradeStart, UpdateSourceTrigger=PropertyChanged}" FontSize="13" Margin="5,2,0,0" BorderThickness="0" Foreground="{DynamicResource FontColorStart}"  />
+                            <Label  Background="{Binding GradeColor, UpdateSourceTrigger=PropertyChanged}" Width="25" Margin="3,3,3,0" />
+                            <Label Content="{Binding GradeEnd, UpdateSourceTrigger=PropertyChanged}"  FontSize="13" Margin="-5,2,0,0" BorderThickness="0" Foreground="{DynamicResource FontColorStart}"  />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <local:UIZhuiSuC10Sensors Grid.Row="0" Grid.Column="2" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsRB" />
+        <local:UIZhuiSuC10Sensors Grid.Row="1" Grid.Column="2" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsRT" />
+        <local:UIZhuiSuC10Sensors Grid.Row="2" Grid.Column="2" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsRM" />
+
+        <!--<Border Grid.Column="3" Grid.Row="0"  Margin="3,3,3,6" BorderThickness="2,2,2,2" BorderBrush="{DynamicResource BgColorBBoard}">
+        </Border>-->
+        
+        <local:UIZhuiSuC10TittleSetting x:Name="UIZhuiSuC10TittleSetting" Grid.Row="0" Grid.Column="3" />
+        <local:UIZhuiSuC10Legend Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Margin="3,3,3,6" x:Name="UIZhuiSuC10SensorsSET" />
+
+    </Grid>
+</UserControl>

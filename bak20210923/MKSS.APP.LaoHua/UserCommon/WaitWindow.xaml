@@ -1,0 +1,21 @@
+﻿<Window x:Class="MKSS.APP.UserControls.WaitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MKSS.APP.UserControls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" WindowStyle="None" WindowState="Normal" WindowStartupLocation="CenterScreen"
+        Title="WaitWindow" Height="90" Width="750">
+    <Canvas>
+        <ProgressBar
+                Style="{StaticResource MaterialDesignCircularProgressBar}"
+                Value="50"
+                IsIndeterminate="True" Canvas.Left="10" Canvas.Top="10" Height="27" Width="43" />
+        <TextBlock Canvas.Left="71" Canvas.Top="11">
+          <Run x:Name="InfoTitle" FontSize="18" FontWeight="Bold" Text="加载数据" />
+          <LineBreak />
+          <Run  x:Name="InfoDesc" FontStyle="Italic">正在加载数据，请稍候......</Run>
+        </TextBlock>
+    </Canvas>
+</Window>

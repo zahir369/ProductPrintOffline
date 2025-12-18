@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="MKSS.APP.SemiTester.UIZhuiSuC10SensorItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:MKSS.APP.SemiTester"
+             mc:Ignorable="d" BorderThickness="0" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/> 
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/> 
+        </Grid.RowDefinitions>
+        <Label x:Name="TextPanel" MouseEnter="TextPanel_MouseEnter" MouseLeave="TextPanel_MouseLeave"  MouseMove="TextPanel_MouseMove" VerticalContentAlignment="Center" MouseDoubleClick="TextPanel_MouseDoubleClick"  Margin="1,1,0,0" Grid.Column="0" Grid.Row="0" BorderThickness="0" Content="-" FontSize="13.6" Background="#323C6B" Cursor="Hand"/>
+    </Grid>
+
+</UserControl>

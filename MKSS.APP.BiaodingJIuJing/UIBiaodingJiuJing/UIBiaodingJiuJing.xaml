@@ -1,0 +1,206 @@
+﻿<UserControl x:Class="DeviceDataMonitorWPF.UIBiaodingJiuJing.UIBiaodingJiuJing"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DeviceDataMonitorWPF.UIBiaodingJiuJing"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:DeviceDataMonitorWPF="clr-namespace:DeviceDataMonitorWPF" 
+             mc:Ignorable="d" Foreground="White" FontSize="21" Background="{DynamicResource PrimaryHueLightBrush }" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:s="https://github.com/canton7/Stylet" 
+             d:DesignHeight="1000" d:DesignWidth="1800">
+    <UserControl.DataContext>
+        <local:UIBiaodingJIuJingModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <RoutedUICommand x:Key="BtnConnectCommand"/>
+        <RoutedUICommand x:Key="BtnDisConnectCommand"/>
+        <RoutedUICommand x:Key="BtnZeroSetCommand"/>
+        <RoutedUICommand x:Key="BtnZeroTestCommand"/>
+        <RoutedUICommand x:Key="BtnSpanSetCommand"/>
+        <RoutedUICommand x:Key="BtnSpanTestCommand"/>
+        <RoutedUICommand x:Key="BtnTestSetCommand"/>
+        <RoutedUICommand x:Key="BtnTestTestCommand"/>
+        <RoutedUICommand x:Key="BtnStatusReadCommand"/>
+        <RoutedUICommand x:Key="BtnReadyCommand"/>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource BtnConnectCommand}" Executed="BtnConnectCommand"/>
+        <CommandBinding Command="{StaticResource BtnDisConnectCommand}" Executed="BtnDisConnectCommand"/>
+        <CommandBinding Command="{StaticResource BtnZeroSetCommand}" Executed="BtnZeroSetCommand"/>
+        <CommandBinding Command="{StaticResource BtnZeroTestCommand}" Executed="BtnZeroTestCommand"/>
+        <CommandBinding Command="{StaticResource BtnSpanSetCommand}" Executed="BtnSpanSetCommand"/>
+        <CommandBinding Command="{StaticResource BtnSpanTestCommand}" Executed="BtnSpanTestCommand"/>
+        <CommandBinding Command="{StaticResource BtnTestSetCommand}" Executed="BtnTestSetCommand"/>
+        <CommandBinding Command="{StaticResource BtnTestTestCommand}" Executed="BtnTestTestCommand"/>
+        <CommandBinding Command="{StaticResource BtnStatusReadCommand}" Executed="BtnStatusReadCommand"/>
+        <CommandBinding Command="{StaticResource BtnReadyCommand}" Executed="BtnReadyCommand"/>
+    </UserControl.CommandBindings>
+    <UserControl.InputBindings>
+        <KeyBinding Gesture="Ctrl+C" Command="{StaticResource BtnConnectCommand}" Key="C"/>
+        <KeyBinding Gesture="Ctrl+V" Command="{StaticResource BtnDisConnectCommand}"/>
+        <KeyBinding Gesture="Ctrl+Z" Command="{StaticResource BtnZeroSetCommand}"/>
+        <KeyBinding Gesture="Ctrl+X" Command="{StaticResource BtnZeroTestCommand}"/>
+        <KeyBinding Gesture="Ctrl+S" Command="{StaticResource BtnSpanSetCommand}"/>
+        <KeyBinding Gesture="Ctrl+D" Command="{StaticResource BtnSpanTestCommand}"/>
+        <KeyBinding Gesture="Ctrl+T" Command="{StaticResource BtnTestSetCommand}"/>
+        <KeyBinding Gesture="Ctrl+Y" Command="{StaticResource BtnTestTestCommand}"/>
+        <KeyBinding Gesture="Ctrl+Q" Command="{StaticResource BtnStatusReadCommand}"/>
+        <KeyBinding Gesture="Ctrl+W" Command="{StaticResource BtnReadyCommand}" />
+    </UserControl.InputBindings> 
+    
+    <Grid x:Name="MainGrid" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+        <Border  x:Name="TopGrid"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  BorderThickness="1,1,1,1" BorderBrush="{DynamicResource UILaoHuaBrush}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100*"/>
+                </Grid.RowDefinitions>
+                <ComboBox  Grid.Row="0" Grid.Column="0"  FontSize="32" Height="80"
+                    x:Name="TxtSerialPorts" Margin="0,5,10,0"
+                    Style="{StaticResource MaterialDesignFilledComboBox}" MouseDoubleClick="TxtSerialPorts_MouseDoubleClick"  >
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <materialDesign:PackIcon Kind="SerialPort" />
+                            <TextBlock Text="请选择端口" FontSize="21" FontWeight="Bold" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                    <ComboBoxItem Content="COM1" />
+                    <ComboBoxItem Content="COM2" />
+                    <ComboBoxItem Content="COM3" />
+                </ComboBox>
+                <Button  Grid.Row="0" Grid.Column="1" Margin="10,0,10,5" FontSize="32" Height="80"
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Command="{StaticResource BtnConnectCommand}" 
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnConnect" Content="连接（Ctrl+C）" Background="#FF55F5E7" Cursor="Hand"/>
+                <Button  Grid.Row="0" Grid.Column="2" Margin="10,0,10,5" FontSize="32" Height="80"
+                    Style="{StaticResource MaterialDesignRaisedButton}" Command="{StaticResource  BtnDisConnectCommand}" IsEnabled="True" 
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnDisConnect" Content="断开（Ctrl+V）" Background="#FFF5C5B3" Cursor="Hand"/>
+            </Grid>
+        </Border>
+        <Border  x:Name="TopLeftGrid" Grid.Column="0" Grid.Row="1" BorderThickness="1,1,1,1" BorderBrush="{DynamicResource UILaoHuaBrush}" >
+            <Grid   >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="100*"/> 
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="标零点"  Margin="20,5,0,0"  FontSize="64" FontWeight="Bold" />
+                <Button  Grid.Row="1" Grid.Column="0" Margin="50,20,20,20" FontSize="32" Height="120" IsEnabled="True"
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Command="{StaticResource  BtnZeroSetCommand}" 
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnZeroSet" Content="标定零点连接（Ctrl+Z）" Background="#FF0E7C9C" Cursor="Hand"/>
+                <Button  Grid.Row="1" Grid.Column="1" Margin="20,20,50,20" FontSize="32" Height="120" IsEnabled="True"
+                        Style="{StaticResource MaterialDesignRaisedButton}"   Command="{StaticResource BtnZeroTestCommand}" 
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnZeroTest" Content="读取测试结果（Ctrl+X）" Background="#FF0E7C9C" Cursor="Hand"/>
+                <TextBlock x:Name="BtnZeroInfo" HorizontalAlignment="Right" Text="准备就绪"
+                    Grid.Row="2" Grid.Column="1" FontSize="21" Margin="10,10,10,10" />
+            </Grid> 
+        </Border>
+        <Border  x:Name="TopRightGrid"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"  BorderThickness="1,1,1,1" BorderBrush="{DynamicResource UILaoHuaBrush}">
+            <Grid  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="标Span点"  Margin="20,5,0,0" FontSize="64" FontWeight="Bold" />
+                <Button  Grid.Row="1" Grid.Column="0" Margin="50,20,20,20" FontSize="32" Height="120"
+                    Style="{StaticResource MaterialDesignRaisedButton}" Command="{StaticResource BtnSpanSetCommand}" IsEnabled="True" 
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnSpanSet" Content="标定零点连接（Ctrl+S）" Background="#FF0E7C9C" Cursor="Hand"/>
+                <Button  Grid.Row="1" Grid.Column="1" Margin="20,20,50,20" FontSize="32" Height="120"
+                        Style="{StaticResource MaterialDesignRaisedButton}"  Command="{StaticResource BtnSpanTestCommand}"  IsEnabled="True"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnSpanTest" Content="读取测试结果（Ctrl+D）" Background="#FF0E7C9C" Cursor="Hand"/>
+                <TextBlock x:Name="BtnSpanInfo" HorizontalAlignment="Right" Text="准备就绪"
+                    Grid.Row="2" Grid.Column="1" FontSize="21" Margin="10,10,10,10" />
+            </Grid>
+        </Border>
+        <Border  x:Name="BottomLeftGrid"  Grid.Column="0" Grid.Row="2" BorderThickness="1,1,1,1" BorderBrush="{DynamicResource UILaoHuaBrush}">
+            <Grid  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="被动测试"  Margin="20,5,0,0" FontSize="64" FontWeight="Bold" />
+                <Button  Grid.Row="1" Grid.Column="0" Margin="50,20,20,20" FontSize="32" Height="120"
+                    Style="{StaticResource MaterialDesignRaisedButton}" Command="{StaticResource BtnTestSetCommand}"  IsEnabled="True"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnTestSet" Content="被动测试（Ctrl+T）" Background="#FF0E7C9C" Cursor="Hand"/>
+                <Button  Grid.Row="1" Grid.Column="1" Margin="20,20,50,20" FontSize="32" Height="120"
+                        Style="{StaticResource MaterialDesignRaisedButton}" Command="{StaticResource BtnTestTestCommand}"  IsEnabled="True"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnTestTest" Content="读取测试结果（Ctrl+Y）" Background="#FF0E7C9C" Cursor="Hand"/>
+                <TextBlock x:Name="BtnTestInfo" HorizontalAlignment="Right" Text="准备就绪"
+                    Grid.Row="2" Grid.Column="1" FontSize="21" Margin="10,10,10,10" />
+            </Grid>
+        </Border>
+        <Border  x:Name="BottomRightGrid" Grid.Column="1" Grid.Row="2" BorderThickness="1,1,1,1" BorderBrush="{DynamicResource UILaoHuaBrush}">
+            <Grid  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="其他功能"  Margin="20,5,0,0" FontSize="64" FontWeight="Bold" />
+                <Button  Grid.Row="1" Grid.Column="0" Margin="50,20,20,20" FontSize="32" Height="120"
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Command="{StaticResource BtnStatusReadCommand}"  IsEnabled="True"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnStatusRead" Content="读取模块状态（Ctrl+Q）" Background="#FF0E7C9C" Cursor="Hand"/>
+                <Button  Grid.Row="1" Grid.Column="1" Margin="20,20,50,20" FontSize="32" Height="120"
+                        Style="{StaticResource MaterialDesignRaisedButton}"  Command="{StaticResource BtnReadyCommand}"  IsEnabled="True" 
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnReady" Content="使模块就绪（Ctrl+W）" Background="#FF0E7C9C" Cursor="Hand"/>
+                <TextBlock x:Name="BtnStatusReadInfo" HorizontalAlignment="Right" Text="准备就绪"
+                    Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" FontSize="21" Margin="10,10,10,10" />
+            </Grid>
+        </Border>
+        <Border x:Name="BottomGrid"  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="1,1,1,1" BorderBrush="{DynamicResource UILaoHuaBrush}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="TextLogger" Text="" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"></TextBox>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

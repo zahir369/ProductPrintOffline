@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "MKSS.APP.LaoHuaElectroChemicalService": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

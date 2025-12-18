@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="DeviceDataMonitorWPF.UIBiaoDing.UISheBeiBiaoDingC10Grid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DeviceDataMonitorWPF.UIBiaoDing"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" BorderThickness="0" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <local:DataColorConverter x:Key="DataColorConverterStyle"/>
+            <Style TargetType="DataGrid" >
+                <Setter Property="BorderBrush" Value="#FFF5F7F5" />
+                <Setter Property="HorizontalGridLinesBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#d6c79b"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalGridLinesBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#d6c79b"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="DataGridColumnHeader" >
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Background" Value="{DynamicResource UIBiaoDingBrush}"/>
+                <Setter Property="Foreground" Value="#FF000000"/>
+                <Setter Property="Height" Value="32"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+         
+        <Border BorderBrush="{DynamicResource UIBiaoDingBrush}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="0">
+            <DataGrid x:Name="dataGrid" Margin="0,0,0,0" PreviewKeyUp="dataGrid_PreviewKeyUp"  MouseDoubleClick="dataGrid_MouseDoubleClick" 
+                      ItemsSource="{Binding}" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged" 
+                      VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" >
+                <DataGrid.RowStyle>
+                    <Style TargetType = "{x:Type DataGridRow}" >
+                        <Setter Property="MaxHeight" Value="21"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.CellStyle>
+                    <Style TargetType = "{x:Type DataGridCell}" >
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </DataGrid.CellStyle>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn ClipboardContentBinding="{Binding WEIZHI}" Header="模板列"  Width="80*">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UIBiaoDingBrush}"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding WEIZHI}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTextColumn  Header="实时AD" Binding="{Binding XINHAO_AD}"  Width="100*">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Background" Value="{Binding Path=XINHAO_ADHEGE,Converter={StaticResource DataColorConverterStyle}}"></Setter>
+                                <Setter Property="Foreground" Value="{Binding Path=XINHAO_ADHEGE,Converter={StaticResource DataColorConverterForGroundStyle}}"></Setter>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    
+                    <DataGridTextColumn x:Name="FieldZero" Header="零点AD" Width="130*" Binding="{Binding CANKAO_AD}"/>
+                    <DataGridTextColumn x:Name="FieldSpan" Header="SPAN点AD" Width="130*" Binding="{Binding WENDU_AD}"/>
+                    <DataGridTextColumn Header="标定点浓度" Width="130*" Binding="{Binding CANKAO_YULIU1}"/>
+                    <DataGridTextColumn Header="预留2" Width="100*" Binding="{Binding CANKAO_YULIU2}"/>
+                    <DataGridTextColumn Header="预留3" Width="100*" Binding="{Binding CANKAO_YULIU3}"/>
+                    <DataGridTemplateColumn Header="实时浓度" ClipboardContentBinding="{Binding NONGDU}" Width="130*" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Canvas Background="{Binding Path=NONGDUHEGE,Converter={StaticResource DataColorConverterStyle}}" >
+                                    <TextBlock Foreground="{Binding Path=NONGDUHEGE,Converter={StaticResource  DataColorConverterForGroundStyle}}"  HorizontalAlignment="Center" Text="{Binding NONGDU}"></TextBlock>
+                                </Canvas>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate> 
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="温度1" Width="100*" Binding="{Binding WENDU1}"/>
+                    <DataGridTextColumn Header="温度2" Width="100*" Binding="{Binding WENDU2}"/>
+                    <DataGridTextColumn Header="模拟电压" Width="100*" Binding="{Binding MONIDIANYA}"/>
+                    <DataGridTemplateColumn ClipboardContentBinding="{Binding HEGE_STR}" Header="不良品" Width="100*" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button x:Name="BtnSetQualified"
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Click="BtnSetQualified_Click" Tag="{Binding WEIZHI}"
+                                    Background="{Binding Path=HEGE,Converter={StaticResource DataColorConverterStyle}}" Width="16" Height="16" BorderBrush="Transparent" ></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Canvas Grid.Row="0" Grid.Column="0" Background="Transparent" >
+            <Button 
+                Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                materialDesign:ButtonAssist.CornerRadius="13"  FontSize="14" FontWeight="Bold" 
+                Height="26" Width="53" Canvas.Left="2" Canvas.Top="3" 
+                ToolTip="" Cursor="Hand">
+                <TextBlock x:Name="AddressString" Text="" />
+            </Button>
+        </Canvas>
+    </Grid>
+</UserControl>

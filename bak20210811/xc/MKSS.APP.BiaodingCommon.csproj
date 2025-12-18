@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\PropertyChanged.Fody.3.3.3\build\PropertyChanged.Fody.props" Condition="Exists('..\packages\PropertyChanged.Fody.3.3.3\build\PropertyChanged.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFBF29EB-041C-44EC-942E-C921F1B8FCA9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MKSS.APP.BiaodingAlcohol</RootNamespace>
+    <AssemblyName>MKSS.APP.BiaodingCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>031C2E22F632528512BB4AF4C11AA86850ED9BBF</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MKSS.APP.BiaodingAlcohol_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=5.6.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.6.3\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="InteractiveDataDisplay.WPF, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InteractiveDataDisplay.WPF.1.0.0\lib\net452\InteractiveDataDisplay.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.0\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.0.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=3.3.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.3.3.3\lib\net40\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Converters.Wpf, Version=1.7.1.0, Culture=neutral, PublicKeyToken=b532964b8548be77, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.7.1\lib\net45\SharpVectors.Converters.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Core, Version=1.7.1.0, Culture=neutral, PublicKeyToken=7407205e337c98ef, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.7.1\lib\net45\SharpVectors.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Css, Version=1.7.1.0, Culture=neutral, PublicKeyToken=7a46e3f532fdb787, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.7.1\lib\net45\SharpVectors.Css.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Dom, Version=1.7.1.0, Culture=neutral, PublicKeyToken=517340b6277b1a7a, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.7.1\lib\net45\SharpVectors.Dom.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Model, Version=1.7.1.0, Culture=neutral, PublicKeyToken=2236cfc76b505845, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.7.1\lib\net45\SharpVectors.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Gdi, Version=1.7.1.0, Culture=neutral, PublicKeyToken=03902092284347e3, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.7.1\lib\net45\SharpVectors.Rendering.Gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Wpf, Version=1.7.1.0, Culture=neutral, PublicKeyToken=d0902381100df30e, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.7.1\lib\net45\SharpVectors.Rendering.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Runtime.Wpf, Version=1.7.1.0, Culture=neutral, PublicKeyToken=d16e717f0a981fb9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.7.1\lib\net45\SharpVectors.Runtime.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlSugar, Version=5.0.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.0.3.3\lib\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="Stylet, Version=1.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stylet.1.3.6\lib\net45\Stylet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Core.3.1.1\lib\net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="NModbus\NModbus.Serial\ModbusFactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus.Serial\SerialPortAdapter.cs" />
+    <Compile Include="NModbus\NModbus\Data\DefaultPointSource.cs" />
+    <Compile Include="NModbus\NModbus\Data\DefaultSlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Data\DiscreteCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\FileRecordCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\IModbusMessageDataCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\PointSource.cs" />
+    <Compile Include="NModbus\NModbus\Data\RegisterCollection.cs" />
+    <Compile Include="NModbus\NModbus\Data\SlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Device\ConcurrentModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\GenericPointEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\DiagnosticsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadCoilsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadHoldingRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadInputRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadInputsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\ReadWriteMultipleRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteFileRecordService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteMultipleCoilsService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteMultipleRegistersService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteSingleCoilService.cs" />
+    <Compile Include="NModbus\NModbus\Device\MessageHandlers\WriteSingleRegisterService.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusDevice.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusFunctionServiceBase.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusIpMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusMasterTcpConnection.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSerialMaster.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSerialSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSlave.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusTcpSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\ModbusUdpSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Device\PointEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Device\TcpConnectionEventArgs.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\CrcExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\DictionaryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Enron\EnronModbus.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Functions\Endian.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\Functions\RegisterFunctions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\ModbusFactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Extensions\ModbusMasterEnhanced.cs" />
+    <Compile Include="NModbus\NModbus\FactoryExtensions.cs" />
+    <Compile Include="NModbus\NModbus\GlobalSuppressions.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IConcurrentModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusAsciiTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusFactory.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusFunctionService.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusMessage.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusRtuTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSerialMaster.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSerialTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSlave.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusSlaveNetwork.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IModbusTransport.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\IPointSource.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\ISlaveDataStore.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\ISlaveHandlerContext.cs" />
+    <Compile Include="NModbus\NModbus\Interfaces\LoggingLevel.cs" />
+    <Compile Include="NModbus\NModbus\InvalidModbusRequestException.cs" />
+    <Compile Include="NModbus\NModbus\IO\EmptyTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\IStreamResource.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusAsciiTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusIpTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusRtuTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusSerialTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\ModbusTransport.cs" />
+    <Compile Include="NModbus\NModbus\IO\StreamResourceUtility.cs" />
+    <Compile Include="NModbus\NModbus\IO\TcpClientAdapter.cs" />
+    <Compile Include="NModbus\NModbus\IO\UdpClientAdapter.cs" />
+    <Compile Include="NModbus\NModbus\Logging\ConsoleModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\DebugModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\LoggingExtensions.cs" />
+    <Compile Include="NModbus\NModbus\Logging\ModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\NullModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Logging\TraceModbusLogger.cs" />
+    <Compile Include="NModbus\NModbus\Message\AbstractModbusMessage.cs" />
+    <Compile Include="NModbus\NModbus\Message\AbstractModbusMessageWithData.cs" />
+    <Compile Include="NModbus\NModbus\Message\DiagnosticsRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\IModbusRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ModbusMessageFactory.cs" />
+    <Compile Include="NModbus\NModbus\Message\ModbusMessageImpl.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadCoilsInputsRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadCoilsInputsResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadHoldingInputRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadHoldingInputRegistersResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\ReadWriteMultipleRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\SlaveExceptionResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteFileRecordRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteFileRecordResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleCoilsRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleCoilsResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleRegistersRequest.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteMultipleRegistersResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteSingleCoilRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Message\WriteSingleRegisterRequestResponse.cs" />
+    <Compile Include="NModbus\NModbus\Modbus.cs" />
+    <Compile Include="NModbus\NModbus\ModbusFactory.cs" />
+    <Compile Include="NModbus\NModbus\ModbusFunctionCodes.cs" />
+    <Compile Include="NModbus\NModbus\Resources.cs" />
+    <Compile Include="NModbus\NModbus\SlaveException.cs" />
+    <Compile Include="NModbus\NModbus\SlaveExceptionCodes.cs" />
+    <Compile Include="NModbus\NModbus\Unme.Common\DisposableUtility.cs" />
+    <Compile Include="NModbus\NModbus\Unme.Common\SequenceUtility.cs" />
+    <Compile Include="NModbus\NModbus\Utility\DiscriminatedUnion.cs" />
+    <Compile Include="NModbus\NModbus\Utility\ModbusUtility.cs" />
+    <Compile Include="Pages\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShellViewModel.cs" />
+    <Compile Include="UIBiaodingJiuJing\UIBiaodingJIuJing.xaml.cs">
+      <DependentUpon>UIBiaodingJiuJing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaodingJiuJing\UIBiaodingJIuJingModel.cs" />
+    <Compile Include="UIBiaoDing\Config\BiaoDingConfgig.cs" />
+    <Compile Include="UIBiaoDing\Config\ProductConfig.cs" />
+    <Compile Include="UIBiaoDing\DataColorConverter.cs" />
+    <Compile Include="UIBiaoDing\DataColorConverterForGround.cs" />
+    <Compile Include="UIBiaoDing\Db\BiaoDingSaver.cs" />
+    <Compile Include="UIBiaoDing\Db\BiaoDingService.cs" />
+    <Compile Include="UIBiaoDing\Db\ModelLaohua\Board.cs" />
+    <Compile Include="UIBiaoDing\Db\ModelLaohua\BoardCase.cs" />
+    <Compile Include="UIBiaoDing\Db\ModelLaohua\DataBus.cs" />
+    <Compile Include="UIBiaoDing\Db\Model\Batch.cs" />
+    <Compile Include="UIBiaoDing\Db\Model\Sensor.cs" />
+    <Compile Include="UIBiaoDing\Db\Model\SensorData.cs" />
+    <Compile Include="UIBiaoDing\Db\ScrwdService.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Base\BaseRepository.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Base\BaseServices.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Base\IBaseRepository.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Base\IBaseServices.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Base\IUnitOfWork.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Base\PageModel.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Base\UnitOfWorkScrwd.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Base\UnitOfWork.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\BatchServices.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\IBatchServices.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\ISensorDataServices.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\ISensorServices.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\SensorDataServices.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\SensorServices.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Util\BaseDBConfig.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Util\MainDb.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Util\SqlsugarSetup.cs" />
+    <Compile Include="UIBiaoDing\Db\Service\Util\UtilConvert.cs" />
+    <Compile Include="UIBiaoDing\Signal\ISignal.cs" />
+    <Compile Include="UIBiaoDing\Signal\WX01_StartRead.cs" />
+    <Compile Include="UIBiaoDing\Signal\RX7D_ReadAutoAdjustStatus.cs" />
+    <Compile Include="UIBiaoDing\Signal\RX86_ReadNongDu.cs" />
+    <Compile Include="UIBiaoDing\Signal\RX90_ReadSerialNoXX.cs" />
+    <Compile Include="UIBiaoDing\Signal\RXAC_ReadManufacturingDate.cs" />
+    <Compile Include="UIBiaoDing\Signal\RXB2_ReadDeviceDateTime.cs" />
+    <Compile Include="UIBiaoDing\Signal\RX95_ReadSerialNo.cs" />
+    <Compile Include="UIBiaoDing\Signal\RX9B_ReadLiangCheng.cs" />
+    <Compile Include="UIBiaoDing\Signal\RXA5_ReadVoltageRange.cs" />
+    <Compile Include="UIBiaoDing\Signal\RXA9_ReadOutPutVolage.cs" />
+    <Compile Include="UIBiaoDing\Signal\WX78_WriteModeQuery.cs" />
+    <Compile Include="UIBiaoDing\Signal\WX79_WriteAutoAdjust.cs" />
+    <Compile Include="UIBiaoDing\Signal\WX87_WriteAdjustZero.cs" />
+    <Compile Include="UIBiaoDing\Signal\WX87_WriteAdjustZeroAppend.cs" />
+    <Compile Include="UIBiaoDing\Signal\WX94_WriteSerialNo.cs" />
+    <Compile Include="UIBiaoDing\Signal\WX88_WriteSpan.cs" />
+    <Compile Include="UIBiaoDing\Signal\WX99_WriteLiangCheng.cs" />
+    <Compile Include="UIBiaoDing\Signal\WXA1_WriteTemperature.cs" />
+    <Compile Include="UIBiaoDing\Signal\WXA4_WriteVolageOutPutRange.cs" />
+    <Compile Include="UIBiaoDing\Signal\WXA8_WriteLedStatus.cs" />
+    <Compile Include="UIBiaoDing\Signal\WXAC_WriteManufacturingDate.cs" />
+    <Compile Include="UIBiaoDing\Signal\WXAB_WriteDeviceDateTime.cs" />
+    <Compile Include="UIBiaoDing\Signal\WXFF_StopRead.cs" />
+    <Compile Include="UIBiaoDing\UIBoardCaseSelect.xaml.cs">
+      <DependentUpon>UIBoardCaseSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UIBoardCaseSelectEntity.cs" />
+    <Compile Include="UIBiaoDing\UIScrwSelect.xaml.cs">
+      <DependentUpon>UIScrwSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISerialNo.xaml.cs">
+      <DependentUpon>UISerialNo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoChartWindows.xaml.cs">
+      <DependentUpon>UISheBeiBiaoChartWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingView.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingC05.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingC05.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingC05Grid.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingC05Grid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingC10.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingC10.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingC10Grid.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingC10Grid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingCGK.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingCGK.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingCQT.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingCQT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingCQTGrid.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingCQTGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingLogger.xaml.cs">
+      <DependentUpon>UISheBeiBiaoDingLogger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingViewModel.cs" />
+    <Compile Include="UIBiaoDing\UISheBeiBiaoDingPage.cs" />
+    <Compile Include="UIBiaoDing\Util\Conn\BoardConnectionBoardCase.cs" />
+    <Compile Include="UIBiaoDing\Util\Conn\BoardConnectionNet.cs" />
+    <Compile Include="UIBiaoDing\Util\Conn\AllConnection.cs" />
+    <Compile Include="UIBiaoDing\Util\Conn\BoardConnectionSreial.cs" />
+    <Compile Include="UIBiaoDing\Util\Conn\BoardConnection.cs" />
+    <Compile Include="UIBiaoDing\Util\Conn\TaskInfo.cs" />
+    <Compile Include="UIBiaoDing\Util\DataQualified.cs" />
+    <Compile Include="UIBiaoDing\Util\DialogViewModel.cs" />
+    <Compile Include="UIBiaoDing\Util\EPPlusHelper.cs" />
+    <Compile Include="UIBiaoDing\Util\ExcuteToExcel.cs" />
+    <Compile Include="UIBiaoDing\Util\HttpRestSharp\HttpHelper.cs" />
+    <Compile Include="UIBiaoDing\Util\HttpRestSharp\IRestSharp.cs" />
+    <Compile Include="UIBiaoDing\Util\HttpRestSharp\RestSharpClient.cs" />
+    <Compile Include="UIBiaoDing\Util\IWindowManager.cs" />
+    <Compile Include="UIBiaoDing\Util\CommFactory.cs" />
+    <Compile Include="UIBiaoDing\Util\ModBusBoardLogger.cs" />
+    <Compile Include="UIBiaoDing\Util\ReadMode.cs" />
+    <Compile Include="UIBiaoDing\Util\SensorDataX.cs" />
+    <Compile Include="UIBiaoDing\Util\SensorDataFilter.cs" />
+    <Compile Include="UIBiaoDing\Util\SensorGroupData.cs" />
+    <Compile Include="UIBiaoDing\Util\SensorGroupDataModel.cs" />
+    <Compile Include="UIBiaoDing\Util\StringToByteArray.cs" />
+    <Compile Include="UIBiaoDing\Util\TemPointConfig.cs" />
+    <Compile Include="UIBiaoDing\Util\ViewUtil.cs" />
+    <Compile Include="ULogger\AssemblyTag.cs" />
+    <Compile Include="ULogger\ILog.cs" />
+    <Compile Include="ULogger\License\ComputerEncryptInfo.cs" />
+    <Compile Include="ULogger\License\ComputerInfo.cs" />
+    <Compile Include="ULogger\License\ProductIDS.cs" />
+    <Compile Include="ULogger\License\ProductIDSAttribute.cs" />
+    <Compile Include="ULogger\Log.cs" />
+    <Compile Include="ULogger\LogFactory.cs" />
+    <Compile Include="ULogger\LogFormat.cs" />
+    <Compile Include="ULogger\LogLevel.cs" />
+    <Compile Include="ULogger\LogMessage.cs" />
+    <Compile Include="ULogger\Log\LogTagClass.cs" />
+    <Compile Include="ULogger\Log\LogTagConfig.cs" />
+    <Compile Include="ULogger\Log\ULogDataFilter.cs" />
+    <Compile Include="ULogger\Log\ULogger.cs" />
+    <Compile Include="UserControls\ButtonEx.cs" />
+    <Compile Include="UserControls\ColorUtil.cs" />
+    <Compile Include="UserControls\RingArray.cs" />
+    <Compile Include="UserControls\UserTabItem.xaml.cs">
+      <DependentUpon>UserTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\WaitWindow.xaml.cs">
+      <DependentUpon>WaitWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Pages\ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaodingJiuJing\UIBiaodingJiuJing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UIBoardCaseSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIBiaoDing\UIScrwSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIBiaoDing\UISerialNo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoChartWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingC05.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingC05Grid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingC10.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingC10Grid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingCGK.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingCQT.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingCQTGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIBiaoDing\UISheBeiBiaoDingLogger.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UserTabItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\WaitWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="MKSS.APP.BiaodingCommon.sqlite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Images\Images.rar" />
+    <None Include="Resources\Images\图标.zip" />
+    <None Include="UIBiaoDing\UISheBeiBiaoDing.xlsx" />
+    <None Include="美克盛世标定软件使用说明书.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\biaoding.png" />
+    <Resource Include="Resources\Images\huanjing.png" />
+    <Resource Include="Resources\Images\logo.png" />
+    <Resource Include="Resources\Images\logo2.png" />
+    <Resource Include="Resources\Images\logo3.png" />
+    <Resource Include="Resources\Images\logo5.png" />
+    <Resource Include="Resources\Images\shebei.png" />
+    <Resource Include="Resources\Images\shezhi.png" />
+    <Resource Include="Resources\Images\tongji.png" />
+    <Resource Include="Resources\Images\图标\biaoding.png" />
+    <Resource Include="Resources\Images\图标\huanjing.png" />
+    <Resource Include="Resources\Images\图标\shebei.png" />
+    <Resource Include="Resources\Images\图标\shezhi.png" />
+    <Resource Include="Resources\Images\图标\tongji.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bitbug_favicon.ico" />
+    <Resource Include="mixsen_favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NModbus\NModbus.SerialPortStream\" />
+    <Folder Include="NModbus\NModbus\Data\Properties\" />
+    <Folder Include="UIBiaoDing\Db\Model\BusModel\" />
+    <Folder Include="UIBiaoDing\Db\Model\ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.6.4.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.4.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\PropertyChanged.Fody.3.3.3\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.3.3.3\build\PropertyChanged.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\Fody.6.4.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.4.0\build\Fody.targets')" />
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>

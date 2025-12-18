@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyName>NModbus</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NModbus.UnitTests\**" />
+    <EmbeddedResource Remove="NModbus.UnitTests\**" />
+    <None Remove="NModbus.UnitTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="NModbus.SerialPortStream\SerialPortStreamAdapter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GodSharp.SerialPort" Version="1.2.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MKSS.Util\MKSS.Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NModbus.SerialPortStream\" />
+    <Folder Include="NModbus\Data\Properties\" />
+  </ItemGroup>
+
+</Project>

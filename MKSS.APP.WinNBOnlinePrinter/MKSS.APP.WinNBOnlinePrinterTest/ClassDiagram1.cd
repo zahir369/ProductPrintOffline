@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.Ass.TmpPrintAbs" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAoAABABAAAAEAAAAAkABAABAAAAAAIADAJBEAAA=</HashCode>
+      <FileName>Ass\TmpPrintAbs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.Ass.TmpPrintJinKa">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAIAAACAAAEAAA=</HashCode>
+      <FileName>Ass\TmpPrintJinKa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.Ass.TmpPrintNB">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAIAAACAAAEAAA=</HashCode>
+      <FileName>Ass\TmpPrintNB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.Ass.TmpPrintAlarmImei">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAIAAACAAAEAAA=</HashCode>
+      <FileName>Ass\TmpPrintAlarmImei.cs</FileName>
+      <NewMemberFileName>Ass\TmpPrintNBIMEI.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.Ass.TmpPrintOther">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAIAAACAAAEAAA=</HashCode>
+      <FileName>Ass\TmpPrintOther.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.DatabaseObject" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAEAAASgAAQAAAEAAEAAEACkEBAgCUCACBAAAAgA=</HashCode>
+      <FileName>DatabaseObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.ColumnAttribute" Collapsed="true">
+    <Position X="20.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBEAAAAAAAIggIAAgAIAQAQAAAAAAAAAABAEAACgEAA=</HashCode>
+      <FileName>DatabaseObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.TableAttribute" Collapsed="true">
+    <Position X="13.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEAAAAAAAAgAIAAAAAAAAQAABAAAAAAAAAEAAABgAA=</HashCode>
+      <FileName>DatabaseObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.SessionObject" Collapsed="true">
+    <Position X="23.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BASAAAABAAAAAAEAAAAAQAAAAAgCAAAAACAAAACAAAA=</HashCode>
+      <FileName>DatabaseObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.ITransaction" Collapsed="true">
+    <Position X="23.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEABAAAAAAUCAAAAAAAAAAACAACAAAAAAAAAAAA=</HashCode>
+      <FileName>DatabaseObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.FormAppIMEI" Collapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JCBZCGgCBHBIEBMBJAiwCAIPgAsEgggAAEQACYAQAKY=</HashCode>
+      <FileName>FormAppIMEI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.FormAssemble" Collapsed="true">
+    <Position X="13.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>pABRLWwCAuBAkDEAJAiQQCIOAotsAAgAcASRAQFEAKI=</HashCode>
+      <FileName>FormAssemble.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.FormPacking" Collapsed="true">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JCFRCOgCBHBIEBMBJAiyAAILgAskgIgAQBQACYAAAKY=</HashCode>
+      <FileName>FormPacking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.package_entity" Collapsed="true">
+    <Position X="13.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAgAAAAAAAREAAAAAAAAEAAkAABAAAAQAAAAACAA=</HashCode>
+      <FileName>FormPacking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.pd_device" Collapsed="true">
+    <Position X="15" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgokAAACgIAoBAASAABQSAAAAACgEACAAAAAQAABAAA=</HashCode>
+      <FileName>Model\pd_device.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.pd_device_package" Collapsed="true">
+    <Position X="16.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAEAAAAACAAAAhAAAAAAAAAAAAAAQAAAAAAgAA=</HashCode>
+      <FileName>Model\pd_device_package.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.MySqlHelper" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAACAAAAAACAABAAAAEAAAAAAgAABAAAAABAAAAA=</HashCode>
+      <FileName>MySqlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.PrintForm" Collapsed="true">
+    <Position X="18.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACEgABQAAJCAAAADAiBAACAAEBAjAgQAAAA=</HashCode>
+      <FileName>PrintForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.Program" Collapsed="true">
+    <Position X="20.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAIAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.SplashForm" Collapsed="true">
+    <Position X="11.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAABAAAQAAAIAAAAAA=</HashCode>
+      <FileName>SplashForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.CTWingsReplyModel" Collapsed="true">
+    <Position X="20.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.CTWingsPageModel" Collapsed="true">
+    <Position X="16.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAQAAAAAAAEAAAAAI=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.CTWingsProductInfoModel" Collapsed="true">
+    <Position X="18.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABAwCgQACgCgSgAgAAAoAQQgAEABABAAACgIAAYAAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.CreateDevicceRequestInfoModel" Collapsed="true">
+    <Position X="23.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAACAAAIAAAAAAAAAAAAAAAAEAQACAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.CreateDevicceRequestInfoModelOther" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.CreateDeviceReplyInfoModel" Collapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAIAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.CreateDeviceReplyInfoModelResult" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.DeleteDeviceReplyInfoModel" Collapsed="true">
+    <Position X="23.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAIAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.DeleteDeviceReplyInfoModelResult" Collapsed="true">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.QueryDeviceListResult" Collapsed="true">
+    <Position X="22" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAIAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.QueryDeviceListResultResult" Collapsed="true">
+    <Position X="23.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAABA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Services.SysCTWings.QueryDeviceListResultResultItem" Collapsed="true">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAIAAAAAAAEAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Model\CTWIngObj.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_command_modbus" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_command_modbus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_device_command" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_device_command.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_device_command_lwm_profile" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_device_command_lwm_profile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_device_control" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_device_control.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_device_event" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAQAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_device_event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_device_group_management" Collapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAACAACQACAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_device_group_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_device_management" Collapsed="true">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAAAAIEAAAAAAAAAAAAIAAAAAAAACAAIAAAAAgAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_device_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_device_model" Collapsed="true">
+    <Position X="22" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_device_model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_device_status" Collapsed="true">
+    <Position X="23.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAACAAAAAAAAAAAAAAAAAQAAAACAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_device_status.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_edge_gateway" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAKAAABAAIACAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_edge_gateway.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_firmware_management" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAABACAAAAAAQAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_firmware_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_gateway_position" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_gateway_position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_modbus_device_management" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAAAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_modbus_device_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_mq_sub" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEACAAAAAAwAAAEAAAAgCAAAAAAAYAAAAAAAgAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_mq_sub.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_nb_device_management" Collapsed="true">
+    <Position X="18.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_nb_device_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_product_management" Collapsed="true">
+    <Position X="20.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAIAAAAAAAAAAAAAiAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_product_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_public_product_management" Collapsed="true">
+    <Position X="22" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAABAAAAAACAAAAAADAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_public_product_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_rule_engine" Collapsed="true">
+    <Position X="23.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEIBAAAIAEAAAhFAiADAACAAAAAAGABAACAQBAIAAQ=</HashCode>
+      <FileName>Model\CTWings\Aep_rule_engine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_software_management" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAABAAAAQIA=</HashCode>
+      <FileName>Model\CTWings\Aep_software_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_software_upgrade_management" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAgJAAAACBAgAAEAAAAQAAAAAAAAAEAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_software_upgrade_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_standard_management" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_standard_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_subscribe_north" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAgAAACAAAI=</HashCode>
+      <FileName>Model\CTWings\Aep_subscribe_north.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Aep_upgrade_management" Collapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAECAAAAAwAAABAABQAAAgACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Aep_upgrade_management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Tenant_app_statistics" Collapsed="true">
+    <Position X="15" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAQAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Tenant_app_statistics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Tenant_device_statistics" Collapsed="true">
+    <Position X="16.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Model\CTWings\Tenant_device_statistics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Usr" Collapsed="true">
+    <Position X="18.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Model\CTWings\Usr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Core.AepHttpRequest" Collapsed="true">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAABAAAAAAADAAAAAAAAAAAAAIAAAAAAEAIAAEAAA=</HashCode>
+      <FileName>Model\CTWings\Core\AepSdkCore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Core.HttpServiceException" Collapsed="true">
+    <Position X="18.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Core\AepSdkCore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AepSdk.Apis.Core.ComparerString" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Model\CTWings\Core\AepSdkCore.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MKSS.Core.Common.HttpRestSharp.HttpHelper" Collapsed="true">
+    <Position X="16.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAIA=</HashCode>
+      <FileName>Model\HttpRestSharp\HttpHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Common.HttpRestSharp.RestSharpClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAABAAgAgAAAABAAAAEA=</HashCode>
+      <FileName>Model\HttpRestSharp\RestSharpClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MKSS.APP.WinNBTester.IotYunController" Collapsed="true">
+    <Position X="20.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAoAAIIAAAAAAAAAAAAAAAAAAAAAAAAAABACA=</HashCode>
+      <FileName>Model\IotYunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBTester.ResultModelIot" Collapsed="true">
+    <Position X="22" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAgAAAAAAAABBAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IotYunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBTester.IotYunResult&lt;T&gt;" Collapsed="true">
+    <Position X="22" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAgAAAAAAAABBAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IotYunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBTester.CreateTokenByAppKeyAndSercert" Collapsed="true">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IotYunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBTester.QueryProductList" Collapsed="true">
+    <Position X="15" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAABAEAAAAAAAAAAQEAAAAEA=</HashCode>
+      <FileName>Model\IotYunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBTester.QueryProductListItem" Collapsed="true">
+    <Position X="16.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAQAAAIAAAEAAAAAAAAAAAABAAAAgAAAAAIAAA=</HashCode>
+      <FileName>Model\IotYunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBTester.QueryNBProductList" Collapsed="true">
+    <Position X="11.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAABAEAAAAAAAAAAQEAAAAEA=</HashCode>
+      <FileName>Model\IotYunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBTester.QueryNBProductListItem" Collapsed="true">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAQAAAIAAAEAAAAAAAAAAAABAAAAgAAAAAIAAA=</HashCode>
+      <FileName>Model\IotYunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.Core.Common.Helper.JsonHelper" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAACACAAACAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Model\JsonHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.Properties.Resources" Collapsed="true">
+    <Position X="18.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKSS.APP.WinNBOnlinePrinterTest.Properties.Settings" Collapsed="true">
+    <Position X="9.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MKSS.Core.Common.HttpRestSharp.IRestSharp" Collapsed="true">
+    <Position X="9.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Model\HttpRestSharp\IRestSharp.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MKSS.APP.WinNBOnlinePrinterTest.VersionPacking" Collapsed="true">
+    <Position X="15" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>FormAssemble.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MKSS.APP.WinNBOnlinePrinterTest.DeviceStatus" Collapsed="true">
+    <Position X="11.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAQQAAAAACAhBAAACAAABAAAAAAAAEAEAEAA=</HashCode>
+      <FileName>Model\DeviceStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MKSS.APP.WinNBOnlinePrinterTest.DeliverStatus" Collapsed="true">
+    <Position X="9.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAABAAAAEBAAAAAAAAA=</HashCode>
+      <FileName>Model\DeviceStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MKSS.APP.WinNBOnlinePrinterTest.ProcessType" Collapsed="true">
+    <Position X="13.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

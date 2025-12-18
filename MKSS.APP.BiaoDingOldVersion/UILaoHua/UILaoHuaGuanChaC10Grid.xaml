@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="DeviceDataMonitorWPF.UILaoHua.UILaoHuaGuanChaC10Grid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DeviceDataMonitorWPF.UILaoHua"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:s="https://github.com/canton7/Stylet" 
+             mc:Ignorable="d" BorderThickness="0" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <local:DataColorConverter x:Key="DataColorConverterStyle"/>
+            <Style TargetType="DataGrid" >
+                <Setter Property="BorderBrush" Value="#FFF5F7F5" />
+                <Setter Property="HorizontalGridLinesBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#d6c79b"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalGridLinesBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#d6c79b"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="DataGridColumnHeader" >
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Background" Value="{DynamicResource UILaoHuaBrush}"/>
+                <Setter Property="Foreground" Value="#FF000000"/>
+                <Setter Property="Height" Value="28"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <TextBlock  x:Name="textBlock"
+             Text="{Binding Path=AddressString,Mode=TwoWay}" 
+             FontSize="160" Foreground="LightGray" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,0,0"  />
+
+        <Border BorderBrush="{DynamicResource UILaoHuaBrush}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="0">
+            <DataGrid x:Name="dataGrid" Margin="0,0,0,0" 
+                      ItemsSource="{Binding}" IsReadOnly="True" AutoGenerateColumns="False" Opacity="0.4" 
+                      VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" RowHeaderWidth="0" >
+                <DataGrid.RowStyle>
+                    <Style TargetType = "{x:Type DataGridRow}" >
+                        <Setter Property="MaxHeight" Value="21"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.CellStyle>
+                    <Style TargetType = "{x:Type DataGridCell}" >
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </DataGrid.CellStyle>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn  Header=" "  Width="60*">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="Background" Value="{DynamicResource UILaoHuaBrush}"></Setter>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Background="Transparent" Text="{Binding WEIZHI}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="信号AD" Width="100*" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Canvas Background="{Binding Path=XINHAO_ADHEGE,Converter={StaticResource DataColorConverterStyle}}" >
+                                    <TextBlock  Foreground="{Binding Path=XINHAO_ADHEGE,Converter={StaticResource  DataColorConverterForGroundStyle}}"  HorizontalAlignment="Center" Text="{Binding XINHAO_AD}"></TextBlock>
+                                </Canvas>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="近1分钟波动" Width="100*" Binding="{Binding BD_1MIN}"/>
+                    <DataGridTextColumn Header="近5分钟波动" Width="100*" Binding="{Binding BD_5MIN}"/>
+                    <DataGridTextColumn Header="近15分钟波动" Width="100*" Binding="{Binding BD_15MIN}"/>
+                    <DataGridTextColumn Header="近1小时波动" Width="100*" Binding="{Binding BD_1HOUR}"/>
+                    <DataGridTextColumn Header="近6小时波动" Width="100*" Binding="{Binding BD_6HOUR}"/>
+                    <DataGridTextColumn Header="近24小时波动" Width="100*" Binding="{Binding BD_24HOUR}"/>
+                    <DataGridTextColumn Header="近72小时波动" Width="100*" Binding="{Binding BD_72HOUR}"/>
+                     
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Canvas Grid.Row="0" Grid.Column="0" Background="Transparent" >
+            <Button 
+                Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                materialDesign:ButtonAssist.CornerRadius="13"  FontSize="14" FontWeight="Bold" 
+                Height="26" Width="53" Canvas.Left="2" Canvas.Top="3" 
+                ToolTip="{Binding Path=LastUpdate,Mode=TwoWay}" Cursor="Hand">
+                <TextBlock Text="{Binding Path=AddressString,Mode=TwoWay}" />
+            </Button>
+        </Canvas>
+        <Border  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="0" BorderBrush="LightGray" >
+            <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" FlowDirection="RightToLeft" >
+
+                <Button
+                    x:Name="BtnFinishBoard" Click="BtnFinishBoard_Click"  
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="13"  FontSize="14" FontWeight="Bold" 
+                    Height="26" Width="90"   
+                    ToolTip="" Cursor="Hand">
+                    <TextBlock Text="老化结束" />
+                </Button>
+                
+                <TextBlock Text="  " FontWeight="Bold" VerticalAlignment="Center" Width="10" Foreground="#FF000F59"  />
+                <TextBlock x:Name="StaTimeRevElapsed" FontWeight="Bold" VerticalAlignment="Center" Text="00:00:00" Width="69" Foreground="#FF000F59"  />
+                <Label Content="倒计时" Foreground="#FF000F59" />
+                <Label x:Name="TxtProjectTitle" FlowDirection="LeftToRight" Content="{Binding LabelMessage, UpdateSourceTrigger=PropertyChanged}" Width="330" Foreground="#FF000F59" />
+                <Label Content="所属批次" Foreground="#FF000F59" />
+                
+            </StackPanel>
+        </Border>
+        
+    </Grid>
+</UserControl>

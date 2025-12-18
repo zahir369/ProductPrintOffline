@@ -1,0 +1,165 @@
+﻿<Window x:Class="MKSS.APP.UIBiaoDing.UISerialNo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MKSS.APP.UIBiaoDing"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Title="设备串号" Height="180" Width="360">
+    <TabControl TabStripPlacement="TOp" >
+        <TabItem Header="单个写入" Name="TabItemSingle">
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32*" />
+                    <ColumnDefinition Width="32*" />
+                    <ColumnDefinition Width="32*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                </Grid.RowDefinitions>
+
+                <TextBox  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                        x:Name="TxtOldValue"  Margin="10,0,10,0" 
+                        Text="" IsReadOnly="True"      
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        materialDesign:TextFieldAssist.PrefixText="" 
+                        materialDesign:TextFieldAssist.SuffixText="" Cursor="IBeam">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <TextBlock x:Name="TxtOldValueDesc" Text="原串号" FontSize="10" FontWeight="Bold" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+
+                <TextBox  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                        x:Name="TxtNewValue"  Margin="10,0,10,0" 
+                        Text=""         
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        materialDesign:TextFieldAssist.PrefixText=""  ToolTip="举例：串号，210036900166，21 表示年份2021，00369表示任务单流水号，00166表示单内流水号"
+                        materialDesign:TextFieldAssist.SuffixText="" Cursor="IBeam">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <TextBlock x:Name="TxtNewValueDesc" Text="新串号，12位数字，例如：210036900166" ToolTip="举例：串号，210036900166，21 表示年份2021，00369表示任务单流水号，00166表示单内流水号" FontSize="10" FontWeight="Bold" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Button Grid.Column="1" Grid.Row="2" Visibility="Hidden"
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Margin="-50,3,90,0" Click="BtnReadTime_Click"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnReadTime" Content="读时间" Background="Blue" />
+                <Button Grid.Column="1" Grid.Row="2"  Visibility="Hidden"
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Margin="31,3,10,0" Click="BtnReadSerial_Click"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnReadSerial" Content="读串号" Background="Blue" />
+                
+                <Button Grid.Column="2" Grid.Row="2" 
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Margin="0,3,10,0" Click="BtnSetSingle_Click"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnSetSingle" Content="写入串号" Background="#FF0B9F57" />
+
+                <Button Grid.Column="1" Grid.Row="2" 
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Margin="0,3,10,0" Click="BtnTmpPrint_Click"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnTmpPrint" Content="临时打印" Background="#FF358CD4" />
+                
+            </Grid>
+            
+        </TabItem>
+        <TabItem  Header="整板写入"  Name="TabItemMulti">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="21*" />
+                    <ColumnDefinition Width="21*" />
+                    <ColumnDefinition Width="32*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                </Grid.RowDefinitions>
+
+                <TextBox  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                        x:Name="TxtOldValue1"  Margin="10,0,10,0" 
+                        Text="自动产生" IsReadOnly="True"          
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        materialDesign:TextFieldAssist.PrefixText="" 
+                        materialDesign:TextFieldAssist.SuffixText="" Cursor="IBeam">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <TextBlock Text="开始号" FontSize="10" FontWeight="Bold" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+
+                <TextBox  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                        x:Name="TxtNewValue1"  Margin="10,0,10,0" 
+                        Text="自动产生" IsReadOnly="True"        
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        materialDesign:TextFieldAssist.PrefixText="" 
+                        materialDesign:TextFieldAssist.SuffixText="" Cursor="IBeam">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <TextBlock Text="结束号" FontSize="10" FontWeight="Bold" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <CheckBox
+                    x:Name="OverWriteCheckBox"
+                    IsThreeState="False"
+                    IsChecked="False"  Grid.Column="1" Grid.Row="2"
+                    Content="覆盖已有号" />
+                <Button Grid.Column="2" Grid.Row="2" Click="BtnSetMulti_Click"
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Margin="0,3,10,0"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnSetMulti" Content="开始写入串号" Background="#FF0B9F57" />
+            </Grid>
+        </TabItem>
+
+        <TabItem  Header="设置时间"  Name="TabItemDateTime">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="21*" />
+                    <ColumnDefinition Width="32*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                    <RowDefinition Height="32*" />
+                </Grid.RowDefinitions>
+
+                <TextBox  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                        x:Name="TxtTqDateTime"  Margin="10,0,10,0" 
+                        Text="15" IsReadOnly="True"        
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        materialDesign:TextFieldAssist.PrefixText="" 
+                        materialDesign:TextFieldAssist.SuffixText="" Cursor="IBeam">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <TextBlock x:Name="TxtTqDateTimeDesc" Text="出厂日期延后天数" FontSize="10" FontWeight="Bold" />
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                
+                <CheckBox
+                    x:Name="OverWriteDateTimeCheckBox"
+                    IsThreeState="False" IsEnabled="False"  
+                    IsChecked="True"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                    Content="覆盖已有时间、出厂日期" />
+                <Button Grid.Column="2" Grid.Row="2" Click="BtnSetDateTimeMulti_Click"
+                    Style="{StaticResource MaterialDesignRaisedButton}"  Margin="0,3,10,0"
+                    materialDesign:ButtonAssist.CornerRadius="2"  BorderThickness="0" materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                    x:Name="BtnSetDateTimeMulti" Content="写入时间" Background="#FF0B9F57" />
+            </Grid>
+        </TabItem>
+        
+    </TabControl>
+   
+</Window>

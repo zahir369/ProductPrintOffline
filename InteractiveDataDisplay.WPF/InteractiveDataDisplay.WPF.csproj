@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Authors>Liyue</Authors>
+    <Company>Personal</Company>
+    <Description>InteractiveDataDisplay.WPF for .NET5
+Forked from "Microsoft InteractiveDataDisplay"</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>InteractiveDataDisplay.NetCore.WPF</PackageId>
+    <Product>InteractiveDataDisplay.NetCore.WPF</Product>
+    <RepositoryUrl>https://github.com/liyue3068/InteractiveDataDisplay.WPF</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>1.0.2</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

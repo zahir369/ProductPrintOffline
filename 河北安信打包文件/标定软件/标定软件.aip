@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="18.6.1" version="18.6.1" Modules="professional" RootPath="." Language="zh" Id="{B9E836C5-3EEC-48AD-BC02-8DD7201A1387}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_CURRENT_YEAR" Value="2022" ValueLocId="-"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="选择 [|ProductName] 安装包" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_VERSION"/>
+    <ROW Property="AI_REQUIRED_DOTNET_DISPLAY" MultiBuildValue="DefaultBuild:4.6#DefaultBuild_1:4.6" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_VERSION" MultiBuildValue="DefaultBuild:4.6#DefaultBuild_1:4.6" ValueLocId="-"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="此 Installer 数据库包含了安装 [|ProductName] 所需的逻辑和数据。" ValueLocId="*"/>
+    <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1#DefaultBuild_1:1"/>
+    <ROW Property="ARPPRODUCTICON" Value="MKSS.APP.BiaodingCommon.exe" Type="8"/>
+    <ROW Property="Manufacturer" Value="美克盛世"/>
+    <ROW Property="ProductCode" Value="2052:{B9858627-5988-4103-B281-E28BE168A5D2} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="智慧工厂生产数字化管理系统-标定软件"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{78F67E60-A7E0-4585-84FB-778487917C90}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME#DefaultBuild_1:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME#DefaultBuild_1:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0#DefaultBuild_1:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0#DefaultBuild_1:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000#DefaultBuild_1:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000#DefaultBuild_1:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003#DefaultBuild_1:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003#DefaultBuild_1:Windows XP/2003" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="app.publish_Dir" Directory_Parent="APPDIR" DefaultDir="APP~1.PUB|app.publish"/>
+    <ROW Directory="x64_Dir" Directory_Parent="APPDIR" DefaultDir="x64"/>
+    <ROW Directory="x86_Dir" Directory_Parent="APPDIR" DefaultDir="x86"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{23765FEE-EF7A-45A8-8EC1-F78D5381041A}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="APPDIR" ComponentId="{D8429452-400E-47DE-AC3B-7AB3C1869D25}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="BiaoDingConfgig.xml" ComponentId="{B8BE2E00-386E-41B8-BC85-6DBF390B3B1E}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.SqlServer.xml" Type="0"/>
+    <ROW Component="BouncyCastle.Crypto.dll" ComponentId="{590DCBED-B5D7-48B3-B056-A9F84C315052}" Directory_="APPDIR" Attributes="0" KeyPath="BouncyCastle.Crypto.dll"/>
+    <ROW Component="EPPlus.dll" ComponentId="{9B4C49AB-ECD8-40CA-9500-DAF020367CEC}" Directory_="APPDIR" Attributes="0" KeyPath="EPPlus.dll"/>
+    <ROW Component="EntityFramework.SqlServer.dll" ComponentId="{9FF7365D-F619-458D-AE43-FD20AE986318}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.SqlServer.dll"/>
+    <ROW Component="EntityFramework.dll" ComponentId="{7103A205-C3DF-422E-9728-1705C3C6F917}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.dll"/>
+    <ROW Component="Google.Protobuf.dll" ComponentId="{15D9DA7F-10D3-44B1-9170-BC852F805FE9}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Protobuf.dll"/>
+    <ROW Component="InteractiveDataDisplay.WPF.dll" ComponentId="{1C9842EF-1040-48C9-84DC-EB71B7C18F43}" Directory_="APPDIR" Attributes="0" KeyPath="InteractiveDataDisplay.WPF.dll"/>
+    <ROW Component="K4os.Compression.LZ4.Streams.dll" ComponentId="{E2045F3B-ACDA-4D89-A491-60EF1EF1493C}" Directory_="APPDIR" Attributes="0" KeyPath="K4os.Compression.LZ4.Streams.dll"/>
+    <ROW Component="K4os.Compression.LZ4.dll" ComponentId="{91C7E5BE-7B29-41E2-B8D6-C877C5F91380}" Directory_="APPDIR" Attributes="0" KeyPath="K4os.Compression.LZ4.dll"/>
+    <ROW Component="K4os.Hash.xxHash.dll" ComponentId="{6E1A26AD-ADED-4D93-A58D-839C5C1249FB}" Directory_="APPDIR" Attributes="0" KeyPath="K4os.Hash.xxHash.dll"/>
+    <ROW Component="MKSS.APP.BiaodingCommon.exe" ComponentId="{629E5C01-6458-459B-9254-BB4B8389CBA2}" Directory_="APPDIR" Attributes="0" KeyPath="MKSS.APP.BiaodingCommon.exe"/>
+    <ROW Component="MKSS.APP.BiaodingCommon.exe_1" ComponentId="{E97C0104-1B98-442F-B31A-AC746C249FD4}" Directory_="app.publish_Dir" Attributes="0" KeyPath="MKSS.APP.BiaodingCommon.exe_1"/>
+    <ROW Component="MaterialDesignColors.dll" ComponentId="{7EBC31DC-162F-4A60-91EC-0E736C6F9BEA}" Directory_="APPDIR" Attributes="0" KeyPath="MaterialDesignColors.dll"/>
+    <ROW Component="MaterialDesignThemes.Wpf.dll" ComponentId="{CE2EC587-2A6E-446B-B08A-E62F283F1242}" Directory_="APPDIR" Attributes="0" KeyPath="MaterialDesignThemes.Wpf.dll"/>
+    <ROW Component="Microsoft.IO.RecyclableMemoryStream.dll" ComponentId="{029B047B-5D4D-4FD3-B09D-0565A8B64E01}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.IO.RecyclableMemoryStream.dll"/>
+    <ROW Component="Microsoft.Maps.MapControl.WPF.dll" ComponentId="{FDBDF1E5-45F8-48CA-94C9-2F47FB2DACE7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Maps.MapControl.WPF.dll"/>
+    <ROW Component="MySql.Data.dll" ComponentId="{A12AB166-62BB-4A78-8124-3A8C821A6797}" Directory_="APPDIR" Attributes="0" KeyPath="MySql.Data.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{B7615718-3EF4-44AC-94F8-15F1A14B5DAE}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{3E66860A-4AD6-47C6-B30B-B26E5381DD0A}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="RestSharp.dll" ComponentId="{D06AE096-1527-4849-854F-86D2271BC589}" Directory_="APPDIR" Attributes="0" KeyPath="RestSharp.dll"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{EB7C6877-7615-4F86-B4CD-DAA6EFA4EA05}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="SQLite.Interop.dll" ComponentId="{B6C4187C-0BD2-4820-81D5-C1DC26D84805}" Directory_="x64_Dir" Attributes="256" KeyPath="SQLite.Interop.dll"/>
+    <ROW Component="SQLite.Interop.dll_1" ComponentId="{860402FC-6AF3-4ADC-8982-9763113B19D2}" Directory_="x86_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_1"/>
+    <ROW Component="SharpVectors.Converters.Wpf.dll" ComponentId="{E5B78163-DA4C-4C2E-BE0F-87FFCCC261A2}" Directory_="APPDIR" Attributes="0" KeyPath="SharpVectors.Converters.Wpf.dll"/>
+    <ROW Component="SharpVectors.Core.dll" ComponentId="{996929E3-6D59-4D62-8F6C-57DEEC8CAD3B}" Directory_="APPDIR" Attributes="0" KeyPath="SharpVectors.Core.dll"/>
+    <ROW Component="SharpVectors.Css.dll" ComponentId="{DC25D7D6-673B-463D-A73D-C26EFBE053E1}" Directory_="APPDIR" Attributes="0" KeyPath="SharpVectors.Css.dll"/>
+    <ROW Component="SharpVectors.Dom.dll" ComponentId="{2FF8178F-F6BB-4F9E-B0FE-D0E61CE625C2}" Directory_="APPDIR" Attributes="0" KeyPath="SharpVectors.Dom.dll"/>
+    <ROW Component="SharpVectors.Model.dll" ComponentId="{4D81A8DE-1133-4297-A98A-DADC9E4E8AFA}" Directory_="APPDIR" Attributes="0" KeyPath="SharpVectors.Model.dll"/>
+    <ROW Component="SharpVectors.Rendering.Gdi.dll" ComponentId="{FF81A5F6-6D67-48A8-B007-698A83A3745F}" Directory_="APPDIR" Attributes="0" KeyPath="SharpVectors.Rendering.Gdi.dll"/>
+    <ROW Component="SharpVectors.Rendering.Wpf.dll" ComponentId="{721D2575-B2E0-4084-885F-624F4C01CED4}" Directory_="APPDIR" Attributes="0" KeyPath="SharpVectors.Rendering.Wpf.dll"/>
+    <ROW Component="SharpVectors.Runtime.Wpf.dll" ComponentId="{917AEBA4-DFA7-4276-A0AD-227955108799}" Directory_="APPDIR" Attributes="0" KeyPath="SharpVectors.Runtime.Wpf.dll"/>
+    <ROW Component="SqlSugar.dll" ComponentId="{0736279D-047C-44DA-A5F2-41717775583A}" Directory_="APPDIR" Attributes="0" KeyPath="SqlSugar.dll"/>
+    <ROW Component="Stylet.dll" ComponentId="{DAC0CC2B-3812-468A-96BC-2D9633EC7168}" Directory_="APPDIR" Attributes="0" KeyPath="Stylet.dll"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{AB07133D-41A1-45F5-B534-A29D17F2085F}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="System.Data.SQLite.EF6.dll" ComponentId="{8A341D43-9C7F-46E2-80C4-D53AA9265AC6}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SQLite.EF6.dll"/>
+    <ROW Component="System.Data.SQLite.Linq.dll" ComponentId="{38F4CC4D-C035-45E8-A03C-354E75664C89}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SQLite.Linq.dll"/>
+    <ROW Component="System.Data.SQLite.dll" ComponentId="{A18B26AB-A593-4C00-B8A5-39544C8A8CA5}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SQLite.dll"/>
+    <ROW Component="System.Memory.dll" ComponentId="{C8C44666-5A1A-46DF-9723-5D54700E1B10}" Directory_="APPDIR" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Reactive.Core.dll" ComponentId="{99AB88CD-CB8A-4214-835C-0A76731EB71E}" Directory_="APPDIR" Attributes="0" KeyPath="System.Reactive.Core.dll"/>
+    <ROW Component="System.Reactive.Interfaces.dll" ComponentId="{630F37D3-2437-45DD-AE19-73C50A81D5E3}" Directory_="APPDIR" Attributes="0" KeyPath="System.Reactive.Interfaces.dll"/>
+    <ROW Component="System.Reactive.Linq.dll" ComponentId="{3443EB68-6EF6-4AF2-99D0-047A5C8176EF}" Directory_="APPDIR" Attributes="0" KeyPath="System.Reactive.Linq.dll"/>
+    <ROW Component="System.Reactive.PlatformServices.dll" ComponentId="{DB1B2DAC-1A1A-406C-BD66-DBEC4AA095DF}" Directory_="APPDIR" Attributes="0" KeyPath="System.Reactive.PlatformServices.dll"/>
+    <ROW Component="System.Reactive.Windows.Threading.dll" ComponentId="{2139D051-0CAC-401A-9CFC-28A759331E9F}" Directory_="APPDIR" Attributes="0" KeyPath="System.Reactive.Windows.Threading.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{43289067-4EFD-4387-A890-BC31E085BC17}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Component="Ubiety.Dns.Core.dll" ComponentId="{D8430722-CA0F-4705-8A4A-BDB27005860F}" Directory_="APPDIR" Attributes="0" KeyPath="Ubiety.Dns.Core.dll"/>
+    <ROW Component="Zstandard.Net.dll" ComponentId="{720FEEA8-84CE-4652-913F-D8FFAB3589E2}" Directory_="APPDIR" Attributes="0" KeyPath="Zstandard.Net.dll"/>
+    <ROW Component="zxing.dll" ComponentId="{5FD68C93-7FA3-4E53-9936-A3AEF9A21494}" Directory_="APPDIR" Attributes="0" KeyPath="zxing.dll"/>
+    <ROW Component="zxing.presentation.dll" ComponentId="{84423688-9D08-46CA-94FF-1723C406989F}" Directory_="APPDIR" Attributes="0" KeyPath="zxing.presentation.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="BouncyCastle.Crypto.dll" Component_="BouncyCastle.Crypto.dll" FileName="BOUNCY~1.DLL|BouncyCastle.Crypto.dll" Attributes="0" SourcePath="..\标定软件源文件\BouncyCastle.Crypto.dll" SelfReg="false"/>
+    <ROW File="EntityFramework.dll" Component_="EntityFramework.dll" FileName="ENTITY~1.DLL|EntityFramework.dll" Attributes="0" SourcePath="..\标定软件源文件\EntityFramework.dll" SelfReg="false"/>
+    <ROW File="EntityFramework.SqlServer.dll" Component_="EntityFramework.SqlServer.dll" FileName="ENTITY~2.DLL|EntityFramework.SqlServer.dll" Attributes="0" SourcePath="..\标定软件源文件\EntityFramework.SqlServer.dll" SelfReg="false"/>
+    <ROW File="EntityFramework.SqlServer.xml" Component_="BiaoDingConfgig.xml" FileName="ENTITY~1.XML|EntityFramework.SqlServer.xml" Attributes="0" SourcePath="..\标定软件源文件\EntityFramework.SqlServer.xml" SelfReg="false"/>
+    <ROW File="EntityFramework.xml" Component_="BiaoDingConfgig.xml" FileName="ENTITY~2.XML|EntityFramework.xml" Attributes="0" SourcePath="..\标定软件源文件\EntityFramework.xml" SelfReg="false"/>
+    <ROW File="EPPlus.dll" Component_="EPPlus.dll" FileName="EPPlus.dll" Attributes="0" SourcePath="..\标定软件源文件\EPPlus.dll" SelfReg="false"/>
+    <ROW File="EPPlus.xml" Component_="BiaoDingConfgig.xml" FileName="EPPlus.xml" Attributes="0" SourcePath="..\标定软件源文件\EPPlus.xml" SelfReg="false"/>
+    <ROW File="Google.Protobuf.dll" Component_="Google.Protobuf.dll" FileName="GOOGLE~1.DLL|Google.Protobuf.dll" Attributes="0" SourcePath="..\标定软件源文件\Google.Protobuf.dll" SelfReg="false"/>
+    <ROW File="Google.Protobuf.pdb" Component_="Google.Protobuf.dll" FileName="GOOGLE~1.PDB|Google.Protobuf.pdb" Attributes="0" SourcePath="..\标定软件源文件\Google.Protobuf.pdb" SelfReg="false"/>
+    <ROW File="Google.Protobuf.xml" Component_="BiaoDingConfgig.xml" FileName="GOOGLE~1.XML|Google.Protobuf.xml" Attributes="0" SourcePath="..\标定软件源文件\Google.Protobuf.xml" SelfReg="false"/>
+    <ROW File="InteractiveDataDisplay.WPF.dll" Component_="InteractiveDataDisplay.WPF.dll" FileName="INTERA~1.DLL|InteractiveDataDisplay.WPF.dll" Attributes="0" SourcePath="..\标定软件源文件\InteractiveDataDisplay.WPF.dll" SelfReg="false"/>
+    <ROW File="InteractiveDataDisplay.WPF.pdb" Component_="InteractiveDataDisplay.WPF.dll" FileName="INTERA~1.PDB|InteractiveDataDisplay.WPF.pdb" Attributes="0" SourcePath="..\标定软件源文件\InteractiveDataDisplay.WPF.pdb" SelfReg="false"/>
+    <ROW File="K4os.Compression.LZ4.dll" Component_="K4os.Compression.LZ4.dll" FileName="K4OSCO~1.DLL|K4os.Compression.LZ4.dll" Attributes="0" SourcePath="..\标定软件源文件\K4os.Compression.LZ4.dll" SelfReg="false"/>
+    <ROW File="K4os.Compression.LZ4.Streams.dll" Component_="K4os.Compression.LZ4.Streams.dll" FileName="K4OSCO~2.DLL|K4os.Compression.LZ4.Streams.dll" Attributes="0" SourcePath="..\标定软件源文件\K4os.Compression.LZ4.Streams.dll" SelfReg="false"/>
+    <ROW File="K4os.Compression.LZ4.Streams.xml" Component_="BiaoDingConfgig.xml" FileName="K4OSCO~1.XML|K4os.Compression.LZ4.Streams.xml" Attributes="0" SourcePath="..\标定软件源文件\K4os.Compression.LZ4.Streams.xml" SelfReg="false"/>
+    <ROW File="K4os.Compression.LZ4.xml" Component_="BiaoDingConfgig.xml" FileName="K4OSCO~2.XML|K4os.Compression.LZ4.xml" Attributes="0" SourcePath="..\标定软件源文件\K4os.Compression.LZ4.xml" SelfReg="false"/>
+    <ROW File="K4os.Hash.xxHash.dll" Component_="K4os.Hash.xxHash.dll" FileName="K4OSHA~1.DLL|K4os.Hash.xxHash.dll" Attributes="0" SourcePath="..\标定软件源文件\K4os.Hash.xxHash.dll" SelfReg="false"/>
+    <ROW File="K4os.Hash.xxHash.xml" Component_="BiaoDingConfgig.xml" FileName="K4OSHA~1.XML|K4os.Hash.xxHash.xml" Attributes="0" SourcePath="..\标定软件源文件\K4os.Hash.xxHash.xml" SelfReg="false"/>
+    <ROW File="MaterialDesignColors.dll" Component_="MaterialDesignColors.dll" FileName="MATERI~1.DLL|MaterialDesignColors.dll" Attributes="0" SourcePath="..\标定软件源文件\MaterialDesignColors.dll" SelfReg="false"/>
+    <ROW File="MaterialDesignColors.pdb" Component_="MaterialDesignColors.dll" FileName="MATERI~1.PDB|MaterialDesignColors.pdb" Attributes="0" SourcePath="..\标定软件源文件\MaterialDesignColors.pdb" SelfReg="false"/>
+    <ROW File="MaterialDesignThemes.Wpf.dll" Component_="MaterialDesignThemes.Wpf.dll" FileName="MATERI~2.DLL|MaterialDesignThemes.Wpf.dll" Attributes="0" SourcePath="..\标定软件源文件\MaterialDesignThemes.Wpf.dll" SelfReg="false"/>
+    <ROW File="MaterialDesignThemes.Wpf.pdb" Component_="MaterialDesignThemes.Wpf.dll" FileName="MATERI~2.PDB|MaterialDesignThemes.Wpf.pdb" Attributes="0" SourcePath="..\标定软件源文件\MaterialDesignThemes.Wpf.pdb" SelfReg="false"/>
+    <ROW File="MaterialDesignThemes.Wpf.xml" Component_="BiaoDingConfgig.xml" FileName="MATERI~1.XML|MaterialDesignThemes.Wpf.xml" Attributes="0" SourcePath="..\标定软件源文件\MaterialDesignThemes.Wpf.xml" SelfReg="false"/>
+    <ROW File="Microsoft.IO.RecyclableMemoryStream.dll" Component_="Microsoft.IO.RecyclableMemoryStream.dll" FileName="MICROS~1.DLL|Microsoft.IO.RecyclableMemoryStream.dll" Attributes="0" SourcePath="..\标定软件源文件\Microsoft.IO.RecyclableMemoryStream.dll" SelfReg="false"/>
+    <ROW File="Microsoft.IO.RecyclableMemoryStream.xml" Component_="BiaoDingConfgig.xml" FileName="MICROS~1.XML|Microsoft.IO.RecyclableMemoryStream.xml" Attributes="0" SourcePath="..\标定软件源文件\Microsoft.IO.RecyclableMemoryStream.xml" SelfReg="false"/>
+    <ROW File="Microsoft.Maps.MapControl.WPF.dll" Component_="Microsoft.Maps.MapControl.WPF.dll" FileName="MICROS~2.DLL|Microsoft.Maps.MapControl.WPF.dll" Attributes="0" SourcePath="..\标定软件源文件\Microsoft.Maps.MapControl.WPF.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Maps.MapControl.WPF.xml" Component_="BiaoDingConfgig.xml" FileName="MICROS~2.XML|Microsoft.Maps.MapControl.WPF.xml" Attributes="0" SourcePath="..\标定软件源文件\Microsoft.Maps.MapControl.WPF.xml" SelfReg="false"/>
+    <ROW File="MKSS.APP.BiaodingCommon.application" Component_="BiaoDingConfgig.xml" FileName="MKSSAP~1.APP|MKSS.APP.BiaodingCommon.application" Attributes="0" SourcePath="..\标定软件源文件\MKSS.APP.BiaodingCommon.application" SelfReg="false"/>
+    <ROW File="MKSS.APP.BiaodingCommon.exe" Component_="MKSS.APP.BiaodingCommon.exe" FileName="MKSSAP~1.EXE|MKSS.APP.BiaodingCommon.exe" Attributes="0" SourcePath="..\标定软件源文件\MKSS.APP.BiaodingCommon.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="MKSS.APP.BiaodingCommon.exe.config" Component_="BiaoDingConfgig.xml" FileName="MKSSAP~1.CON|MKSS.APP.BiaodingCommon.exe.config" Attributes="0" SourcePath="..\标定软件源文件\MKSS.APP.BiaodingCommon.exe.config" SelfReg="false"/>
+    <ROW File="MKSS.APP.BiaodingCommon.exe.manifest" Component_="BiaoDingConfgig.xml" FileName="MKSSAP~1.MAN|MKSS.APP.BiaodingCommon.exe.manifest" Attributes="0" SourcePath="..\标定软件源文件\MKSS.APP.BiaodingCommon.exe.manifest" SelfReg="false"/>
+    <ROW File="MKSS.APP.BiaodingCommon.pdb" Component_="MKSS.APP.BiaodingCommon.exe" FileName="MKSSAP~1.PDB|MKSS.APP.BiaodingCommon.pdb" Attributes="0" SourcePath="..\标定软件源文件\MKSS.APP.BiaodingCommon.pdb" SelfReg="false"/>
+    <ROW File="MKSS.APP.BiaodingCommon.sqlite" Component_="BiaoDingConfgig.xml" FileName="MKSSAP~1.SQL|MKSS.APP.BiaodingCommon.sqlite" Attributes="0" SourcePath="..\标定软件源文件\MKSS.APP.BiaodingCommon.sqlite" SelfReg="false"/>
+    <ROW File="MySql.Data.dll" Component_="MySql.Data.dll" FileName="MYSQLD~1.DLL|MySql.Data.dll" Attributes="0" SourcePath="..\标定软件源文件\MySql.Data.dll" SelfReg="false"/>
+    <ROW File="MySql.Data.xml" Component_="BiaoDingConfgig.xml" FileName="MYSQLD~1.XML|MySql.Data.xml" Attributes="0" SourcePath="..\标定软件源文件\MySql.Data.xml" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\标定软件源文件\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.xml" Component_="BiaoDingConfgig.xml" FileName="NEWTON~1.XML|Newtonsoft.Json.xml" Attributes="0" SourcePath="..\标定软件源文件\Newtonsoft.Json.xml" SelfReg="false"/>
+    <ROW File="RestSharp.dll" Component_="RestSharp.dll" FileName="RESTSH~1.DLL|RestSharp.dll" Attributes="0" SourcePath="..\标定软件源文件\RestSharp.dll" SelfReg="false"/>
+    <ROW File="RestSharp.xml" Component_="BiaoDingConfgig.xml" FileName="RESTSH~1.XML|RestSharp.xml" Attributes="0" SourcePath="..\标定软件源文件\RestSharp.xml" SelfReg="false"/>
+    <ROW File="SharpVectors.Converters.Wpf.dll" Component_="SharpVectors.Converters.Wpf.dll" FileName="SHARPV~1.DLL|SharpVectors.Converters.Wpf.dll" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Converters.Wpf.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Converters.Wpf.xml" Component_="BiaoDingConfgig.xml" FileName="SHARPV~1.XML|SharpVectors.Converters.Wpf.xml" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Converters.Wpf.xml" SelfReg="false"/>
+    <ROW File="SharpVectors.Core.dll" Component_="SharpVectors.Core.dll" FileName="SHARPV~2.DLL|SharpVectors.Core.dll" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Core.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Core.xml" Component_="BiaoDingConfgig.xml" FileName="SHARPV~2.XML|SharpVectors.Core.xml" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Core.xml" SelfReg="false"/>
+    <ROW File="SharpVectors.Css.dll" Component_="SharpVectors.Css.dll" FileName="SHARPV~3.DLL|SharpVectors.Css.dll" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Css.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Css.xml" Component_="BiaoDingConfgig.xml" FileName="SHARPV~3.XML|SharpVectors.Css.xml" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Css.xml" SelfReg="false"/>
+    <ROW File="SharpVectors.Dom.dll" Component_="SharpVectors.Dom.dll" FileName="SHARPV~4.DLL|SharpVectors.Dom.dll" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Dom.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Dom.xml" Component_="BiaoDingConfgig.xml" FileName="SHARPV~4.XML|SharpVectors.Dom.xml" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Dom.xml" SelfReg="false"/>
+    <ROW File="SharpVectors.Model.dll" Component_="SharpVectors.Model.dll" FileName="SHARPV~5.DLL|SharpVectors.Model.dll" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Model.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Model.xml" Component_="BiaoDingConfgig.xml" FileName="SHARPV~5.XML|SharpVectors.Model.xml" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Model.xml" SelfReg="false"/>
+    <ROW File="SharpVectors.Rendering.Gdi.dll" Component_="SharpVectors.Rendering.Gdi.dll" FileName="SHARPV~6.DLL|SharpVectors.Rendering.Gdi.dll" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Rendering.Gdi.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Rendering.Gdi.xml" Component_="BiaoDingConfgig.xml" FileName="SHARPV~6.XML|SharpVectors.Rendering.Gdi.xml" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Rendering.Gdi.xml" SelfReg="false"/>
+    <ROW File="SharpVectors.Rendering.Wpf.dll" Component_="SharpVectors.Rendering.Wpf.dll" FileName="SHARPV~7.DLL|SharpVectors.Rendering.Wpf.dll" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Rendering.Wpf.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Rendering.Wpf.xml" Component_="BiaoDingConfgig.xml" FileName="SHARPV~7.XML|SharpVectors.Rendering.Wpf.xml" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Rendering.Wpf.xml" SelfReg="false"/>
+    <ROW File="SharpVectors.Runtime.Wpf.dll" Component_="SharpVectors.Runtime.Wpf.dll" FileName="SHARPV~8.DLL|SharpVectors.Runtime.Wpf.dll" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Runtime.Wpf.dll" SelfReg="false"/>
+    <ROW File="SharpVectors.Runtime.Wpf.xml" Component_="BiaoDingConfgig.xml" FileName="SHARPV~8.XML|SharpVectors.Runtime.Wpf.xml" Attributes="0" SourcePath="..\标定软件源文件\SharpVectors.Runtime.Wpf.xml" SelfReg="false"/>
+    <ROW File="SqlSugar.dll" Component_="SqlSugar.dll" FileName="SqlSugar.dll" Attributes="0" SourcePath="..\标定软件源文件\SqlSugar.dll" SelfReg="false"/>
+    <ROW File="Stylet.dll" Component_="Stylet.dll" FileName="Stylet.dll" Attributes="0" SourcePath="..\标定软件源文件\Stylet.dll" SelfReg="false"/>
+    <ROW File="Stylet.xml" Component_="BiaoDingConfgig.xml" FileName="Stylet.xml" Attributes="0" SourcePath="..\标定软件源文件\Stylet.xml" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~1.XML|System.Buffers.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Buffers.xml" SelfReg="false"/>
+    <ROW File="System.Data.SQLite.dll" Component_="System.Data.SQLite.dll" FileName="SYSTEM~2.DLL|System.Data.SQLite.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Data.SQLite.dll" SelfReg="false"/>
+    <ROW File="System.Data.SQLite.EF6.dll" Component_="System.Data.SQLite.EF6.dll" FileName="SYSTEM~3.DLL|System.Data.SQLite.EF6.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Data.SQLite.EF6.dll" SelfReg="false"/>
+    <ROW File="System.Data.SQLite.Linq.dll" Component_="System.Data.SQLite.Linq.dll" FileName="SYSTEM~4.DLL|System.Data.SQLite.Linq.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Data.SQLite.Linq.dll" SelfReg="false"/>
+    <ROW File="System.Data.SQLite.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~2.XML|System.Data.SQLite.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Data.SQLite.xml" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~5.DLL|System.Memory.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Memory.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~3.XML|System.Memory.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Memory.xml" SelfReg="false"/>
+    <ROW File="System.Reactive.Core.dll" Component_="System.Reactive.Core.dll" FileName="SYSTEM~6.DLL|System.Reactive.Core.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.Core.dll" SelfReg="false"/>
+    <ROW File="System.Reactive.Core.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~4.XML|System.Reactive.Core.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.Core.xml" SelfReg="false"/>
+    <ROW File="System.Reactive.Interfaces.dll" Component_="System.Reactive.Interfaces.dll" FileName="SYSTEM~7.DLL|System.Reactive.Interfaces.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.Interfaces.dll" SelfReg="false"/>
+    <ROW File="System.Reactive.Interfaces.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~5.XML|System.Reactive.Interfaces.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.Interfaces.xml" SelfReg="false"/>
+    <ROW File="System.Reactive.Linq.dll" Component_="System.Reactive.Linq.dll" FileName="SYSTEM~8.DLL|System.Reactive.Linq.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.Linq.dll" SelfReg="false"/>
+    <ROW File="System.Reactive.Linq.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~6.XML|System.Reactive.Linq.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.Linq.xml" SelfReg="false"/>
+    <ROW File="System.Reactive.PlatformServices.dll" Component_="System.Reactive.PlatformServices.dll" FileName="SYSTEM~9.DLL|System.Reactive.PlatformServices.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.PlatformServices.dll" SelfReg="false"/>
+    <ROW File="System.Reactive.PlatformServices.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~7.XML|System.Reactive.PlatformServices.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.PlatformServices.xml" SelfReg="false"/>
+    <ROW File="System.Reactive.Windows.Threading.dll" Component_="System.Reactive.Windows.Threading.dll" FileName="SYSTE~10.DLL|System.Reactive.Windows.Threading.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.Windows.Threading.dll" SelfReg="false"/>
+    <ROW File="System.Reactive.Windows.Threading.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~8.XML|System.Reactive.Windows.Threading.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Reactive.Windows.Threading.xml" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTE~11.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\标定软件源文件\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.xml" Component_="BiaoDingConfgig.xml" FileName="SYSTEM~9.XML|System.Runtime.CompilerServices.Unsafe.xml" Attributes="0" SourcePath="..\标定软件源文件\System.Runtime.CompilerServices.Unsafe.xml" SelfReg="false"/>
+    <ROW File="Ubiety.Dns.Core.dll" Component_="Ubiety.Dns.Core.dll" FileName="UBIETY~1.DLL|Ubiety.Dns.Core.dll" Attributes="0" SourcePath="..\标定软件源文件\Ubiety.Dns.Core.dll" SelfReg="false"/>
+    <ROW File="SQLite.Interop.dll" Component_="SQLite.Interop.dll" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\标定软件源文件\x64\SQLite.Interop.dll" SelfReg="false"/>
+    <ROW File="SQLite.Interop.dll_1" Component_="SQLite.Interop.dll_1" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\标定软件源文件\x86\SQLite.Interop.dll" SelfReg="false"/>
+    <ROW File="Zstandard.Net.dll" Component_="Zstandard.Net.dll" FileName="ZSTAND~1.DLL|Zstandard.Net.dll" Attributes="0" SourcePath="..\标定软件源文件\Zstandard.Net.dll" SelfReg="false"/>
+    <ROW File="zxing.dll" Component_="zxing.dll" FileName="zxing.dll" Attributes="0" SourcePath="..\标定软件源文件\zxing.dll" SelfReg="false"/>
+    <ROW File="zxing.presentation.dll" Component_="zxing.presentation.dll" FileName="ZXINGP~1.DLL|zxing.presentation.dll" Attributes="0" SourcePath="..\标定软件源文件\zxing.presentation.dll" SelfReg="false"/>
+    <ROW File="zxing.presentation.xml" Component_="BiaoDingConfgig.xml" FileName="ZXINGP~1.XML|zxing.presentation.xml" Attributes="0" SourcePath="..\标定软件源文件\zxing.presentation.xml" SelfReg="false"/>
+    <ROW File="zxing.xml" Component_="BiaoDingConfgig.xml" FileName="zxing.xml" Attributes="0" SourcePath="..\标定软件源文件\zxing.xml" SelfReg="false"/>
+    <ROW File="docx" Component_="BiaoDingConfgig.xml" FileName="美克盛世标定~1.DOC|美克盛世标定软件使用说明书.docx" Attributes="0" SourcePath="..\标定软件源文件\美克盛世标定软件使用说明书.docx" SelfReg="false"/>
+    <ROW File="MKSS.APP.BiaodingCommon.exe_1" Component_="MKSS.APP.BiaodingCommon.exe_1" FileName="MKSSAP~1.EXE|MKSS.APP.BiaodingCommon.exe" Attributes="0" SourcePath="..\标定软件源文件\app.publish\MKSS.APP.BiaodingCommon.exe" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="151"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder=".." PackageFileName="智慧工厂生产数字化管理系统-标定软件" Languages="zh" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="智慧工厂生产数字化管理系统-标定软件" UACExecutionLevel="2"/>
+    <ROW BuildKey="DefaultBuild_1" BuildName="DefaultBuildHeBeiAnXin" BuildOrder="2" BuildType="0" PackageFolder=".." PackageFileName="河北安信智慧工厂生产数字化管理系统-标定软件" Languages="zh" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="河北安信智慧工厂生产数字化管理系统-标定软件" UACExecutionLevel="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildEventsComponent">
+    <ROW EventId="0" EventRun="cmd.exe" EventCmdLine="/c copy D:\WORK\Factory\河北安信打包文件\标定软件\河北安信.config  D:\WORK\Factory\河北安信打包文件\标定软件源文件\MKSS.APP.BiaodingCommon.exe.config" EventDescription="复制 河北安信.config" EventOrder="1" EventType="1" EventInterupt="true" EventEnabled="true" EventPrecompression="false" RollbackEvent="false" EventBuild="DefaultBuild_1"/>
+    <ROW EventId="1" EventRun="cmd.exe" EventCmdLine="/c copy D:\WORK\Factory\河北安信打包文件\标定软件\美克盛世.config  D:\WORK\Factory\河北安信打包文件\标定软件源文件\MKSS.APP.BiaodingCommon.exe.config" EventDescription="复制 美克盛世.config" EventOrder="2" EventType="1" EventInterupt="true" EventEnabled="true" EventPrecompression="false" RollbackEvent="false" EventBuild="DefaultBuild"/>
+    <ROW EventId="2" EventRun="cmd.exe" EventCmdLine="/c copy D:\WORK\Factory\河北安信打包文件\标定软件\MKSS.APP.BiaodingCommon.* D:\WORK\Factory\河北安信打包文件\标定软件源文件\" EventDescription="/c copy D:\WORK\Factory\河北安信打包文件\标定软件\MKSS.APP.BiaodingCommon.* D:\WORK\Factory\河北安信打包文件\标定软件源文件\" EventOrder="3" EventType="1" EventInterupt="false" EventEnabled="true" EventPrecompression="false" RollbackEvent="false" EventBuild="DefaultBuild"/>
+    <ROW EventId="3" EventRun="cmd.exe" EventCmdLine="/c copy D:\WORK\Factory\河北安信打包文件\加密狗\标定软件源文件\*.* D:\WORK\Factory\河北安信打包文件\标定软件源文件" EventDescription="/c copy D:\WORK\Factory\河北安信打包文件\加密狗\标定软件源文件\*.* D:\WORK\Factory\河北安信打包文件\标定软件源文件" EventOrder="4" EventType="1" EventInterupt="false" EventEnabled="true" EventPrecompression="false" RollbackEvent="false" EventBuild="DefaultBuild_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_zh.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="正在删除从档案中提取的文件" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="正在删除从档案中提取的文件" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="正在从档案中提取文件" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="正在从档案中提取文件" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild;DefaultBuild_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="ShortcutFlags.dll" SourcePath="&lt;AI_CUSTACTS&gt;ShortcutFlags.dll"/>
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Next" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="1401"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Next" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Remove&quot;" Ordering="1403"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Next" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Repair&quot;" Ordering="1402"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_ApplyShortcutFlags" Type="3073" Source="ShortcutFlags.dll" Target="UpdateShortcutFlags" WithoutSeq="true"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="PinShortcuts"/>
+    <ROW Action="AI_PinToStartScreen" Type="1025" Source="ShortcutFlags.dll" Target="PinToStartScreen" WithoutSeq="true"/>
+    <ROW Action="AI_PinToTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="PinToTaskbar" WithoutSeq="true"/>
+    <ROW Action="AI_PrepareShortcutFlags" Type="1" Source="ShortcutFlags.dll" Target="PrepareActionData"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_UnpinFromStartScreen" Type="1025" Source="ShortcutFlags.dll" Target="UnpinFromStartScreen" WithoutSeq="true"/>
+    <ROW Action="AI_UnpinFromTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="UnpinFromTaskbar" WithoutSeq="true"/>
+    <ROW Action="AI_UnpinShortcuts" Type="1" Source="ShortcutFlags.dll" Target="UnpinShortcuts"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+    <ROW Action="UninstallPreviousVersions" Type="1" Source="aicustact.dll" Target="UninstallPreviousVersions" Options="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="BiaoDingConfgig.xml"/>
+    <ROW Feature_="MainFeature" Component_="BouncyCastle.Crypto.dll"/>
+    <ROW Feature_="MainFeature" Component_="EntityFramework.dll"/>
+    <ROW Feature_="MainFeature" Component_="EntityFramework.SqlServer.dll"/>
+    <ROW Feature_="MainFeature" Component_="EPPlus.dll"/>
+    <ROW Feature_="MainFeature" Component_="Google.Protobuf.dll"/>
+    <ROW Feature_="MainFeature" Component_="InteractiveDataDisplay.WPF.dll"/>
+    <ROW Feature_="MainFeature" Component_="K4os.Compression.LZ4.dll"/>
+    <ROW Feature_="MainFeature" Component_="K4os.Compression.LZ4.Streams.dll"/>
+    <ROW Feature_="MainFeature" Component_="K4os.Hash.xxHash.dll"/>
+    <ROW Feature_="MainFeature" Component_="MaterialDesignColors.dll"/>
+    <ROW Feature_="MainFeature" Component_="MaterialDesignThemes.Wpf.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.IO.RecyclableMemoryStream.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Maps.MapControl.WPF.dll"/>
+    <ROW Feature_="MainFeature" Component_="MKSS.APP.BiaodingCommon.exe"/>
+    <ROW Feature_="MainFeature" Component_="MySql.Data.dll"/>
+    <ROW Feature_="MainFeature" Component_="Newtonsoft.Json.dll"/>
+    <ROW Feature_="MainFeature" Component_="RestSharp.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Converters.Wpf.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Css.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Dom.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Model.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Rendering.Gdi.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Rendering.Wpf.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpVectors.Runtime.Wpf.dll"/>
+    <ROW Feature_="MainFeature" Component_="SqlSugar.dll"/>
+    <ROW Feature_="MainFeature" Component_="Stylet.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Data.SQLite.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Data.SQLite.EF6.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Data.SQLite.Linq.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Reactive.Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Reactive.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Reactive.Linq.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Reactive.PlatformServices.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Reactive.Windows.Threading.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Feature_="MainFeature" Component_="Ubiety.Dns.Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="SQLite.Interop.dll"/>
+    <ROW Feature_="MainFeature" Component_="SQLite.Interop.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Zstandard.Net.dll"/>
+    <ROW Feature_="MainFeature" Component_="zxing.dll"/>
+    <ROW Feature_="MainFeature" Component_="zxing.presentation.dll"/>
+    <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
+    <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
+    <ROW Feature_="MainFeature" Component_="MKSS.APP.BiaodingCommon.exe_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="MKSS.APP.BiaodingCommon.exe" SourcePath="..\标定软件源文件\MKSS.APP.BiaodingCommon.exe" Index="0"/>
+    <ROW Name="SystemFoldermsiexec.exe" SourcePath="&lt;AI_RES&gt;uninstall.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+    <ROW Action="AI_PrepareShortcutFlags" Condition="(VersionNT &gt; 501) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="4501"/>
+    <ROW Action="AI_PinShortcuts" Condition="(VersionNT &gt; 600) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="6499"/>
+    <ROW Action="AI_UnpinShortcuts" Condition="(VersionNT &gt; 600) AND (REMOVE = &quot;ALL&quot;)" Sequence="3199"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+    <ROW Action="UninstallPreviousVersions" Sequence="201"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] 无法安装在 [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] 无法安装在 [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] 无法安装在 [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Condition="AI_DETECTED_DOTNET_VERSION &gt;= AI_REQUIRED_DOTNET_VERSION" Description="[ProductName] 无法安装在 .NET Framework 版本低于 [AI_REQUIRED_DOTNET_DISPLAY] 的系统上。" DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild;DefaultBuild_1"/>
+    <ROW Condition="VersionNT" Description="[ProductName] 无法安装在 [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild;DefaultBuild_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="_" Directory_="SHORTCUTDIR" Name="标定软件" Component_="MKSS.APP.BiaodingCommon.exe" Target="[#MKSS.APP.BiaodingCommon.exe]" Description="标定软件" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="__1" Directory_="DesktopFolder" Name="标定软件" Component_="MKSS.APP.BiaodingCommon.exe" Target="[#MKSS.APP.BiaodingCommon.exe]" Description="标定软件" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="__2" Directory_="SHORTCUTDIR" Name="卸载标定软件" Component_="System.Data.SQLite.EF6.dll" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1" CustomFlags="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="graphite"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
+    <ROW Directory_="APPDIR" SourcePath="..\标定软件源文件" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6"/>
+  </COMPONENT>
+</DOCUMENT>

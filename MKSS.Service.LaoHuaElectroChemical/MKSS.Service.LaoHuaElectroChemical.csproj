@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BiaoDingService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MKSS.Common\MKSS.Common.csproj" />
+    <ProjectReference Include="..\MKSS.ICommon\MKSS.ICommon.csproj" />
+    <ProjectReference Include="..\MKSS.IRepository\MKSS.IRepository.csproj" />
+    <ProjectReference Include="..\MKSS.NModbus\MKSS.NModbus.csproj" />
+    <ProjectReference Include="..\MKSS.Repository\MKSS.Repository.csproj" />
+    <ProjectReference Include="..\MKSS.Util\MKSS.Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SqlSugarCore" Version="5.0.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\Task\" />
+  </ItemGroup>
+
+</Project>

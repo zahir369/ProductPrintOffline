@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BiaoDingService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MKSS.Common\MKSS.Common.csproj" />
+    <ProjectReference Include="..\MKSS.ICommon\MKSS.ICommon.csproj" />
+    <ProjectReference Include="..\MKSS.IRepository\MKSS.IRepository.csproj" />
+    <ProjectReference Include="..\MKSS.NModbus\MKSS.NModbus.csproj" />
+    <ProjectReference Include="..\MKSS.Repository\MKSS.Repository.csproj" />
+    <ProjectReference Include="..\MKSS.Util\MKSS.Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\Task\" />
+    <Folder Include="新文件夹\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MathNet.Numerics" Version="4.15.0" />
+    <PackageReference Include="SqlSugarCore" Version="5.0.2.6" />
+  </ItemGroup>
+
+</Project>

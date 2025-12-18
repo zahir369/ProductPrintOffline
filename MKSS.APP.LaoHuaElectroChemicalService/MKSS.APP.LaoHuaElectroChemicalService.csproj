@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-MKSS.APP.LaoHuaElectroChemicalService-D2DA49B9-94E8-4065-89A3-21DEA0F27D91</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="HostedService\**" />
+    <Content Remove="HostedService\**" />
+    <EmbeddedResource Remove="HostedService\**" />
+    <None Remove="HostedService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="5.0.1" />
+    <PackageReference Include="MQTTnet" Version="3.0.15" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.0.15" />
+    <PackageReference Include="Quartz" Version="3.2.4" />
+    <PackageReference Include="Topshelf" Version="4.3.0" />
+    <PackageReference Include="Topshelf.Autofac" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MKSS.Repository\MKSS.Repository.csproj" />
+    <ProjectReference Include="..\MKSS.Service.LaoHuaElectroChemical\MKSS.Service.LaoHuaElectroChemical.csproj" />
+    <ProjectReference Include="..\MKSS.Util\MKSS.Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+</Project>

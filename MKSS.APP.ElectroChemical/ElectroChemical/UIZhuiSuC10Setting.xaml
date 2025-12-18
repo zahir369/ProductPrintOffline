@@ -1,0 +1,293 @@
+﻿<UserControl x:Class="MKSS.APP.ElectroChemical.UIZhuiSuC10Setting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:MKSS.APP.ElectroChemical"
+             xmlns:ncore="clr-namespace:ColorBox" 
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:UIZhuiSuC10SettingModel/>
+    </UserControl.DataContext>
+    <Grid Margin="15,50,15,30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="16*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,20"
+                        x:Name="TxtSerialPorts" 
+                        Style="{StaticResource MaterialDesignFilledComboBox}"  
+                        Text="{Binding TxtSerialPorts, UpdateSourceTrigger=PropertyChanged}"
+                        IsEnabled="{Binding CanTxtSerialPorts, UpdateSourceTrigger=PropertyChanged}" >
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <materialDesign:PackIcon Kind="SerialPort" />
+                    <TextBlock Text="串口" FontSize="14" FontWeight="Bold" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+            <ComboBoxItem Content="COM1" />
+            <ComboBoxItem Content="COM2" />
+            <ComboBoxItem Content="COM3" />
+        </ComboBox>
+        <TextBox 
+            Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Margin="20,0,0,20"
+                    x:Name="TxtTotalSpan" TextChanged="TxtTotalSpan_TextChanged" 
+                    Text="{Binding TxtTotalSpan, UpdateSourceTrigger=PropertyChanged}" 
+                    IsEnabled="{Binding CanTxtTotalSpan, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    materialDesign:TextFieldAssist.PrefixText="" 
+                    materialDesign:TextFieldAssist.SuffixText="秒钟" Cursor="IBeam">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <TextBlock x:Name="TxtValueBaseDesc" Text="测试总时长" FontSize="14" FontWeight="Bold" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+        <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1"
+                    Text="{Binding TxtSensorGrougAddress, UpdateSourceTrigger=PropertyChanged}" 
+                    IsEnabled="{Binding CanTxtSensorGrougAddress, UpdateSourceTrigger=PropertyChanged}"
+                    x:Name="TxtSensorGrougAddress"  Margin="10,5,10,20"  
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    materialDesign:TextFieldAssist.HasClearButton="True" 
+                    materialDesign:TextFieldAssist.PrefixText="" 
+                    materialDesign:TextFieldAssist.SuffixText="" Cursor="IBeam">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <!--<materialDesign:PackIcon Kind="AccessPoint" />-->
+                    <TextBlock x:Name="TxtSensorGrougAddressDesc" Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="通道地址" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+        <ComboBox Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"
+                    x:Name="TxtProductList"  Margin="10,0,10,20" SelectionChanged="TxtProductList_SelectionChanged" 
+                    Text="{Binding TxtProductList, UpdateSourceTrigger=PropertyChanged}"
+                    IsEnabled="{Binding CanTxtProductList, UpdateSourceTrigger=PropertyChanged}" 
+                    DisplayMemberPath="Name"
+                    Style="{StaticResource MaterialDesignFilledComboBox}"  >
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <materialDesign:PackIcon Kind="FormatListBulletedType" />
+                    <TextBlock Text="产品名称" FontSize="14" FontWeight="Bold" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </ComboBox>
+
+
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/> 
+            </Grid.RowDefinitions>
+            <Button ToolTip="一级品" x:Name="BtnGrade1" BorderThickness="0" Background="{Binding TxtGrading1Color, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,10,0" Click="ButtonColorSelect_Click"></Button>
+            <Button ToolTip="二级品" x:Name="BtnGrade2" BorderThickness="0" Background="{Binding TxtGrading2Color, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.ColumnSpan="2" Margin="10,0,10,0" Click="ButtonColorSelect_Click"></Button>
+            <Button ToolTip="三级品" x:Name="BtnGrade3" BorderThickness="0" Background="{Binding TxtGrading3Color, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Grid.ColumnSpan="2" Margin="10,0,10,0" Click="ButtonColorSelect_Click"></Button>
+            <Button ToolTip="四级品" x:Name="BtnGrade4" BorderThickness="0" Background="{Binding TxtGrading4Color, UpdateSourceTrigger=PropertyChanged}" Grid.Column="6" Grid.ColumnSpan="2" Margin="10,0,10,0" Click="ButtonColorSelect_Click"></Button>
+            <Button ToolTip="五级品" x:Name="BtnGrade5" BorderThickness="0" Background="{Binding TxtGrading5Color, UpdateSourceTrigger=PropertyChanged}" Grid.Column="8" Grid.ColumnSpan="2" Margin="10,0,10,0" Click="ButtonColorSelect_Click"></Button>
+            <Button ToolTip="六级品" x:Name="BtnGrade6" BorderThickness="0" Background="{Binding TxtGrading6Color, UpdateSourceTrigger=PropertyChanged}" Grid.Column="10" Grid.ColumnSpan="2" Margin="10,0,20,0" Click="ButtonColorSelect_Click"></Button>
+
+            <TextBox Grid.Row="1" Grid.Column="0" x:Name="TxtGrading1From"  
+                    Text="{Binding TxtGrading1From, UpdateSourceTrigger=PropertyChanged}" TextChanged="TxtGrading_TextChanged" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="6 0 0 20" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="{Binding TxtGrading1HeGe, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+ 
+            <TextBox  Grid.Row="1" Grid.Column="2"  x:Name="TxtGrading2From" 
+                    Text="{Binding TxtGrading2From, UpdateSourceTrigger=PropertyChanged}"  TextChanged="TxtGrading_TextChanged" 
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="3 0 0 20" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="{Binding TxtGrading2HeGe, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+             
+
+            <TextBox  Grid.Row="1" Grid.Column="4" x:Name="TxtGrading3From" 
+                    Text="{Binding TxtGrading3From, UpdateSourceTrigger=PropertyChanged}" TextChanged="TxtGrading_TextChanged" 
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="3 0 0 20" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="{Binding TxtGrading3HeGe, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+           
+            <TextBox  Grid.Row="1" Grid.Column="6" x:Name="TxtGrading4From" 
+                    Text="{Binding TxtGrading4From, UpdateSourceTrigger=PropertyChanged}"  TextChanged="TxtGrading_TextChanged"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="3 0 0 20" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="{Binding TxtGrading4HeGe, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+             
+            <TextBox  Grid.Row="1" Grid.Column="8" x:Name="TxtGrading5From"  
+                    Text="{Binding TxtGrading5From, UpdateSourceTrigger=PropertyChanged}"  TextChanged="TxtGrading_TextChanged"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="3 0 0 20" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="{Binding TxtGrading5HeGe, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            
+            <TextBox  Grid.Row="1" Grid.Column="10" x:Name="TxtGrading6From" 
+                    Text="{Binding TxtGrading6From, UpdateSourceTrigger=PropertyChanged}"  TextChanged="TxtGrading_TextChanged"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="3 0 0 20" Cursor="IBeam">
+                <materialDesign:HintAssist.Hint>
+                    <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                        <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="{Binding TxtGrading6HeGe, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+
+
+
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="TxtGrading1To" IsEnabled="False" materialDesign:TextFieldAssist.PrefixText="~"
+                    Text="{Binding TxtGrading1To, UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TxtGrading_TextChanged" Margin="0 0 3 20" Cursor="IBeam">
+                 
+            </TextBox>
+
+            <TextBox  Grid.Row="1" Grid.Column="3"  x:Name="TxtGrading2To" IsEnabled="False" materialDesign:TextFieldAssist.PrefixText="~" 
+                    Text="{Binding TxtGrading2To, UpdateSourceTrigger=PropertyChanged}"  TextChanged="TxtGrading_TextChanged" 
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 3 20" Cursor="IBeam"> 
+            </TextBox>
+
+
+            <TextBox  Grid.Row="1" Grid.Column="5" x:Name="TxtGrading3To" IsEnabled="False" materialDesign:TextFieldAssist.PrefixText="~" 
+                    Text="{Binding TxtGrading3To, UpdateSourceTrigger=PropertyChanged}" TextChanged="TxtGrading_TextChanged" 
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 3 20" Cursor="IBeam"> 
+            </TextBox>
+
+            <TextBox  Grid.Row="1" Grid.Column="7" x:Name="TxtGrading4To" IsEnabled="False" materialDesign:TextFieldAssist.PrefixText="~" 
+                    Text="{Binding TxtGrading4To, UpdateSourceTrigger=PropertyChanged}"  TextChanged="TxtGrading_TextChanged"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 3 20" Cursor="IBeam"> 
+            </TextBox>
+
+            <TextBox  Grid.Row="1" Grid.Column="9" x:Name="TxtGrading5To" IsEnabled="False" materialDesign:TextFieldAssist.PrefixText="~"  
+                    Text="{Binding TxtGrading5To, UpdateSourceTrigger=PropertyChanged}"  TextChanged="TxtGrading_TextChanged"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 3 20" Cursor="IBeam"> 
+            </TextBox>
+
+            <TextBox  Grid.Row="1" Grid.Column="11" x:Name="TxtGrading6To" materialDesign:TextFieldAssist.PrefixText="~" 
+                    Text="{Binding TxtGrading6To, UpdateSourceTrigger=PropertyChanged}"  TextChanged="TxtGrading_TextChanged"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 6 20" Cursor="IBeam"> 
+            </TextBox>
+
+
+        </Grid>
+
+
+        <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3"
+                    x:Name="TxtTestTimePoints"  Margin="20,0,20,20" TextChanged="TxtTestTimePoints_TextChanged" 
+                    Text="{Binding TxtTestTimePoints, UpdateSourceTrigger=PropertyChanged}" 
+                    IsEnabled="{Binding CanTxtTestTimePoints, UpdateSourceTrigger=PropertyChanged}" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    materialDesign:TextFieldAssist.PrefixText="" 
+                    materialDesign:TextFieldAssist.SuffixText="">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="关键时间点，最多10个" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
+                    x:Name="TxtGradingTimePoint"  Margin="20,0,0,20" Foreground="Red"
+                    Text="{Binding TxtCurrentSpan, UpdateSourceTrigger=PropertyChanged}" 
+                    IsEnabled="{Binding CanTxtGradingTimePoint, UpdateSourceTrigger=PropertyChanged}" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    materialDesign:TextFieldAssist.PrefixText="按照第" 
+                    materialDesign:TextFieldAssist.SuffixText="秒测量值分级">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <TextBlock Foreground="#FF188C8E" FontSize="14" FontWeight="Bold" Text="品质分级时间点" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+        <Label Grid.Row="4" Grid.Column="0" Margin="18 40 0 0" Content="0"></Label>
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" Margin="0 40 10 0" HorizontalContentAlignment="Right" Content="{Binding TxtTotalSpan, UpdateSourceTrigger=PropertyChanged}"></Label>
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" Margin="16 0 10 0" HorizontalContentAlignment="Left" Content="时间进度"></Label>
+        <Slider  Margin="20 23 20 0" Name="SliderProgress"
+            Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" TickFrequency="10" Orientation="Horizontal" TickPlacement="BottomRight" 
+                 Minimum="1" ValueChanged="SliderProgress_ValueChanged"
+                 Maximum="{Binding TxtTotalSpan, UpdateSourceTrigger=PropertyChanged}" 
+                 Value="{Binding TxtCurrentSpan, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Button Grid.Row="5" Grid.Column="2" Background="#3275fd"
+                    x:Name="BtnStart" Click="BtnStart_Click" BorderThickness="0"
+                    IsEnabled="{Binding CanBtnStart, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="开始" />
+        </Button>
+
+        <Button Grid.Row="5" Grid.Column="3" Background="#3275fd"
+                    x:Name="BtnPause" Click="BtnPause_Click" BorderThickness="0" BorderBrush="#3275fd"
+                    IsEnabled="{Binding CanBtnPause, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="停止/暂停" />
+        </Button>
+
+        <Button Grid.Row="5" Grid.Column="4" Background="#f63a3a" 
+                    x:Name="BtnFinish" Click="BtnFinish_Click" BorderThickness="0" BorderBrush="#f63a3a"
+                    IsEnabled="{Binding CanBtnFinish, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="结束" />
+        </Button>
+
+        <Button Grid.Row="5" Grid.Column="5" Background="#3275fd" BorderThickness="0"
+                    x:Name="BtnExcelExport" Click="BtnExcelExport_Click" 
+                    IsEnabled="{Binding CanBtnExcelExport, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="23"   FontSize="15" FontWeight="Bold" 
+                    Height="36" Width="110"   
+                    ToolTip="" Cursor="Hand">
+            <TextBlock Text="导出结果" />
+        </Button>
+
+    </Grid>
+</UserControl>

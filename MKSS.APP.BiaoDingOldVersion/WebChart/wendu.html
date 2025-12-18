@@ -1,0 +1,697 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<!-- saved from url=(0013)about:internet -->
+<head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=11, chrome=1" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7/dist/polyfill.min.js"></script>
+    <script src=" https://cdn.bootcdn.net/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>-->
+    <!--<script src="https://cdn.bootcss.com/babel-core/5.8.35/browser-polyfill.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-core/5.8.35/browser.min.js"></script>-->
+
+    <script src="../echart/echarts.common.js"></script>
+    <script src="../echart/echarts.esm.js"></script>
+    <script src="../echart/echarts.js"></script>
+
+    <title>环境数据</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+          /*  background-color: #3F51B5;*/
+        }
+
+        .item-weizhi {
+            grid-area: weizhi;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+        .item-wendu {
+            grid-area: wendu;
+        }
+
+        .item-shidu {
+            grid-area: shidu;
+        }
+
+        .item-pm25 {
+            grid-area: pm25;
+        }
+
+        .item-zhiliang {
+            grid-area: zhiliang;
+        }
+
+        .item-voc {
+            grid-area: voc;
+        }
+
+        .item-co2 {
+            grid-area: co2;
+        }
+
+        .item-quxian {
+            grid-area: quxian;
+        }
+
+        .container {
+            height: 100%;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-rows: 4% 34% 34% auto;
+            grid-template-areas: "weizhi weizhi weizhi weizhi" "wendu zhiliang pm25 voc" "shidu zhiliang pm25 co2" "quxian quxian quxian quxian"
+        }
+    </style>
+</head>
+
+<body style="margin: 0">
+    <div class="container">
+        <div id="divWeiZhi" class="item-weizhi">设备：环境监测设备  位置：会议现场 </div>
+        <div id="containerWenDu" class="item-wendu"></div>
+        <div id="containerShiDu" class="item-shidu"></div>
+        <div id="containerPM25" class="item-pm25"></div>
+        <div id="containerKQZL" class="item-zhiliang"></div>
+        <div id="containerVOC" class="item-voc"></div>
+        <div id="containerCO2" class="item-co2"></div>
+        <div id="containerQuXian" class="item-quxian"></div>
+    </div>
+
+    <script type="text/javascript">
+        //#region    ////////////////////////////////////////////////// 温度
+        var domWenDu = document.getElementById("containerWenDu");
+        var myChartWenDu = echarts.init(domWenDu);
+        var appWenDu = {};
+        var optionWenDu;
+        optionWenDu = {
+            series: [{
+                type: 'gauge',
+                center: ["50%", "60%"],
+                startAngle: 200,
+                endAngle: -20,
+                min: -20,
+                max: 60,
+                splitNumber: 20,
+                itemStyle: {
+                    color: '#FFAB91'
+                },
+                progress: {
+                    show: true,
+                    width: 15
+                },
+
+                pointer: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 15
+                    }
+                },
+                axisTick: {
+                    distance: -25,
+                    splitNumber: 5,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                splitLine: {
+                    distance: -32,
+                    length: 10,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                axisLabel: {
+                    distance: -20,
+                    color: '#999',
+                    fontSize: 16
+                },
+                anchor: {
+                    show: false
+                },
+                title: {
+                    show: false
+                },
+                detail: {
+                    valueAnimation: true,
+                    width: '40%',
+                    lineHeight: 40,
+                    height: '15%',
+                    borderRadius: 8,
+                    offsetCenter: [0, '-10%'],
+                    fontSize: 40,
+                    fontWeight: 'bolder',
+                    formatter: '{value} °C',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 20
+                }]
+            },
+
+            {
+                type: 'gauge',
+                center: ["50%", "60%"],
+                startAngle: 200,
+                endAngle: -20,
+                min: -20,
+                max: 60,
+                itemStyle: {
+                    color: '#FD7347',
+                },
+                progress: {
+                    show: true,
+                    width: 6
+                },
+                pointer: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false
+                },
+                detail: {
+                    show: false
+                },
+                data: [{
+                    value: 20,
+                }]
+
+            }
+            ],
+        };
+
+        //setInterval(function () {
+        //    let random = (Math.random() * 60).toFixed(2) - 0;
+        //    option.series[0].data[0].value = random;
+        //    option.series[1].data[0].value = random;
+        //    myChart.setOption(option, true);
+        //}, 2000);
+
+        if (optionWenDu && typeof optionWenDu === 'object') {
+            myChartWenDu.setOption(optionWenDu);
+        }
+
+
+        function jsShowData(recdata) {
+
+            optionWenDu.series[0].data[0].value = recdata;
+            optionWenDu.series[1].data[0].value = recdata;
+
+            myChartWenDu.setOption(optionWenDu, true);
+
+            //alert(recdata);
+            //var divA = document.getElementById("divData");
+            //divA.innerHTML = recdata + "<br />";
+            //divA.innerHTML +='追加的内容s';
+            // divA.innerHTML = divA.innerHTML + '<h3>追加内容为H3字体</h3>';
+        }
+
+
+        //#endregion
+
+
+        //#region    ////////////////////////////////////////////////// 湿度
+        var domShiDu = document.getElementById("containerShiDu");
+        var myChartShiDu = echarts.init(domShiDu);
+        var appShiDu = {};
+        var optionShiDu;
+        optionShiDu = {
+            series: [{
+                type: 'gauge',
+                center: ["50%", "60%"],
+                startAngle: 200,
+                endAngle: -20,
+                min: -20,
+                max: 60,
+                splitNumber: 20,
+                itemStyle: {
+                    color: '#FFAB91'
+                },
+                progress: {
+                    show: true,
+                    width: 15
+                },
+
+                pointer: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 15
+                    }
+                },
+                axisTick: {
+                    distance: -25,
+                    splitNumber: 5,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                splitLine: {
+                    distance: -32,
+                    length: 10,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                axisLabel: {
+                    distance: -20,
+                    color: '#999',
+                    fontSize: 16
+                },
+                anchor: {
+                    show: false
+                },
+                title: {
+                    show: false
+                },
+                detail: {
+                    valueAnimation: true,
+                    width: '40%',
+                    lineHeight: 40,
+                    height: '15%',
+                    borderRadius: 8,
+                    offsetCenter: [0, '-10%'],
+                    fontSize: 40,
+                    fontWeight: 'bolder',
+                    formatter: '{value} %',
+                    color: 'auto'
+                },
+                data: [{
+                    value: 20
+                }]
+            },
+
+                {
+                    type: 'gauge',
+                    center: ["50%", "60%"],
+                    startAngle: 200,
+                    endAngle: -20,
+                    min: -20,
+                    max: 60,
+                    itemStyle: {
+                        color: '#FD7347',
+                    },
+                    progress: {
+                        show: true,
+                        width: 6
+                    },
+                    pointer: {
+                        show: false
+                    },
+                    axisLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    detail: {
+                        show: false
+                    },
+                    data: [{
+                        value: 20,
+                    }]
+
+                }
+            ],
+        };
+
+        //setInterval(function () {
+        //    let random = (Math.random() * 60).toFixed(2) - 0;
+        //    option.series[0].data[0].value = random;
+        //    option.series[1].data[0].value = random;
+        //    myChart.setOption(option, true);
+        //}, 2000);
+
+        if (optionShiDu && typeof optionShiDu === 'object') {
+            myChartShiDu.setOption(optionShiDu);
+        }
+
+
+        function jsShowData(recdata) {
+
+            optionWenDu.series[0].data[0].value = recdata;
+            optionWenDu.series[1].data[0].value = recdata;
+            myChartWenDu.setOption(optionWenDu, true);
+
+
+            optionShiDu.series[0].data[0].value = recdata;
+            optionShiDu.series[1].data[0].value = recdata;
+            myChartShiDu.setOption(optionShiDu, true);
+        }
+
+
+        //#endregion
+
+        //#region    ////////////////////////////////////////////////// 空气质量
+        var domKQZL = document.getElementById("containerKQZL");
+        var myChartKQZL = echarts.init(domKQZL);
+        var appKQZL = {};
+        var optionKQZL;
+
+        optionKQZL = {
+            series: [{
+                type: 'gauge',
+                startAngle: 225,
+                endAngle: -45,
+                min: 0,
+                max: 500,
+                splitNumber: 10,
+                axisLine: {
+                    lineStyle: {
+                        width: 8,
+                        color: [
+                            [0.1, '#00ff00'],
+                            [0.2, '#FFFF00'],
+                            [0.3, '#FF6100'],
+                            [0.4, '#FF0000'],
+                            [0.6, '#B22222'],
+                            [1, '#5E2612']
+                        ]
+                    }
+                },
+                pointer: {
+                    icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+                    length: '30%',
+                    width: 20,
+                    offsetCenter: [0, '-50%'],
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    length: 12,
+                    lineStyle: {
+                        color: 'auto',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    length: 20,
+                    lineStyle: {
+                        color: 'auto',
+                        width: 5
+                    }
+                },
+                axisLabel: {
+                    color: '#464646',
+                    fontSize: 18,
+                    distance: -70,
+                    formatter: function (value) {
+                        if (value === 50) {
+                            return '优';
+                        }
+                        else if (value === 100) {
+                            return '良';
+                        }
+                        else if (value === 150) {
+                            return '轻度';
+                        }
+                        else if (value === 200) {
+                            return '中度';
+                        }
+                        else if (value === 300) {
+                            return '重度';
+                        }
+                        else if (value === 400) {
+                            return '严重';
+                        }
+                    }
+                },
+                title: {
+                    offsetCenter: [0, '-10%'],
+                    fontSize: 22
+                },
+                detail: {
+                    fontSize: 30,
+                    offsetCenter: [0, '10%'],
+                    valueAnimation: true,
+                    formatter: function (value) {
+                        return Math.round(value) + '(AQI)';
+                    },
+                    color: 'auto'
+                },
+                data: [{
+                    value: 60,
+                    name: '空气质量'
+                }]
+            }]
+        };
+
+        if (optionKQZL && typeof optionKQZL === 'object') {
+            myChartKQZL.setOption(optionKQZL);
+        }
+
+
+        //#endregion
+
+
+        //#region    ////////////////////////////////////////////////// PM2.5
+        var domPM25 = document.getElementById("containerPM25");
+        var myChartPM25 = echarts.init(domPM25);
+        var appPM25 = {};
+        var optionPM25;
+
+        optionPM25 = {
+            series: [{
+                type: 'gauge',
+                legendHoverLink: true,
+                progress: {
+                    show: true,
+                    width: 18,
+                    itemStyle: {
+                        //color:'#999'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 18
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    length: 10,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                splitLine: {
+                    length: 20,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                axisLabel: {
+                    distance: 25,
+                    color: '#999',
+                    fontSize: 20
+                },
+                anchor: {
+                    show: true,
+                    showAbove: true,
+                    size: 20,
+                    itemStyle: {
+                        borderWidth: 10
+                    }
+                },
+                title: {
+                    show: false
+                },
+                detail: {
+                    valueAnimation: true,
+                    fontSize: 30,
+                    offsetCenter: [0, '70%'],
+                    formatter: function (value) {
+                        return Math.round(value) + ' μg/m³';
+                    },
+                },
+                data: [{
+                    value: 70
+                }]
+            }]
+        };
+
+        if (optionPM25 && typeof optionPM25 === 'object') {
+            myChartPM25.setOption(optionPM25);
+        }
+
+
+        //#endregion
+
+        //#region    ////////////////////////////////////////////////// CO2
+        var domCO2 = document.getElementById("containerCO2");
+        var myChartCO2 = echarts.init(domCO2);
+        var appCO2 = {};
+        var optionCO2;
+
+        optionCO2 = {
+            series: [{
+                type: 'gauge',
+                legendHoverLink: true,
+                progress: {
+                    show: true,
+                    width: 10,
+                    itemStyle: {
+                        //color:'#999'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 10
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    length: 5,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                splitLine: {
+                    length: 10,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                axisLabel: {
+                    distance: 16,
+                    color: '#999',
+                    fontSize: 14
+                },
+                anchor: {
+                    show: true,
+                    showAbove: true,
+                    size: 20,
+                    itemStyle: {
+                        borderWidth: 2
+                    }
+                },
+                title: {
+                    show: false
+                },
+                detail: {
+                    valueAnimation: true,
+                    fontSize: 20,
+                    offsetCenter: [0, '70%'],
+                    formatter: function (value) {
+                        return '  CO2 \r\n[ ' + Math.round(value) + ' ppm ]';
+                    },
+                },
+                data: [{
+                    value: 70
+                }]
+            }]
+        };
+
+        if (optionCO2 && typeof optionCO2 === 'object') {
+            myChartCO2.setOption(optionCO2);
+        }
+
+
+        //#endregion
+
+        //#region    ////////////////////////////////////////////////// TVOC
+        var domVOC = document.getElementById("containerVOC");
+        var myChartVOC = echarts.init(domVOC);
+        var appVOC = {};
+        var optionVOC;
+
+        optionVOC = {
+            series: [{
+                type: 'gauge',
+                legendHoverLink: true,
+                progress: {
+                    show: true,
+                    width: 18,
+                    itemStyle: {
+                        //color:'#999'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 18
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    length: 10,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                splitLine: {
+                    length: 20,
+                    lineStyle: {
+                        width: 2,
+                        color: '#999'
+                    }
+                },
+                axisLabel: {
+                    distance: 25,
+
+                    color: '#999',
+                    fontSize: 20
+                },
+                anchor: {
+                    show: true,
+                    showAbove: true,
+                    size: 20,
+                    itemStyle: {
+                        borderWidth: 10
+                    }
+                },
+                title: {
+                    show: false
+                },
+                detail: {
+                    valueAnimation: true,
+                    fontSize: 30,
+                    offsetCenter: [0, '70%'],
+                    formatter: function (value) {
+                        return Math.round(value) + ' mg/m³';
+                    },
+                },
+                data: [{
+                    value: 70
+                }]
+            }]
+        };
+
+        if (optionVOC && typeof optionVOC === 'object') {
+            myChartVOC.setOption(optionVOC);
+        }
+
+
+                       //#endregion
+
+    </script>
+</body>
+</html>

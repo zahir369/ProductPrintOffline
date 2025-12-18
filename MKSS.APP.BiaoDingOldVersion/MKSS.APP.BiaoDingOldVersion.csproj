@@ -1,0 +1,196 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="UIBiaoDing\bak\**" />
+    <EmbeddedResource Remove="UIBiaoDing\bak\**" />
+    <None Remove="UIBiaoDing\bak\**" />
+    <Page Remove="UIBiaoDing\bak\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+    <None Remove="MainWindow.xaml~RFc95dc.TMP" />
+    <None Remove="Resources\Images\biaoding.png" />
+    <None Remove="Resources\Images\huanjing.png" />
+    <None Remove="Resources\Images\logo.png" />
+    <None Remove="Resources\Images\logo2.png" />
+    <None Remove="Resources\Images\logo3.png" />
+    <None Remove="Resources\Images\logo5.png" />
+    <None Remove="Resources\Images\shebei.png" />
+    <None Remove="Resources\Images\shezhi.png" />
+    <None Remove="Resources\Images\tongji.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="
+					  .1.132" />
+    <PackageReference Include="EPPlus" Version="5.5.5" />
+    <PackageReference Include="GodSharp.SerialPort" Version="1.2.0.6" />
+    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.7" />
+    <PackageReference Include="MaterialDesignColors" Version="2.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.NewtonsoftJson" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.3.2" />
+    <PackageReference Include="SharpVectors" Version="1.7.1" />
+    <PackageReference Include="Stylet.Start" Version="1.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\BiaoDing\ViewModels\" />
+    <Folder Include="Areas\BiaoDing\Views\" />
+    <Folder Include="Areas\LaoHua\ViewModels\" />
+    <Folder Include="Areas\LaoHua\Views\" />
+    <Folder Include="Areas\ShengChan\" />
+    <Folder Include="Areas\ShengChan\Views\" />
+    <Folder Include="Areas\ShengChan\ViewModels\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="EChart\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MKSS.Common\MKSS.Common.csproj" />
+    <ProjectReference Include="..\MKSS.CustomControl\CircleProcessBar\CircleProcessBar.csproj" />
+    <ProjectReference Include="..\MKSS.CustomControl\TemperatureGuageControl\TemperatureGuageControl.csproj" />
+    <ProjectReference Include="..\MKSS.ICommon\MKSS.ICommon.csproj" />
+    <ProjectReference Include="..\MKSS.IRepository\MKSS.IRepository.csproj" />
+    <ProjectReference Include="..\MKSS.IServices\MKSS.IServices.csproj" />
+    <ProjectReference Include="..\MKSS.Model\MKSS.Model.csproj" />
+    <ProjectReference Include="..\MKSS.NModbus\MKSS.NModbus.csproj" />
+    <ProjectReference Include="..\MKSS.Repository\MKSS.Repository.csproj" />
+    <ProjectReference Include="..\MKSS.SerialPortUtil\MKSS.SerialPortUtil.csproj" />
+    <ProjectReference Include="..\MKSS.Services\MKSS.Services.csproj" />
+    <ProjectReference Include="..\MKSS.Util\MKSS.Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\biaoding.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\huanjing.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logo2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logo3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\logo5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\shebei.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\shezhi.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\tongji.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="EChart\echarts.common.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.common.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.common.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.esm.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.esm.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.esm.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.simple.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.simple.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\echarts.simple.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\extension\bmap.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\extension\bmap.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\extension\bmap.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\extension\dataTool.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\extension\dataTool.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EChart\extension\dataTool.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="WebChart\wendu.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://json.schemastore.org/bitrise" /></VisualStudio></ProjectExtensions>
+
+</Project>

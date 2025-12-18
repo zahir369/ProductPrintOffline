@@ -1,0 +1,72 @@
+﻿<!--<Application
+    x:Class="MKSS.APP.ECTester.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MKSS.APP.ECTester"
+    StartupUri="MainWindow.xaml">-->
+<Application
+    x:Class="MKSS.APP.ECTester.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MKSS.APP.ECTester" 
+    StartupUri="MainWindow.xaml">
+
+    <!--<Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>-->
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <!--<ResourceDictionary Source="Themes/C3.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--A、B板子颜色区分-->
+            <SolidColorBrush x:Key="BgColorABoard" Color="#666666" />
+            <SolidColorBrush x:Key="BgColorBBoard" Color="DarkSlateGray " />
+
+            <!--默认颜色-->
+            <SolidColorBrush x:Key="TextPanelBgDefault" Color="#323C6B" />
+            <SolidColorBrush x:Key="ColorPanelDefault" Color="#303060" />  
+
+            <!--T90时间 O₂浓度、变化值字体颜色-->
+            <SolidColorBrush x:Key="FontColorStart" Color="LightSkyBlue" />
+            <SolidColorBrush x:Key="FontColorEnd" Color="LightSkyBlue" />
+            <SolidColorBrush x:Key="FontColorDelta" Color="LightSkyBlue" />
+
+            <SolidColorBrush x:Key="MaterialDesignPaper" Color="#1C234A" />
+            
+            <!--  PRIMARY  -->
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#FF000F59" />
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#333333" />
+
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#689f38" />
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF" />
+
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#FF000F59" />
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF" />
+
+            <!--  ACCENT  -->
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#689f38" />
+            <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF" />
+
+            <SolidColorBrush x:Key="UIZhuiSuBrush" Color="#060B26" /> 
+            <SolidColorBrush x:Key="UIBiaoDingBrush" Color="#FFBECCDD" />
+
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

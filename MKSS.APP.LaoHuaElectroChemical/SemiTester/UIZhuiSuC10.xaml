@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="MKSS.APP.SemiTester.UIZhuiSuC10"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MKSS.APP.SemiTester"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Background="White" Loaded="UserControl_Loaded"
+             d:DesignHeight="800" d:DesignWidth="1800">
+
+    <UserControl.DataContext>
+        <local:UIZhuiSuC10Model/>
+    </UserControl.DataContext>
+    <Grid  Background="{DynamicResource UIZhuiSuBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions> 
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <local:UIZhuiSuC10SensorsPage x:Name="UIZhuiSuC10SensorsPage" Grid.Column="0" Grid.Row="0" Margin="0,0,0,0" BorderThickness="9,9,9,9" BorderBrush="{DynamicResource UIZhuiSuBrush}"/>
+
+        <ProgressBar Grid.Column="0" Grid.Row="1" Width="50" Height="50" Visibility="Hidden" x:Name="ProgressNow"
+                Style="{StaticResource MaterialDesignCircularProgressBar}"
+                Value="90" IsIndeterminate="True" />
+        
+    </Grid>
+</UserControl>

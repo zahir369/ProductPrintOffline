@@ -1,0 +1,37 @@
+﻿<Window x:Class="WpfChartTest.MainWindowChart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfChartTest"
+        xmlns:dc="clr-namespace:WpfChartTest"
+        mc:Ignorable="d" Background="{DynamicResource MaterialDesignPaper}" Foreground="LightGray"
+        Title="MainWindow" Height="600" Width="1500" d:DesignHeight="500" d:DesignWidth="1000">
+    <Window.Resources>
+         
+    </Window.Resources>
+    <Grid  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <dc:DrawingCanvas Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LabelColor="LightGray" AxisColor="LightGray"  
+            x:Name="DrawingCanvas1" Background="{DynamicResource MaterialDesignPaper}" >
+
+        </dc:DrawingCanvas>
+        <dc:DrawingLine Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            x:Name="plotter1" Background="{DynamicResource MaterialDesignPaper}" >
+
+        </dc:DrawingLine>
+
+        <StackPanel  x:Name="PAnelControl" Grid.Column="0" Grid.Row="0" Orientation="Horizontal"  Margin="35 10 0 0" Height="50"  HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+            <Button Width="200" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Chart" x:Name="Chart" Click="Chart_Click"></Button>
+            <Button Width="200" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Content="动态数据" x:Name="SSSS" Click="SSSS_Click"></Button>
+            <Button Width="200" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Content="获取时间" x:Name="XXXXX" Click="Button_Click"></Button>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
