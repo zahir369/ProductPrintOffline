@@ -6,3 +6,11 @@ obj/
 *.cache
 *.pdb
 *.log
+
+# large/binary files
+*.db
+*.exe
+*.rar
+*.zip
+*.7z
+
